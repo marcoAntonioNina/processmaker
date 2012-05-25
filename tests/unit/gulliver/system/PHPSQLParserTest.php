@@ -17,6 +17,7 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
       //$this->object = new PHPSQLParser;
+      
     }
 
     /**
@@ -34,15 +35,27 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
     public function testParse()
     {
       $object = new PHPSQLParser();
+      return $object;
+    }
+    /**
+    * @depends testParse
+    * Testing wint empty
+    */
+    public function testParseEmpty($object)
+    {
       $value = array();
-
-      //Testing with empty
       $sql = '';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       $this->assertEquals($object->parsed, $value);
+    }
 
-      //Testing with Select , from
+    /**
+    * @depends testParse
+    * Testing with Select , from
+    */
+    public function testParseSelect($object)
+    {
       $sql = 'SELECT * FROM USERS';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -57,12 +70,24 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('FROM', $object->parsed);
       $this->assertArrayHasKey('table', $object->parsed['FROM'][0]);
       $this->assertEquals($object->parsed['FROM'][0]['table'], 'USERS');
+    }
 
-      //Testing with Select, from, where
-      $sql = 'SELECT USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS, USR_PHONE, USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, USR_ROLE, USR_REPORTS_TO, USR_REPLACED_BY, USR_UX FROM USERS WHERE USR_UID = 00000000000000000000000000000001';
+    /**
+    * @depends testParse
+    * Testing with Select, from, where
+    */
+    public function testParseWhere($object)
+    {
+      $sql = 'SELECT USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, '
+            .' USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS,  '
+            .' USR_PHONE, USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, '
+            .' USR_ROLE, USR_REPORTS_TO, USR_REPLACED_BY, USR_UX FROM USERS WHERE USR_UID = 00000000000000000000000000000001';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
-      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE','USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS','USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY','USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
+      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE',
+                     'USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS',
+                     'USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY',
+                     'USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
       
       $this->assertArrayHasKey('SELECT', $object->parsed);
       foreach ($value as $key => $val) {
@@ -99,11 +124,24 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
         }
         $index++;
       }
+    }
 
-      //Testing with Select, from,left join, using
-      $sql = 'SELECT USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS, USR_PHONE, USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, USR_ROLE, USR_REPORTS_TO, USR_REPLACED_BY, USR_UX FROM USERS LEFT JOIN USERS_PROPERTIES USING (USR_UID)';
+    /**
+    * @depends testParse
+    * Testing with Select, from,left join, using
+    */
+    public function testParseUsing($object)
+    {
+      $sql = 'SELECT USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, '
+            .' USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS,  '
+            .' USR_PHONE, USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, '
+            .' USR_ROLE, USR_REPORTS_TO, USR_REPLACED_BY, USR_UX FROM USERS LEFT JOIN USERS_PROPERTIES USING (USR_UID)';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
+      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE',
+                     'USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS',
+                     'USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY',
+                     'USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
       
       $this->assertArrayHasKey('SELECT', $object->parsed);
       foreach ($value as $key => $val) {
@@ -124,15 +162,29 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['FROM'][1]['join_type'], 'LEFT ');
       $this->assertEquals($object->parsed['FROM'][1]['ref_type'], 'USING');
       $this->assertEquals($object->parsed['FROM'][1]['ref_clause'], 'USR_UID');
+    }
 
-      //Testing with Select, Distinct, from, where , group, having, order
-      $sql = 'SELECT DISTINCT  USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS, USR_PHONE, USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, USR_ROLE, USR_REPORTS_TO, USR_REPLACED_BY, USR_UX FROM USERS WHERE USR_ROLE = PROCESSMAKER_OPERATOR  GROUP BY USR_STATUS  HAVING USR_STATUS = ACTIVE ORDER BY USR_CREATE_DATE DESC';
+    /**
+    * @depends testParse
+    * Testing with Select, Distinct, from, where , group, having, order
+    */
+    public function testParseDistinct($object)
+    {
+      $sql = ' SELECT DISTINCT  USR_UID, USR_USERNAME, USR_PASSWORD, USR_FIRSTNAME, USR_LASTNAME, USR_EMAIL, USR_DUE_DATE, '
+            .' USR_CREATE_DATE, USR_UPDATE_DATE, USR_STATUS, USR_COUNTRY, USR_CITY, USR_LOCATION, USR_ADDRESS, USR_PHONE,  '
+            .' USR_FAX, USR_CELLULAR, USR_ZIP_CODE, DEP_UID, USR_POSITION, USR_RESUME, USR_BIRTHDAY, USR_ROLE, USR_REPORTS_TO,'
+            .' USR_REPLACED_BY, USR_UX FROM USERS WHERE USR_ROLE = PROCESSMAKER_OPERATOR  GROUP BY USR_STATUS              '
+            .' HAVING USR_STATUS = ACTIVE ORDER BY USR_CREATE_DATE DESC';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       
       $this->assertArrayHasKey('OPTIONS', $object->parsed);
       $this->assertArrayHasKey('0', $object->parsed['OPTIONS']);
       $this->assertEquals($object->parsed['OPTIONS'][0], 'DISTINCT');
+      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE',
+                     'USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS',
+                     'USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY',
+                     'USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
       
       $this->assertArrayHasKey('SELECT', $object->parsed);
       foreach ($value as $key => $val) {
@@ -214,9 +266,16 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['ORDER'][0]['type'], 'expression');
       $this->assertEquals($object->parsed['ORDER'][0]['base_expr'], 'USR_CREATE_DATE');
       $this->assertEquals($object->parsed['ORDER'][0]['direction'], 'DESC');
+    }
 
-      //Testing with Select, avg, min, max, group_concat, distinct, order by, ASC, sum, grup by, having, count, >
-      $sql = "SELECT student_name, AVG(test_score),MIN(test_score), MAX(test_score),GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' '), SUM(test_score) FROM student GROUP BY student_name HAVING COUNT(test_score) > 0 AND SUM(test_scoreid)";
+    /**
+    * @depends testParse
+    * Testing with Select, avg, min, max, group_concat, distinct, order by, ASC, sum, grup by, having, count, >
+    */
+    public function testParseAvg($object)
+    {
+      $sql = " SELECT student_name, AVG(test_score),MIN(test_score), MAX(test_score),GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' '), "
+            ." SUM(test_score) FROM student GROUP BY student_name HAVING COUNT(test_score) > 0 AND SUM(test_scoreid)";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       $this->assertArrayHasKey('SELECT', $object->parsed);
@@ -228,23 +287,70 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $array = array("expr_type" => 'colref', "alias" => '`student_name`', "base_expr" => 'student_name', "sub_tree" => '');
       $this->assertEquals($object->parsed['SELECT'][0], $array);
       
-      $array = array("expr_type" => "expression", "alias" => "`AVG(test_score)`", "base_expr" => "AVG(test_score)", "sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function", "base_expr" => "AVG", "sub_tree" => ''), "1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => '')));
+      $array = array("expr_type" => "expression", "alias" => "`AVG(test_score)`", "base_expr" => "AVG(test_score)",
+                     "sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function", "base_expr" => "AVG",
+                                                         "sub_tree" => ''), "1" => array ("expr_type" => "colref",
+                                                                                          "base_expr" => "(test_score)",
+                                                                                          "sub_tree" => '')));
       $this->assertEquals($object->parsed['SELECT'][1], $array);
       
-      $array = array ("expr_type" => "expression","alias" => "`MIN(test_score)`","base_expr" => "MIN(test_score)","sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function","base_expr" => "MIN","sub_tree" => ''),"1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => "")));
+      $array = array ("expr_type" => "expression","alias" => "`MIN(test_score)`","base_expr" => "MIN(test_score)",
+                      "sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function","base_expr" => "MIN",
+                                                          "sub_tree" => ''),"1" => array ("expr_type" => "colref",
+                                                                                          "base_expr" => "(test_score)",
+                                                                                          "sub_tree" => "")));
       $this->assertEquals($object->parsed['SELECT'][2], $array);
       
-      $array = array ("expr_type" => "expression","alias" => "`MAX(test_score)`","base_expr" => "MAX(test_score)","sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function","base_expr" => "MAX","sub_tree" => ""), "1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => "")));
+      $array = array ("expr_type" => "expression","alias" => "`MAX(test_score)`","base_expr" => "MAX(test_score)",
+                      "sub_tree" => array ( "0" => array ( "expr_type" => "aggregate_function","base_expr" => "MAX",
+                                                          "sub_tree" => ""), "1" => array ("expr_type" => "colref",
+                                                                                           "base_expr" => "(test_score)",
+                                                                                           "sub_tree" => "")));
       $this->assertEquals($object->parsed['SELECT'][3], $array);
       
-      $array = array ( "expr_type" => "expression", "alias" => "`GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')`", "base_expr" => "GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')", "sub_tree" => array ("0" => array ( "expr_type" => "aggregate_function", "base_expr" => "GROUP_CONCAT", "sub_tree" => ""), "1" => array ( "expr_type" => "expression", "base_expr" => "(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')", "sub_tree" => array ( "0" => array ( "expr_type" => "reserved", "base_expr" => "DISTINCT", "sub_tree" => ""),"1" => array ( "expr_type" => "colref", "base_expr" => "test_score", "sub_tree" => ""),"2" => array ( "expr_type" => "reserved", "base_expr" => "ORDER", "sub_tree" => ""),"3" => array ( "expr_type" => "reserved", "base_expr" => "BY", "sub_tree" => ""), "4" => array ( "expr_type" => "colref", "base_expr" => "test_score", "sub_tree" => ""), "5" => array ( "expr_type" => "reserved", "base_expr" => "ASC", "sub_tree" => ""), "6" => array ( "expr_type" => "reserved", "base_expr" => "SEPARATOR", "sub_tree" => ""), "7" => array ( "expr_type" => "const", "base_expr" => "' '", "sub_tree" => "")))));
+      $array = array ( "expr_type" => "expression",
+                      "alias" => "`GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')`",
+                      "base_expr" => "GROUP_CONCAT(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')",
+                      "sub_tree" => array ("0" => array ( "expr_type" => "aggregate_function",
+                                                         "base_expr" => "GROUP_CONCAT", "sub_tree" => ""),
+                                           "1" => array ( "expr_type" => "expression",
+                                                         "base_expr" => "(DISTINCT test_score ORDER BY test_score ASC SEPARATOR ' ')",
+                                                         "sub_tree" => array ( "0" => array ( "expr_type" => "reserved",
+                                                                                             "base_expr" => "DISTINCT",
+                                                                                             "sub_tree" => ""),
+                                                                              "1" => array ( "expr_type" => "colref",
+                                                                                            "base_expr" => "test_score",
+                                                                                            "sub_tree" => ""),
+                                                                              "2" => array ( "expr_type" => "reserved",
+                                                                                            "base_expr" => "ORDER",
+                                                                                            "sub_tree" => ""),
+                                                                              "3" => array ( "expr_type" => "reserved",
+                                                                                            "base_expr" => "BY",
+                                                                                            "sub_tree" => ""),
+                                                                              "4" => array ( "expr_type" => "colref",
+                                                                                            "base_expr" => "test_score",
+                                                                                            "sub_tree" => ""),
+                                                                              "5" => array ( "expr_type" => "reserved",
+                                                                                            "base_expr" => "ASC",
+                                                                                            "sub_tree" => ""),
+                                                                              "6" => array ( "expr_type" => "reserved",
+                                                                                            "base_expr" => "SEPARATOR",
+                                                                                            "sub_tree" => ""),
+                                                                              "7" => array ( "expr_type" => "const",
+                                                                                            "base_expr" => "' '",
+                                                                                            "sub_tree" => "")))));
       $this->assertEquals($object->parsed['SELECT'][4], $array);
       
-      $array = array ("expr_type" => "expression", "alias" => "`SUM(test_score)`", "base_expr" => "SUM(test_score)", "sub_tree" => array ("0" => array ( "expr_type" => "aggregate_function", "base_expr" => "SUM", "sub_tree" => ""), "1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => "")));
+      $array = array ("expr_type" => "expression", "alias" => "`SUM(test_score)`", "base_expr" => "SUM(test_score)",
+                      "sub_tree" => array ("0" => array ( "expr_type" => "aggregate_function", "base_expr" => "SUM",
+                                                         "sub_tree" => ""), "1" => array ("expr_type" => "colref",
+                                                                                          "base_expr" => "(test_score)",
+                                                                                          "sub_tree" => "")));
       $this->assertEquals($object->parsed['SELECT'][5], $array);
       
       $this->assertArrayHasKey('FROM', $object->parsed);
-      $array = array ('0' => array ("table" => "student","alias" => "student", "join_type" => "JOIN", "ref_type" => "", "ref_clause" => "", "base_expr" => "", "sub_tree" => ""));
+      $array = array ('0' => array ("table" => "student","alias" => "student", "join_type" => "JOIN", "ref_type" => "",
+                                    "ref_clause" => "", "base_expr" => "", "sub_tree" => ""));
       $this->assertEquals($object->parsed['FROM'], $array);
       
       $this->assertArrayHasKey('GROUP', $object->parsed);
@@ -252,11 +358,27 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['GROUP'], $array);
       
       $this->assertArrayHasKey('HAVING', $object->parsed);
-      $array =  array ("0" => array ("expr_type" => "aggregate_function", "base_expr" => "COUNT", "sub_tree" => ""), "1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => ""), "2" => array ("expr_type" => "operator", "base_expr" => ">", "sub_tree" => ""), "3" => array ( "expr_type" => "const", "base_expr" => "0", "sub_tree" => ""), "4" => array ( "expr_type" => "operator", "base_expr" => "AND", "sub_tree" => ""), "5" => array ("expr_type" => "aggregate_function", "base_expr" => "SUM", "sub_tree" => ""), "6" => array ("expr_type" => "colref", "base_expr" => "(test_scoreid)", "sub_tree" => ""));
+      $array =  array ("0" => array ("expr_type" => "aggregate_function", "base_expr" => "COUNT", "sub_tree" => ""),
+                       "1" => array ("expr_type" => "colref", "base_expr" => "(test_score)", "sub_tree" => ""),
+                       "2" => array ("expr_type" => "operator", "base_expr" => ">", "sub_tree" => ""),
+                       "3" => array ( "expr_type" => "const", "base_expr" => "0", "sub_tree" => ""),
+                       "4" => array ( "expr_type" => "operator", "base_expr" => "AND", "sub_tree" => ""),
+                       "5" => array ("expr_type" => "aggregate_function", "base_expr" => "SUM", "sub_tree" => ""),
+                       "6" => array ("expr_type" => "colref", "base_expr" => "(test_scoreid)", "sub_tree" => ""));
       $this->assertEquals($object->parsed['HAVING'], $array);
-
-      //Testing with Insert
-      $sql = 'INSERT INTO USERS(USR_UID,USR_USERNAME,USR_PASSWORD,USR_FIRSTNAME,USR_LASTNAME,USR_EMAIL,USR_DUE_DATE,USR_CREATE_DATE,USR_UPDATE_DATE,USR_STATUS,USR_COUNTRY,USR_CITY,USR_LOCATION,USR_ADDRESS,USR_PHONE,USR_FAX,USR_CELLULAR,USR_ZIP_CODE,DEP_UID,USR_POSITION,USR_RESUME,USR_BIRTHDAY,USR_ROLE,USR_REPORTS_TO,USR_REPLACED_BY,USR_UX) VALUES (value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26)';
+    }
+    /**
+    *@depends testParse
+    *Testing with Inser
+    */
+    public function testParseInsert($object)
+    {
+      $sql = 'INSERT INTO USERS(USR_UID,USR_USERNAME,USR_PASSWORD,USR_FIRSTNAME,USR_LASTNAME,USR_EMAIL,USR_DUE_DATE,'
+            .'USR_CREATE_DATE,USR_UPDATE_DATE,USR_STATUS,USR_COUNTRY,USR_CITY,USR_LOCATION,USR_ADDRESS,USR_PHONE,'
+            .'USR_FAX,USR_CELLULAR,USR_ZIP_CODE,DEP_UID,USR_POSITION,USR_RESUME,USR_BIRTHDAY,USR_ROLE,USR_REPORTS_TO,'
+            .'USR_REPLACED_BY,USR_UX) VALUES (value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,'
+            .'value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,'
+            .'value24,value25,value26)';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       
@@ -265,6 +387,11 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['INSERT']['table'], 'USERS');
       
       $this->assertArrayHasKey('cols', $object->parsed['INSERT']);
+      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE',
+                   'USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS',
+                   'USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY',
+                   'USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
+        
       foreach ($value as $key => $val) {
         $this->assertArrayHasKey($key, $object->parsed['INSERT']['cols']);
         $this->assertEquals($object->parsed['INSERT']['cols'][$key], $value[$key]);
@@ -274,9 +401,19 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('0', $object->parsed['VALUES']);
       $this->assertTrue(is_string($object->parsed['VALUES'][0]));
       $this->assertCount(26, explode(',',$object->parsed['VALUES'][0]));
-
-      //Testing with Insert, duplicate, update, key
-      $sql = 'INSERT INTO USERS(USR_UID,USR_USERNAME,USR_PASSWORD,USR_FIRSTNAME,USR_LASTNAME,USR_EMAIL,USR_DUE_DATE,USR_CREATE_DATE,USR_UPDATE_DATE,USR_STATUS,USR_COUNTRY,USR_CITY,USR_LOCATION,USR_ADDRESS,USR_PHONE,USR_FAX,USR_CELLULAR,USR_ZIP_CODE,DEP_UID,USR_POSITION,USR_RESUME,USR_BIRTHDAY,USR_ROLE,USR_REPORTS_TO,USR_REPLACED_BY,USR_UX) VALUES (value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,value24,value25,value26) ON DUPLICATE KEY UPDATE value1=value1+1';
+    }
+    /**
+    *@depends testParse
+    *Testing with Insert, duplicate, update, key
+    */
+    public function testParseDuplicate($object)
+    {
+      $sql = 'INSERT INTO USERS(USR_UID,USR_USERNAME,USR_PASSWORD,USR_FIRSTNAME,USR_LASTNAME,USR_EMAIL,USR_DUE_DATE,'
+            .'USR_CREATE_DATE,USR_UPDATE_DATE,USR_STATUS,USR_COUNTRY,USR_CITY,USR_LOCATION,USR_ADDRESS,USR_PHONE,'
+            .'USR_FAX,USR_CELLULAR,USR_ZIP_CODE,DEP_UID,USR_POSITION,USR_RESUME,USR_BIRTHDAY,USR_ROLE,USR_REPORTS_TO,'
+            .'USR_REPLACED_BY,USR_UX) VALUES (value1,value2,value3,value4,value5,value6,value7,value8,value9,value10,'
+            .'value11,value12,value13,value14,value15,value16,value17,value18,value19,value20,value21,value22,value23,'
+            .'value24,value25,value26) ON DUPLICATE KEY UPDATE value1=value1+1';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       
@@ -285,6 +422,11 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['INSERT']['table'], 'USERS');
       
       $this->assertArrayHasKey('cols', $object->parsed['INSERT']);
+      $value = array('USR_UID','USR_USERNAME','USR_PASSWORD','USR_FIRSTNAME','USR_LASTNAME','USR_EMAIL','USR_DUE_DATE',
+                     'USR_CREATE_DATE','USR_UPDATE_DATE','USR_STATUS','USR_COUNTRY','USR_CITY','USR_LOCATION','USR_ADDRESS',
+                     'USR_PHONE','USR_FAX','USR_CELLULAR','USR_ZIP_CODE','DEP_UID','USR_POSITION','USR_RESUME','USR_BIRTHDAY',
+                     'USR_ROLE','USR_REPORTS_TO','USR_REPLACED_BY','USR_UX');
+    
       foreach ($value as $key => $val) {
         $this->assertArrayHasKey($key, $object->parsed['INSERT']['cols']);
         $this->assertEquals($object->parsed['INSERT']['cols'][$key], $value[$key]);
@@ -301,8 +443,14 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('expr', $object->parsed['ON DUPLICATE KEY UPDATE'][0]);
       $this->assertEquals($object->parsed['ON DUPLICATE KEY UPDATE'][0]['column'], 'value1');
       $this->assertEquals($object->parsed['ON DUPLICATE KEY UPDATE'][0]['expr'], 'value1+1');
+    }
 
-      //Testing with alter 
+    /**
+    *@depends testParse
+    *Testing with alter
+    */
+    public function testParseAlter($object)
+    {
       $sql = "ALTER LOGFILE GROUP lg_3 ADD UNDOFILE 'undo_10.dat' INITIAL_SIZE=32M ENGINE=NDBCLUSTER;";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -312,13 +460,20 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['ALTER'], $array);
       
       $this->assertArrayHasKey('GROUP', $object->parsed);
-      $array = array ("0" => array("type" => "expression", "base_expr" => "lg_3 ADD UNDOFILE 'undo_10.dat' INITIAL_SIZE=32M ENGINE=NDBCLUSTER", "direction" => "ASC"));
+      $array = array ("0" => array("type" => "expression", "base_expr" => "lg_3 ADD UNDOFILE 'undo_10.dat' INITIAL_SIZE=32M ENGINE=NDBCLUSTER",
+                                   "direction" => "ASC"));
       $this->assertEquals($object->parsed['GROUP'], $array);
       
       $this->assertArrayHasKey('SELECT', $object->parsed);
       $this->assertEquals($object->parsed['SELECT'], '');
+    }
 
-      //Testing with create, view, !=, or, is, not, null, <> , '' 
+    /**
+    *@depends testParse
+    *Testing with create, view, !=, or, is, not, null, <> , ''
+    */
+    public function testParse6($object)
+    {
       $sql = "CREATE VIEW test3 AS SELECT * FROM USERS WHERE USR_COUNTRY != 'US' AND USR_ADDRESS IS NOT NULL OR  USR_PHONE <> ''";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -336,14 +491,32 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['SELECT'], $array);
       
       $this->assertArrayHasKey('FROM', $object->parsed);
-      $array = array ("0" => array('table' => 'USERS', 'alias' => 'USERS', 'join_type' => 'JOIN', 'ref_type' => '', 'ref_clause' => '', 'base_expr' => '', 'sub_tree' =>''));
+      $array = array ("0" => array('table' => 'USERS', 'alias' => 'USERS', 'join_type' => 'JOIN', 'ref_type' => '',
+                                   'ref_clause' => '', 'base_expr' => '', 'sub_tree' =>''));
       $this->assertEquals($object->parsed['FROM'], $array);
       
       $this->assertArrayHasKey('WHERE', $object->parsed);
-      $array = array ("0" => array ("expr_type" => "colref", "base_expr" => "USR_COUNTRY", "sub_tree" => ""), "1" => array ("expr_type" => "operator", "base_expr" => "!=", "sub_tree" => ""), "2" => array ("expr_type" => "const", "base_expr" => "'US'", "sub_tree" => ""), "3" => array ("expr_type" => "operator", "base_expr" => "AND", "sub_tree" => ""), "4" => array ("expr_type" => "colref", "base_expr" => "USR_ADDRESS", "sub_tree" => ""), "5" => array ("expr_type" => "operator", "base_expr" => "IS", "sub_tree" => ""), "6" => array ("expr_type" => "operator", "base_expr" => "NOT", "sub_tree" => ""), "7" => array ("expr_type" => "operator", "base_expr" => "NULL", "sub_tree" => ""), "8" => array ("expr_type" => "operator", "base_expr" => "OR", "sub_tree" => ""), "9" => array ("expr_type" => "colref", "base_expr" => "USR_PHONE", "sub_tree" => ""), "10" => array ("expr_type" => "operator", "base_expr" => "<>", "sub_tree" => ""), "11" => array ("expr_type" => "const", "base_expr" => "''", "sub_tree" => ""));
+      $array = array ("0" => array ("expr_type" => "colref", "base_expr" => "USR_COUNTRY", "sub_tree" => ""),
+                      "1" => array ("expr_type" => "operator", "base_expr" => "!=", "sub_tree" => ""),
+                      "2" => array ("expr_type" => "const", "base_expr" => "'US'", "sub_tree" => ""),
+                      "3" => array ("expr_type" => "operator", "base_expr" => "AND", "sub_tree" => ""),
+                      "4" => array ("expr_type" => "colref", "base_expr" => "USR_ADDRESS", "sub_tree" => ""),
+                      "5" => array ("expr_type" => "operator", "base_expr" => "IS", "sub_tree" => ""),
+                      "6" => array ("expr_type" => "operator", "base_expr" => "NOT", "sub_tree" => ""),
+                      "7" => array ("expr_type" => "operator", "base_expr" => "NULL", "sub_tree" => ""),
+                      "8" => array ("expr_type" => "operator", "base_expr" => "OR", "sub_tree" => ""),
+                      "9" => array ("expr_type" => "colref", "base_expr" => "USR_PHONE", "sub_tree" => ""),
+                      "10" => array ("expr_type" => "operator", "base_expr" => "<>", "sub_tree" => ""),
+                      "11" => array ("expr_type" => "const", "base_expr" => "''", "sub_tree" => ""));
       $this->assertEquals($object->parsed['WHERE'], $array);
+    }
 
-      //Testing with Truncate 
+    /**
+    *@depends testParse
+    *Testing with Truncate 
+    */
+    public function testParseTruncate($object)
+    {
       $sql = "TRUNCATE USERS";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -351,8 +524,14 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('TRUNCATE', $object->parsed);
       $array = array ("0" => "TRUNCATE", "1" => "USERS");
       $this->assertEquals($object->parsed['TRUNCATE'], $array);
+    }
 
-      //Testing with show, like, key,%,' 
+    /**
+    *@depends testParse
+    *Testing with show, like, key,%,'
+    */
+    public function testParseShow($object)
+    {
       $sql = "SHOW STATUS LIKE 'Key%';";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -360,8 +539,14 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('SHOW', $object->parsed);
       $array = array ("0" => "SHOW", "1" => "STATUS", "2" => "", "3" => "LIKE", "4" => "", "5" => "'Key%'");
       $this->assertEquals($object->parsed['SHOW'], $array);
+    }
 
-      //Testing with database 
+    /**
+    *@depends testParse
+    *Testing with database 
+    */
+    public function testParseDatabase($object)
+    {
       $sql = "CREATE DATABASE tmp";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -373,9 +558,23 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('DATABASE', $object->parsed);
       $array = array ('tmp');
       $this->assertEquals($object->parsed['DATABASE'], $array);
+    }
 
-      //Testing with drop, procedure, set, replace, concat, prepare, execute, using, dellocate, end
-      $sql = "DROP PROCEDURE IF EXISTS TEST CREATE DEFINER = admin@localhost PROCEDURE TEST (IN param_USR_POSITION CHAR(15), IN param_USR_COUNTRY CHAR(5)) BEGIN SET @querry = 'select USR_UID, USR_USERNAME, REPLACE(USR_ROLE,'PROCESSMAKER_OPERATOR', 'OPERATOR') AS USR_ROLE from USERS'; SET @querry = CONCAT(@querry, ' where USR_POSITION=? and USR_COUNTRY=?'); SET @param_USR_POSITION = param_USR_POSITION; SET @param_USR_COUNTRY = param_USR_COUNTRY; PREPARE querry FROM @querry; EXECUTE querry USING @param_USR_POSITION, @param_USR_COUNTRY; DEALLOCATE PREPARE querry; END";
+    /**
+    *@depends testParse
+    *Testing with drop, procedure, set, replace, concat, prepare, execute, using, dellocate, end
+    */
+    public function testParseProcedure($object)
+    {
+      $sql = " DROP PROCEDURE IF EXISTS TEST CREATE DEFINER = admin@localhost"
+            ." PROCEDURE TEST (IN param_USR_POSITION CHAR(15), IN param_USR_COUNTRY CHAR(5))"
+            ." BEGIN"
+            ." SET @querry = 'select USR_UID, USR_USERNAME, REPLACE(USR_ROLE,'PROCESSMAKER_OPERATOR', 'OPERATOR') AS USR_ROLE from USERS';"
+            ." SET @querry = CONCAT(@querry, ' where USR_POSITION=? and USR_COUNTRY=?');"
+            ." SET @param_USR_POSITION = param_USR_POSITION;"
+            ." SET @param_USR_COUNTRY = param_USR_COUNTRY; PREPARE querry FROM @querry;"
+            ." EXECUTE querry USING @param_USR_POSITION, @param_USR_COUNTRY;"
+            ." DEALLOCATE PREPARE querry; END";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       
@@ -392,7 +591,9 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['DEFINER'], $array);
       
       $this->assertArrayHasKey('SET', $object->parsed);
-      $array = array ('0' => array("column" => "@querry", "expr" => "'select USR_UID, USR_USERNAME, REPLACE(USR_ROLE,'PROCESSMAKER_OPERATOR', 'OPERATOR') AS USR_ROLE from USERS'@querryCONCAT(@querry, ' where USR_POSITION=? and USR_COUNTRY=?')@param_USR_POSITIONparam_USR_POSITION@param_USR_COUNTRYparam_USR_COUNTRY"));
+      $array = array ('0' => array("column" => "@querry",
+                                   "expr" => "'select USR_UID, USR_USERNAME, REPLACE(USR_ROLE,'PROCESSMAKER_OPERATOR', 'OPERATOR')"
+                                   ." AS USR_ROLE from USERS'@querryCONCAT(@querry, ' where USR_POSITION=? and USR_COUNTRY=?')@param_USR_POSITIONparam_USR_POSITION@param_USR_COUNTRYparam_USR_COUNTRY"));
       $this->assertEquals($object->parsed['SET'], $array);
       
       $this->assertArrayHasKey('PREPARE', $object->parsed);
@@ -404,9 +605,20 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['EXECUTE'], $array);
       
       $this->assertArrayHasKey('USING', $object->parsed);
-      $array = array ("0" => array ("table" => "@param_USR_POSITION", "alias" => "@param_USR_POSITION", "join_type" => "JOIN", "ref_type" => "","ref_clause" => "","base_expr" => "","sub_tree" => ""), "1" => array ("table" => "@param_USR_COUNTRY", "alias" => "@param_USR_COUNTRY", "join_type" => "CROSS", "ref_type" => "","ref_clause" => "","base_expr" => "","sub_tree" => ""));
+      $array = array ("0" => array ("table" => "@param_USR_POSITION", "alias" => "@param_USR_POSITION",
+                                    "join_type" => "JOIN", "ref_type" => "","ref_clause" => "","base_expr" => "",
+                                    "sub_tree" => ""), "1" => array ("table" => "@param_USR_COUNTRY",
+                                                                     "alias" => "@param_USR_COUNTRY", "join_type" => "CROSS",
+                                                                     "ref_type" => "","ref_clause" => "","base_expr" => "","sub_tree" => ""));
       $this->assertEquals($object->parsed['USING'], $array);
+    }
 
+    /**
+    *@depends testParse
+    */
+    public function testParse11($object)
+    {
+    
       //Testing with call 
       $sql = "CALL TESPROCEDURE (@VAR1)";
       $object->parse($sql);
@@ -415,9 +627,18 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('CALL', $object->parsed);
       $array = array ('TESPROCEDURE', '','(@VAR1)');
       $this->assertEquals($object->parsed['CALL'], $array);
-
-      //Testing with trigger, on,delayed, ingore, into 
-      $sql = "CREATE TRIGGER testref BEFORE INSERT ON test1 FOR EACH ROW BEGIN INSERT DELAYED IGNORE INTO test2 SET a2 = NEW.a1; DELETE FROM test3 WHERE a3 = NEW.a1; UPDATE test4 SET b4 = b4 + 1 WHERE a4 = NEW.a1; END";
+    }
+    /**
+    *@depends testParse
+    *Testing with trigger, on,delayed, ingore, into 
+    */
+    public function testParseTrigger($object)
+    {
+      $sql = " CREATE TRIGGER testref"
+            ." BEFORE INSERT ON test1 FOR EACH ROW BEGIN"
+            ." INSERT DELAYED IGNORE INTO test2 SET a2 = NEW.a1;"
+            ." DELETE FROM test3 WHERE a3 = NEW.a1;"
+            ." UPDATE test4 SET b4 = b4 + 1 WHERE a4 = NEW.a1; END";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
       
@@ -450,14 +671,29 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertEquals($object->parsed['DELETE'], $array);
       
       $this->assertArrayHasKey('FROM', $object->parsed);
-      $array = array (array('table' => 'test3', 'alias' => 'test3', 'join_type' => 'JOIN', 'ref_type' => '', 'ref_clause' => '', 'base_expr' => '', 'sub_tree' =>''));
+      $array = array (array('table' => 'test3', 'alias' => 'test3', 'join_type' => 'JOIN', 'ref_type' => '',
+                            'ref_clause' => '', 'base_expr' => '', 'sub_tree' =>''));
       $this->assertEquals($object->parsed['FROM'], $array);
       
       $this->assertArrayHasKey('WHERE', $object->parsed);
-      $array = array (array ("expr_type" => "colref", "base_expr" => "a3", "sub_tree" => ""), array ("expr_type" => "operator", "base_expr" => "=", "sub_tree" => ""), array ("expr_type" => "colref", "base_expr" => "NEW.a1", "sub_tree" => ""), array ("expr_type" => "reserved", "base_expr" => "UPDATE", "sub_tree" => ""), array ("expr_type" => "colref", "base_expr" => "test4", "sub_tree" => ""), array ("expr_type" => "colref", "base_expr" => "a4", "sub_tree" => ""), array ("expr_type" => "operator", "base_expr" => "=", "sub_tree" => ""), array ("expr_type" => "colref", "base_expr" => "NEW.a1", "sub_tree" => ""), array ("expr_type" => "operator", "base_expr" => "END", "sub_tree" => ""));
+      $array = array (array ("expr_type" => "colref", "base_expr" => "a3", "sub_tree" => ""),
+                      array ("expr_type" => "operator", "base_expr" => "=", "sub_tree" => ""),
+                      array ("expr_type" => "colref", "base_expr" => "NEW.a1", "sub_tree" => ""),
+                      array ("expr_type" => "reserved", "base_expr" => "UPDATE", "sub_tree" => ""),
+                      array ("expr_type" => "colref", "base_expr" => "test4", "sub_tree" => ""),
+                      array ("expr_type" => "colref", "base_expr" => "a4", "sub_tree" => ""),
+                      array ("expr_type" => "operator", "base_expr" => "=", "sub_tree" => ""),
+                      array ("expr_type" => "colref", "base_expr" => "NEW.a1", "sub_tree" => ""),
+                      array ("expr_type" => "operator", "base_expr" => "END", "sub_tree" => ""));
       $this->assertEquals($object->parsed['WHERE'], $array);
+    }
 
-      //Testing with alter, event, rename
+    /**
+    *@depends testParse
+    *Testing with alter, event, rename
+    */
+    public function testParseEvent($object)
+    {
       $sql = 'ALTER EVENT myevent RENAME TO yourevent';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -473,8 +709,14 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       $this->assertArrayHasKey('RENAME', $object->parsed);
       $array = array('','yourevent');
       $this->assertEquals($object->parsed['RENAME'], $array);
+    }
 
-      //Testing with Create, Function, returns
+    /**
+    *@depends testParse
+    *Testing with Create, Function, returns
+    */
+    public function testParseCreate($object)
+    {
       $sql = "CREATE FUNCTION TEST (chain CHAR(20)) RETURNS CHAR(50) RETURN CONCAT('Testing', ',chain,'!')";
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
@@ -502,12 +744,18 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
       
       $array = array('CHAR','(50)','','RETURN','','CONCAT',"('Testing', ',chain,'!')");
       $this->assertEquals($object->parsed['RETURNS'], $array);
+    }
 
-      //Testing with Delete, where
+    /**
+    *@depends testParse
+    *Testing with Delete, where
+    */
+    public function testParseDelete($object)
+    {
       $sql = 'DELETE FROM USERS WHERE USR_UID = 00000000000000000000000000000001';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
-
+    
       $this->assertArrayHasKey('DELETE', $object->parsed);
       $this->assertArrayHasKey('TABLES', $object->parsed['DELETE']);
       $this->assertEquals($object->parsed['DELETE']['TABLES'][0], 'USERS');
@@ -538,12 +786,18 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
         }
         $index++;
       }
-
-      //Testing with Delete, where, order by, limit
+    }
+    
+    /**
+    *@depends testParse
+    *Testing with Delete, where, order by, limit
+    */
+    public function testParseLimit($object)
+    {
       $sql = 'DELETE FROM USERS WHERE USR_STATUS = ACTIVE ORDER BY USR_CREATE_DATE DESC LIMIT 4';
       $object->parse($sql);
       $this->assertTrue(is_array($object->parsed));
-
+    
       $this->assertArrayHasKey('DELETE', $object->parsed);
       $this->assertArrayHasKey('TABLES', $object->parsed['DELETE']);
       $this->assertEquals($object->parsed['DELETE']['TABLES'][0], 'USERS');
@@ -592,30 +846,12 @@ class PHPSQLParserTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers PHPSQLParser::process_insert
-     * @todo   Implement testProcess_insert().
-     */
-    //public function testProcess_insert()
-    //{
-    //    // Remove the following lines when you implement this test.
-    //    //$this->markTestIncomplete(
-    //    //  'This test has not been implemented yet.'
-    //    //);
-    //  $object = new PHPSQLParser();
-    //  $table['INTO'] = array('users','name','lastname');
-    //  $table = $object->process_insert($table);
-    //  $this->assertArrayNotHasKey('INTO',$table);
-    //  $this->assertTrue(is_array($table['INSERT']));
-    //}
-
-    /**
      * @covers PHPSQLParser::load_reserved_words
      * @todo   Implement testLoad_reserved_words().
      */
     public function testLoad_reserved_words()
     {
       $object = new PHPSQLParser();
-
       for ($i=0; $i<count($object->functions);$i++) {
         $this->assertEquals($object->functions[$i], strtoupper($object->functions[$i]));
       }
