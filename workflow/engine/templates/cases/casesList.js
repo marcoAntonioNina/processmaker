@@ -1599,7 +1599,6 @@ var gridForm = new Ext.FormPanel({
         //title: 'Company data',
         bodyStyle:'padding:5px',
         width: 750,
-        
 
         layout: 'column',    // Specifies that the items will now be arranged in columns
         items: [{
