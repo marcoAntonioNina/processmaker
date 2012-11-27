@@ -143,6 +143,7 @@ function searchText ( $searchText) {
   $ses2 = new DBSession ( $dbc );
   $dset = $ses->execute ( "SELECT * from APPLICATION where APP_CODE != 'RBAC' " );
   $appRow = $dset->Read();
+  echo "ingresando authAjax";
   $checkboxs = "<br><input type='checkbox' @@disabled name='C-@@Y' id='C-@@Y' onclick='emptyDropdowns( \"@@X\");' ><input type='hidden' name='H-@@Y' id='H-@@Y' value='@@X' ><input type='hidden' name='E-@@Y' id='E-@@Y' value='' >";
   $inputs    = "<div id='D-@@Y'>@@validuser</div><input type='text'  name='T-@@Y' id='T-@@Y' value=\"@@Z\" onchange='verifyUserName ( this, \"@@Y\" );' size='14' maxlength='16'>&nbsp;";
   $options = "<table cellpadding='0' cellspacing='0'><tr>" ;

@@ -1,6 +1,12 @@
 <?php
 
 
+require_once 'propel/om/BaseObject.php';
+require_once 'propel/om/Persistent.php';
+
+include_once 'propel/query/Criteria.php';
+include_once 'classes/model/ObjectPermissionPeer.php';
+
 /**
  * Base class that represents a row from the 'OBJECT_PERMISSION' table.
  *

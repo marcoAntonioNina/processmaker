@@ -37,6 +37,7 @@ class PHP5ExtensionPeerBuilder extends PeerBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+		//$script .=" //PHP5ExtensionPeerBuilder.php";
 		switch($this->getTable()->treeMode()) {
 			case 'NestedSet':
 				$requiredClassFilePath = $this->getNestedSetPeerBuilder()->getClassFilePath();

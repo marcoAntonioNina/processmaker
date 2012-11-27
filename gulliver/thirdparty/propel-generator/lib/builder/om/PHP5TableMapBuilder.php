@@ -54,6 +54,7 @@ class PHP5TableMapBuilder extends OMBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+        //$script .=" //PHP5TableMapBuilder.php";
 	} // addIncludes()
 
 	/**

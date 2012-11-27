@@ -6,7 +6,8 @@
  */
 
 require_once 'classes/model/om/BaseLoginLog.php';
-
+//files required
+require_once 'classes/model/LoginLogPeer.php';
 /**
  * Skeleton subclass for representing a row from the 'LOGIN_LOG' table.
  *

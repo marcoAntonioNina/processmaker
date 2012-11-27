@@ -29,7 +29,8 @@ require_once 'classes/model/om/BaseGroupUser.php';
 require_once 'classes/model/Content.php';
 require_once 'classes/model/Users.php';
 require_once 'classes/model/Groupwf.php';
-
+//files required
+require_once 'classes/model/GroupUserPeer.php';
 /**
  * Skeleton subclass for representing a row from the 'GROUP_USER' table.
  *
@@ -123,13 +124,24 @@ class GroupUser extends BaseGroupUser
     {
         $oCriteria = new Criteria( 'workflow' );
         $oCriteria->add( GroupUserPeer::USR_UID, $usrUid );
-        //$oCriteria->addGroupByColumn(GroupUserPeer::GRP_UID);
-        $oDataset = GroupUserPeer::doSelectRS( $oCriteria );
-        $oDataset->setFetchmode( ResultSet::FETCHMODE_ASSOC );
+        $oCriteria->addGroupByColumn(GroupUserPeer::GRP_UID);
+        //$oDataset = GroupUserPeer::doSelectRS( $oCriteria );
+        //$oDataset->setFetchmode( ResultSet::FETCHMODE_ASSOC );
 
         $rows = Array ();
-        while ($oDataset->next()) {
-            $row = $oDataset->getRow();
+        //while ($oDataset->next()) {
+        //    $row = $oDataset->getRow();
+        //    $g = new Groupwf();
+        //    try {
+        //        $grpRow = $g->load( $row['GRP_UID'] );
+        //        $row = array_merge( $row, $grpRow );
+        //        $rows[] = $row;
+        //    } catch (Exception $e) {
+        //        continue;
+        //    }
+        //}
+        $stmt = GroupUserPeer::doSelectStmt( $oCriteria );
+        while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
             $g = new Groupwf();
             try {
                 $grpRow = $g->load( $row['GRP_UID'] );

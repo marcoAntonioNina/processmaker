@@ -72,6 +72,42 @@
   ini_set('soap.wsdl_cache_enabled', $config['wsdl_cache']);
   ini_set('date.timezone', $config['time_zone']);
 
+    require_once 'propel/om/BaseObject.php';
+    require_once 'propel/om/Persistent.php';
+    require_once 'propel/util/BasePeer.php';
+    require_once 'propel/adapter/DBAdapter.php';
+    require_once 'propel/adapter/DBMySQL.php';
+    require_once 'propel/connection/PropelPDO.php';
+    require_once 'propel/connection/DebugPDO.php';
+    require_once 'propel/connection/DebugPDOStatement.php';
+    require_once 'propel/connection/myPDOStatement.php';
+    
+    require_once 'propel/query/Criteria.php';
+    require_once 'propel/query/Criterion.php';
+    require_once 'propel/query/CriterionIterator.php';
+    require_once 'propel/query/Join.php';
+    require_once 'propel/query/ModelCriteria.php';
+    require_once 'propel/query/ModelCriterion.php';
+    require_once 'propel/query/ModelJoin.php';
+    require_once 'propel/query/PropelQuery.php';
+    require_once 'propel/util/PropelColumnTypes.php';
+
+    //files required for class/model/map
+    require_once 'propel/map/TableMap.php';
+    require_once 'propel/map/DatabaseMap.php';
+    require_once 'propel/map/ColumnMap.php';
+    require_once 'propel/map/DatabaseMap.php';
+    
+    require_once 'propel/util/PropelDateTime.php';
+    
+    //require_once 'propel/collection/PropelCollection.php';
+    //require_once 'propel/collection/PropelArrayCollection.php';
+    //
+    //require_once 'propel/collection/PropelObjectCollection.php';
+    //require_once 'propel/collection/PropelOnDemandCollection.php';
+    //require_once 'propel/collection/PropelOnDemandIterator.php';
+    
+
   define ('DEBUG_SQL_LOG', $config['debug_sql']);
   define ('DEBUG_TIME_LOG', $config['debug_time']);
   define ('DEBUG_CALENDAR_LOG', $config['debug_calendar']);
@@ -408,7 +444,9 @@
 
   // setup propel definitions and logging
   require_once ( "propel/Propel.php" );
-  require_once ( "creole/Creole.php" );
+  require_once ( "propel/config/PropelConfiguration.php" );
+  //require_once ( "propel/util/PropelAutoloader.php" );
+  //require_once ( "creole/Creole.php" );
 
   if (defined('DEBUG_SQL_LOG') && DEBUG_SQL_LOG) {
     define('PM_PID', mt_rand(1,999999));
@@ -446,7 +484,7 @@
     Propel::init( PATH_CORE . "config/databases.php" );
   }
 
-  Creole::registerDriver('dbarray', 'creole.contrib.DBArrayConnection');
+  //Creole::registerDriver('dbarray', 'creole.contrib.DBArrayConnection');
 
   // Session Initializations
   ini_set('session.auto_start', '1');

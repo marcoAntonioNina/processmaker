@@ -164,6 +164,23 @@ class PHP5ObjectBuilder extends ObjectBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+//        $table = $this->getTable();
+//        echo "1-<br>".$this->getTable();
+//		echo "2-<br>". $table->getName();
+//		echo "3-<br>". $table->getDescription();
+//		echo "4-<br>". $this->getInterface();
+//		echo "5-<br>". $this->getBehaviorContent('parentClass');
+//        
+//		echo "1-<br>". (null !== $parentClass) ? $parentClass : ClassTools::classname($this->getBaseClass());
+//        die();
+		//$script .=" //PHP5ObjectBuilder.php";
+		$script .="
+require_once 'propel/om/BaseObject.php';
+require_once 'propel/om/Persistent.php';
+
+include_once 'propel/query/Criteria.php';
+include_once 'classes/model/". $this->getPeerClassname() .".php';
+";
 	} // addIncludes()
 
 	/**

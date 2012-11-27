@@ -57,5 +57,6 @@
   $pro ['datasources']['rbac']['adapter'] = DB_ADAPTER;
   //krumo ( $pro);
 
+print_r($pro);
   return $pro;
 ?>

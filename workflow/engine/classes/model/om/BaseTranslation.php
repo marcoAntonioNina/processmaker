@@ -1,6 +1,12 @@
 <?php
 
 
+require_once 'propel/om/BaseObject.php';
+require_once 'propel/om/Persistent.php';
+
+include_once 'propel/query/Criteria.php';
+include_once 'classes/model/TranslationPeer.php';
+
 /**
  * Base class that represents a row from the 'TRANSLATION' table.
  *
@@ -143,7 +149,7 @@ abstract class BaseTranslation extends BaseObject  implements Persistent
 	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00
 	 * @throws     PropelException - if unable to parse/validate the date/time value.
 	 */
-	public function getTrnUpdateDate($format = '%x')
+	public function getTrnUpdateDate($format = 'Y-m-d')
 	{
 		if ($this->trn_update_date === null) {
 			return null;

@@ -143,6 +143,7 @@ $_DBArray ['langOptions'] = $availableLangArray;
 G::LoadClass('configuration');
 
 $oConf = new Configurations();
+//print_r($oConf);
 $oConf->loadConfig($obj, 'ENVIRONMENT_SETTINGS', '');
 $aFields['USER_LANG'] = isset($oConf->aConfig['login_defaultLanguage'])
                         ? $oConf->aConfig['login_defaultLanguage']

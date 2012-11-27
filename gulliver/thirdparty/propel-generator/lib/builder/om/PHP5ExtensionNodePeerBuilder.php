@@ -37,6 +37,7 @@ class PHP5ExtensionNodePeerBuilder extends PeerBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+		//$script .=" //PHP5ExtensionNodePeerBuilder.php";
 		$script .="
 require '".$this->getNodePeerBuilder()->getClassFilePath()."';
 ";

@@ -2,6 +2,10 @@
 
 require_once 'classes/model/om/BaseUsersProperties.php';
 
+//files required
+require_once 'classes/model/UsersPeer.php';
+require_once 'classes/model/UsersPropertiesPeer.php';
+
 /**
  * Skeleton subclass for representing a row from the 'USERS_PROPERTIES' table.
  *

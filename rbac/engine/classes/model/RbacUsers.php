@@ -29,6 +29,10 @@
  */
 require_once 'classes/model/om/BaseRbacUsers.php';
 
+//Files required
+require_once 'classes/model/map/RbacUsersTableMap.php';
+require_once 'classes/model/RbacUsersPeer.php';
+
 /**
  * Skeleton subclass for representing a row from the 'USERS' table.
  *
@@ -83,9 +87,12 @@ class RbacUsers extends BaseRbacUsers
                 if (mb_strtoupper($sUsername, 'utf-8') === mb_strtoupper($aFields['USR_USERNAME'], 'utf-8')) {
                     if ($aFields['USR_PASSWORD'] == md5($sPassword) ||
                         'md5:' . $aFields['USR_PASSWORD'] === $sPassword) {
-                        if ($aFields['USR_DUE_DATE'] < date('Y-m-d')) {
-                            return -4;
-                        }
+                        //echo $aFields['USR_DUE_DATE']."<br>";
+                        //echo date('Y-m-d')."<br>";die();
+                        //if ($aFields['USR_DUE_DATE'] < date('Y-m-d')) {
+                            //return -4;
+                        //}
+                        
                         if ($aFields['USR_STATUS'] != 1) {
                             return -3;
                         }
@@ -119,7 +126,6 @@ class RbacUsers extends BaseRbacUsers
             if (is_array($rs) && isset($rs[0]) && is_object($rs[0]) && get_class($rs[0]) == 'RbacUsers') {
                 //return the row for futher check of which Autentificacion method belongs this user
                 $this->fields = $rs[0]->toArray(BasePeer::TYPE_FIELDNAME);
-                ;
                 return 1;
             } else {
                 return 0;

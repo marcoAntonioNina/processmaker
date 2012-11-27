@@ -22,7 +22,6 @@
  * Coral Gables, FL, 33134, USA, or email info@colosa.com.
  *
  */
-
 try {
     if (!$RBAC->singleSignOn) {
         if (!isset($_POST['form']) ) {
@@ -39,7 +38,6 @@ try {
             $usr = strtolower(trim($frm['USR_USERNAME']));
             $pwd = trim($frm['USR_PASSWORD']);
         }
-
         $uid = $RBAC->VerifyLogin($usr , $pwd);
         $RBAC->cleanSessionFiles(72); //cleaning session files older than 72 hours
 
@@ -99,6 +97,7 @@ try {
             }
             if (PPP_FAILED_LOGINS > 0) {
                 if ($_SESSION['FAILED_LOGINS'] >= PPP_FAILED_LOGINS) {
+                    echo "debug 1<br>";
                     $oConnection = Propel::getConnection('rbac');
                     $oStatement  = $oConnection->prepareStatement("SELECT USR_UID FROM USERS WHERE USR_USERNAME = '" . $usr . "'");
                     $oDataset    = $oStatement->executeQuery();

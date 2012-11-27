@@ -1,23 +1,20 @@
 <?php
 
-require_once 'propel/om/BaseObject.php';
-
-require_once 'propel/om/Persistent.php';
-
-
-include_once 'propel/util/Criteria.php';
-
-include_once 'classes/model/RolesPeer.php';
-
+ //PHP5ObjectBuilder.php
 /**
  * Base class that represents a row from the 'ROLES' table.
  *
  * 
  *
- * @package  rbac-classes-model
+ * @package    propel.generator.classes.model.om
  */
-abstract class BaseRoles extends BaseObject  implements Persistent {
+abstract class BaseRoles extends BaseObject  implements Persistent
+{
 
+	/**
+	 * Peer class name
+	 */
+	const PEER = 'RolesPeer';
 
 	/**
 	 * The Peer class.
@@ -27,54 +24,52 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 */
 	protected static $peer;
 
-
 	/**
 	 * The value for the rol_uid field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $rol_uid = '';
-
+	protected $rol_uid;
 
 	/**
 	 * The value for the rol_parent field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $rol_parent = '';
-
+	protected $rol_parent;
 
 	/**
 	 * The value for the rol_system field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $rol_system = '';
-
+	protected $rol_system;
 
 	/**
 	 * The value for the rol_code field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $rol_code = '';
-
+	protected $rol_code;
 
 	/**
 	 * The value for the rol_create_date field.
-	 * @var        int
+	 * @var        string
 	 */
 	protected $rol_create_date;
 
-
 	/**
 	 * The value for the rol_update_date field.
-	 * @var        int
+	 * @var        string
 	 */
 	protected $rol_update_date;
 
-
 	/**
 	 * The value for the rol_status field.
+	 * Note: this column has a database default value of: 1
 	 * @var        int
 	 */
-	protected $rol_status = 1;
+	protected $rol_status;
 
 	/**
 	 * Flag to prevent endless save loop, if this object is referenced
@@ -91,13 +86,37 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	protected $alreadyInValidation = false;
 
 	/**
+	 * Applies default values to this object.
+	 * This method should be called from the object's constructor (or
+	 * equivalent initialization method).
+	 * @see        __construct()
+	 */
+	public function applyDefaultValues()
+	{
+		$this->rol_uid = '';
+		$this->rol_parent = '';
+		$this->rol_system = '';
+		$this->rol_code = '';
+		$this->rol_status = 1;
+	}
+
+	/**
+	 * Initializes internal state of BaseRoles object.
+	 * @see        applyDefaults()
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->applyDefaultValues();
+	}
+
+	/**
 	 * Get the [rol_uid] column value.
 	 * 
 	 * @return     string
 	 */
 	public function getRolUid()
 	{
-
 		return $this->rol_uid;
 	}
 
@@ -108,7 +127,6 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 */
 	public function getRolParent()
 	{
-
 		return $this->rol_parent;
 	}
 
@@ -119,7 +137,6 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 */
 	public function getRolSystem()
 	{
-
 		return $this->rol_system;
 	}
 
@@ -130,69 +147,82 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 */
 	public function getRolCode()
 	{
-
 		return $this->rol_code;
 	}
 
 	/**
-	 * Get the [optionally formatted] [rol_create_date] column value.
+	 * Get the [optionally formatted] temporal [rol_create_date] column value.
 	 * 
+	 *
 	 * @param      string $format The date/time format string (either date()-style or strftime()-style).
-	 *							If format is NULL, then the integer unix timestamp will be returned.
-	 * @return     mixed Formatted date/time value as string or integer unix timestamp (if format is NULL).
-	 * @throws     PropelException - if unable to convert the date/time to timestamp.
+	 *							If format is NULL, then the raw DateTime object will be returned.
+	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+	 * @throws     PropelException - if unable to parse/validate the date/time value.
 	 */
 	public function getRolCreateDate($format = 'Y-m-d H:i:s')
 	{
-
-		if ($this->rol_create_date === null || $this->rol_create_date === '') {
+		if ($this->rol_create_date === null) {
 			return null;
-		} elseif (!is_int($this->rol_create_date)) {
-			// a non-timestamp value was set externally, so we convert it
-			$ts = strtotime($this->rol_create_date);
-			if ($ts === -1 || $ts === false) { // in PHP 5.1 return value changes to FALSE
-				throw new PropelException("Unable to parse value of [rol_create_date] as date/time value: " . var_export($this->rol_create_date, true));
-			}
-		} else {
-			$ts = $this->rol_create_date;
 		}
-		if ($format === null) {
-			return $ts;
-		} elseif (strpos($format, '%') !== false) {
-			return strftime($format, $ts);
+
+
+		if ($this->rol_create_date === '0000-00-00 00:00:00') {
+			// while technically this is not a default value of NULL,
+			// this seems to be closest in meaning.
+			return null;
 		} else {
-			return date($format, $ts);
+			try {
+				$dt = new DateTime($this->rol_create_date);
+			} catch (Exception $x) {
+				throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->rol_create_date, true), $x);
+			}
+		}
+
+		if ($format === null) {
+			// Because propel.useDateTimeClass is TRUE, we return a DateTime object.
+			return $dt;
+		} elseif (strpos($format, '%') !== false) {
+			return strftime($format, $dt->format('U'));
+		} else {
+			return $dt->format($format);
 		}
 	}
 
 	/**
-	 * Get the [optionally formatted] [rol_update_date] column value.
+	 * Get the [optionally formatted] temporal [rol_update_date] column value.
 	 * 
+	 *
 	 * @param      string $format The date/time format string (either date()-style or strftime()-style).
-	 *							If format is NULL, then the integer unix timestamp will be returned.
-	 * @return     mixed Formatted date/time value as string or integer unix timestamp (if format is NULL).
-	 * @throws     PropelException - if unable to convert the date/time to timestamp.
+	 *							If format is NULL, then the raw DateTime object will be returned.
+	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+	 * @throws     PropelException - if unable to parse/validate the date/time value.
 	 */
 	public function getRolUpdateDate($format = 'Y-m-d H:i:s')
 	{
-
-		if ($this->rol_update_date === null || $this->rol_update_date === '') {
+		if ($this->rol_update_date === null) {
 			return null;
-		} elseif (!is_int($this->rol_update_date)) {
-			// a non-timestamp value was set externally, so we convert it
-			$ts = strtotime($this->rol_update_date);
-			if ($ts === -1 || $ts === false) { // in PHP 5.1 return value changes to FALSE
-				throw new PropelException("Unable to parse value of [rol_update_date] as date/time value: " . var_export($this->rol_update_date, true));
-			}
-		} else {
-			$ts = $this->rol_update_date;
 		}
-		if ($format === null) {
-			return $ts;
-		} elseif (strpos($format, '%') !== false) {
-			return strftime($format, $ts);
+
+
+		if ($this->rol_update_date === '0000-00-00 00:00:00') {
+			// while technically this is not a default value of NULL,
+			// this seems to be closest in meaning.
+			return null;
 		} else {
-			return date($format, $ts);
+			try {
+				$dt = new DateTime($this->rol_update_date);
+			} catch (Exception $x) {
+				throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->rol_update_date, true), $x);
+			}
+		}
+
+		if ($format === null) {
+			// Because propel.useDateTimeClass is TRUE, we return a DateTime object.
+			return $dt;
+		} elseif (strpos($format, '%') !== false) {
+			return strftime($format, $dt->format('U'));
+		} else {
+			return $dt->format($format);
 		}
 	}
 
@@ -203,7 +233,6 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 */
 	public function getRolStatus()
 	{
-
 		return $this->rol_status;
 	}
 
@@ -211,197 +240,214 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 * Set the value of [rol_uid] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolUid($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->rol_uid !== $v || $v === '') {
+		if ($this->rol_uid !== $v) {
 			$this->rol_uid = $v;
 			$this->modifiedColumns[] = RolesPeer::ROL_UID;
 		}
 
+		return $this;
 	} // setRolUid()
 
 	/**
 	 * Set the value of [rol_parent] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolParent($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->rol_parent !== $v || $v === '') {
+		if ($this->rol_parent !== $v) {
 			$this->rol_parent = $v;
 			$this->modifiedColumns[] = RolesPeer::ROL_PARENT;
 		}
 
+		return $this;
 	} // setRolParent()
 
 	/**
 	 * Set the value of [rol_system] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolSystem($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->rol_system !== $v || $v === '') {
+		if ($this->rol_system !== $v) {
 			$this->rol_system = $v;
 			$this->modifiedColumns[] = RolesPeer::ROL_SYSTEM;
 		}
 
+		return $this;
 	} // setRolSystem()
 
 	/**
 	 * Set the value of [rol_code] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolCode($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->rol_code !== $v || $v === '') {
+		if ($this->rol_code !== $v) {
 			$this->rol_code = $v;
 			$this->modifiedColumns[] = RolesPeer::ROL_CODE;
 		}
 
+		return $this;
 	} // setRolCode()
 
 	/**
-	 * Set the value of [rol_create_date] column.
+	 * Sets the value of [rol_create_date] column to a normalized version of the date/time value specified.
 	 * 
-	 * @param      int $v new value
-	 * @return     void
+	 * @param      mixed $v string, integer (timestamp), or DateTime value.
+	 *               Empty strings are treated as NULL.
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolCreateDate($v)
 	{
-
-		if ($v !== null && !is_int($v)) {
-			$ts = strtotime($v);
-			if ($ts === -1 || $ts === false) { // in PHP 5.1 return value changes to FALSE
-				throw new PropelException("Unable to parse date/time value for [rol_create_date] from input: " . var_export($v, true));
+		$dt = PropelDateTime::newInstance($v, null, 'DateTime');
+		if ($this->rol_create_date !== null || $dt !== null) {
+			$currentDateAsString = ($this->rol_create_date !== null && $tmpDt = new DateTime($this->rol_create_date)) ? $tmpDt->format('Y-m-d H:i:s') : null;
+			$newDateAsString = $dt ? $dt->format('Y-m-d H:i:s') : null;
+			if ($currentDateAsString !== $newDateAsString) {
+				$this->rol_create_date = $newDateAsString;
+				$this->modifiedColumns[] = RolesPeer::ROL_CREATE_DATE;
 			}
-		} else {
-			$ts = $v;
-		}
-		if ($this->rol_create_date !== $ts) {
-			$this->rol_create_date = $ts;
-			$this->modifiedColumns[] = RolesPeer::ROL_CREATE_DATE;
-		}
+		} // if either are not null
 
+		return $this;
 	} // setRolCreateDate()
 
 	/**
-	 * Set the value of [rol_update_date] column.
+	 * Sets the value of [rol_update_date] column to a normalized version of the date/time value specified.
 	 * 
-	 * @param      int $v new value
-	 * @return     void
+	 * @param      mixed $v string, integer (timestamp), or DateTime value.
+	 *               Empty strings are treated as NULL.
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolUpdateDate($v)
 	{
-
-		if ($v !== null && !is_int($v)) {
-			$ts = strtotime($v);
-			if ($ts === -1 || $ts === false) { // in PHP 5.1 return value changes to FALSE
-				throw new PropelException("Unable to parse date/time value for [rol_update_date] from input: " . var_export($v, true));
+		$dt = PropelDateTime::newInstance($v, null, 'DateTime');
+		if ($this->rol_update_date !== null || $dt !== null) {
+			$currentDateAsString = ($this->rol_update_date !== null && $tmpDt = new DateTime($this->rol_update_date)) ? $tmpDt->format('Y-m-d H:i:s') : null;
+			$newDateAsString = $dt ? $dt->format('Y-m-d H:i:s') : null;
+			if ($currentDateAsString !== $newDateAsString) {
+				$this->rol_update_date = $newDateAsString;
+				$this->modifiedColumns[] = RolesPeer::ROL_UPDATE_DATE;
 			}
-		} else {
-			$ts = $v;
-		}
-		if ($this->rol_update_date !== $ts) {
-			$this->rol_update_date = $ts;
-			$this->modifiedColumns[] = RolesPeer::ROL_UPDATE_DATE;
-		}
+		} // if either are not null
 
+		return $this;
 	} // setRolUpdateDate()
 
 	/**
 	 * Set the value of [rol_status] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     void
+	 * @return     Roles The current object (for fluent API support)
 	 */
 	public function setRolStatus($v)
 	{
-
-		// Since the native PHP type for this column is integer,
-		// we will cast the input value to an int (if it is not).
-		if ($v !== null && !is_int($v) && is_numeric($v)) {
+		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->rol_status !== $v || $v === 1) {
+		if ($this->rol_status !== $v) {
 			$this->rol_status = $v;
 			$this->modifiedColumns[] = RolesPeer::ROL_STATUS;
 		}
 
+		return $this;
 	} // setRolStatus()
+
+	/**
+	 * Indicates whether the columns in this object are only set to default values.
+	 *
+	 * This method can be used in conjunction with isModified() to indicate whether an object is both
+	 * modified _and_ has some values set which are non-default.
+	 *
+	 * @return     boolean Whether the columns in this object are only been set with default values.
+	 */
+	public function hasOnlyDefaultValues()
+	{
+			if ($this->rol_uid !== '') {
+				return false;
+			}
+
+			if ($this->rol_parent !== '') {
+				return false;
+			}
+
+			if ($this->rol_system !== '') {
+				return false;
+			}
+
+			if ($this->rol_code !== '') {
+				return false;
+			}
+
+			if ($this->rol_status !== 1) {
+				return false;
+			}
+
+		// otherwise, everything was equal, so return TRUE
+		return true;
+	} // hasOnlyDefaultValues()
 
 	/**
 	 * Hydrates (populates) the object variables with values from the database resultset.
 	 *
-	 * An offset (1-based "start column") is specified so that objects can be hydrated
+	 * An offset (0-based "start column") is specified so that objects can be hydrated
 	 * with a subset of the columns in the resultset rows.  This is needed, for example,
 	 * for results of JOIN queries where the resultset row includes columns from two or
 	 * more tables.
 	 *
-	 * @param      ResultSet $rs The ResultSet class with cursor advanced to desired record pos.
-	 * @param      int $startcol 1-based offset column which indicates which restultset column to start with.
+	 * @param      array $row The row returned by PDOStatement->fetch(PDO::FETCH_NUM)
+	 * @param      int $startcol 0-based offset column which indicates which restultset column to start with.
+	 * @param      boolean $rehydrate Whether this object is being re-hydrated from the database.
 	 * @return     int next starting column
 	 * @throws     PropelException  - Any caught Exception will be rewrapped as a PropelException.
 	 */
-	public function hydrate(ResultSet $rs, $startcol = 1)
+	public function hydrate($row, $startcol = 0, $rehydrate = false)
 	{
 		try {
 
-			$this->rol_uid = $rs->getString($startcol + 0);
-
-			$this->rol_parent = $rs->getString($startcol + 1);
-
-			$this->rol_system = $rs->getString($startcol + 2);
-
-			$this->rol_code = $rs->getString($startcol + 3);
-
-			$this->rol_create_date = $rs->getTimestamp($startcol + 4, null);
-
-			$this->rol_update_date = $rs->getTimestamp($startcol + 5, null);
-
-			$this->rol_status = $rs->getInt($startcol + 6);
-
+			$this->rol_uid = ($row[$startcol + 0] !== null) ? (string) $row[$startcol + 0] : null;
+			$this->rol_parent = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
+			$this->rol_system = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->rol_code = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
+			$this->rol_create_date = ($row[$startcol + 4] !== null) ? (string) $row[$startcol + 4] : null;
+			$this->rol_update_date = ($row[$startcol + 5] !== null) ? (string) $row[$startcol + 5] : null;
+			$this->rol_status = ($row[$startcol + 6] !== null) ? (int) $row[$startcol + 6] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
 
-			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 7; // 7 = RolesPeer::NUM_COLUMNS - RolesPeer::NUM_LAZY_LOAD_COLUMNS).
+			if ($rehydrate) {
+				$this->ensureConsistency();
+			}
+
+			return $startcol + 7; // 7 = RolesPeer::NUM_HYDRATE_COLUMNS.
 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating Roles object", $e);
@@ -409,78 +455,165 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	}
 
 	/**
+	 * Checks and repairs the internal consistency of the object.
+	 *
+	 * This method is executed after an already-instantiated object is re-hydrated
+	 * from the database.  It exists to check any foreign keys to make sure that
+	 * the objects related to the current object are correct based on foreign key.
+	 *
+	 * You can override this method in the stub class, but you should always invoke
+	 * the base method from the overridden method (i.e. parent::ensureConsistency()),
+	 * in case your model changes.
+	 *
+	 * @throws     PropelException
+	 */
+	public function ensureConsistency()
+	{
+
+	} // ensureConsistency
+
+	/**
+	 * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
+	 *
+	 * This will only work if the object has been saved and has a valid primary key set.
+	 *
+	 * @param      boolean $deep (optional) Whether to also de-associated any related objects.
+	 * @param      PropelPDO $con (optional) The PropelPDO connection to use.
+	 * @return     void
+	 * @throws     PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+	 */
+	public function reload($deep = false, PropelPDO $con = null)
+	{
+		if ($this->isDeleted()) {
+			throw new PropelException("Cannot reload a deleted object.");
+		}
+
+		if ($this->isNew()) {
+			throw new PropelException("Cannot reload an unsaved object.");
+		}
+
+		if ($con === null) {
+			$con = Propel::getConnection(RolesPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+		}
+
+		// We don't need to alter the object instance pool; we're just modifying this instance
+		// already in the pool.
+
+		$stmt = RolesPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$row = $stmt->fetch(PDO::FETCH_NUM);
+		$stmt->closeCursor();
+		if (!$row) {
+			throw new PropelException('Cannot find matching row in the database to reload object values.');
+		}
+		$this->hydrate($row, 0, true); // rehydrate
+
+		if ($deep) {  // also de-associate any related objects?
+
+		} // if (deep)
+	}
+
+	/**
 	 * Removes this object from datastore and sets delete attribute.
 	 *
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     void
 	 * @throws     PropelException
 	 * @see        BaseObject::setDeleted()
 	 * @see        BaseObject::isDeleted()
 	 */
-	public function delete($con = null)
+	public function delete(PropelPDO $con = null)
 	{
 		if ($this->isDeleted()) {
 			throw new PropelException("This object has already been deleted.");
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(RolesPeer::DATABASE_NAME);
+			$con = Propel::getConnection(RolesPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
+		$con->beginTransaction();
 		try {
-			$con->begin();
-			RolesPeer::doDelete($this, $con);
-			$this->setDeleted(true);
-			$con->commit();
+			$deleteQuery = RolesQuery::create()
+				->filterByPrimaryKey($this->getPrimaryKey());
+			$ret = $this->preDelete($con);
+			if ($ret) {
+				$deleteQuery->delete($con);
+				$this->postDelete($con);
+				$con->commit();
+				$this->setDeleted(true);
+			} else {
+				$con->commit();
+			}
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
 
 	/**
-	 * Stores the object in the database.  If the object is new,
-	 * it inserts it; otherwise an update is performed.  This method
-	 * wraps the doSave() worker method in a transaction.
+	 * Persists this object to the database.
 	 *
-	 * @param      Connection $con
+	 * If the object is new, it inserts it; otherwise an update is performed.
+	 * All modified related objects will also be persisted in the doSave()
+	 * method.  This method wraps all precipitate database operations in a
+	 * single transaction.
+	 *
+	 * @param      PropelPDO $con
 	 * @return     int The number of rows affected by this insert/update and any referring fk objects' save() operations.
 	 * @throws     PropelException
 	 * @see        doSave()
 	 */
-	public function save($con = null)
+	public function save(PropelPDO $con = null)
 	{
 		if ($this->isDeleted()) {
 			throw new PropelException("You cannot save an object that has been deleted.");
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(RolesPeer::DATABASE_NAME);
+			$con = Propel::getConnection(RolesPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
+		$con->beginTransaction();
+		$isInsert = $this->isNew();
 		try {
-			$con->begin();
-			$affectedRows = $this->doSave($con);
+			$ret = $this->preSave($con);
+			if ($isInsert) {
+				$ret = $ret && $this->preInsert($con);
+			} else {
+				$ret = $ret && $this->preUpdate($con);
+			}
+			if ($ret) {
+				$affectedRows = $this->doSave($con);
+				if ($isInsert) {
+					$this->postInsert($con);
+				} else {
+					$this->postUpdate($con);
+				}
+				$this->postSave($con);
+				RolesPeer::addInstanceToPool($this);
+			} else {
+				$affectedRows = 0;
+			}
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
 
 	/**
-	 * Stores the object in the database.
+	 * Performs the work of inserting or updating the row in the database.
 	 *
 	 * If the object is new, it inserts it; otherwise an update is performed.
 	 * All related objects are also updated in this method.
 	 *
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     int The number of rows affected by this insert/update and any referring fk objects' save() operations.
 	 * @throws     PropelException
 	 * @see        save()
 	 */
-	protected function doSave($con)
+	protected function doSave(PropelPDO $con)
 	{
 		$affectedRows = 0; // initialize var to track total num of affected rows
 		if (!$this->alreadyInSave) {
@@ -490,19 +623,19 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 			// If this object has been modified, then save it to the database.
 			if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = RolesPeer::doInsert($this, $con);
-					$affectedRows += 1; // we are assuming that there is only 1 row per doInsert() which
-										 // should always be true here (even though technically
-										 // BasePeer::doInsert() can insert multiple rows).
-
+					$criteria = $this->buildCriteria();
+					$pk = BasePeer::doInsert($criteria, $con);
+					$affectedRows = 1;
 					$this->setNew(false);
 				} else {
-					$affectedRows += RolesPeer::doUpdate($this, $con);
+					$affectedRows = RolesPeer::doUpdate($this, $con);
 				}
+
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
 			}
 
 			$this->alreadyInSave = false;
+
 		}
 		return $affectedRows;
 	} // doSave()
@@ -584,14 +717,15 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 *
 	 * @param      string $name name
 	 * @param      string $type The type of fieldname the $name is of:
-	 *                     one of the class type constants TYPE_PHPNAME,
-	 *                     TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @return     mixed Value of field.
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
 		$pos = RolesPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
-		return $this->getByPosition($pos);
+		$field = $this->getByPosition($pos);
+		return $field;
 	}
 
 	/**
@@ -637,12 +771,20 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 * You can specify the key type of the array by passing one of the class
 	 * type constants.
 	 *
-	 * @param      string $keyType One of the class type constants TYPE_PHPNAME,
-	 *                        TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
-	 * @return     an associative array containing the field names (as keys) and field values
+	 * @param     string  $keyType (optional) One of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME,
+	 *                    BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
+	 *                    Defaults to BasePeer::TYPE_PHPNAME.
+	 * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+	 * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+	 *
+	 * @return    array an associative array containing the field names (as keys) and field values
 	 */
-	public function toArray($keyType = BasePeer::TYPE_PHPNAME)
+	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
 	{
+		if (isset($alreadyDumpedObjects['Roles'][$this->getPrimaryKey()])) {
+			return '*RECURSION*';
+		}
+		$alreadyDumpedObjects['Roles'][$this->getPrimaryKey()] = true;
 		$keys = RolesPeer::getFieldNames($keyType);
 		$result = array(
 			$keys[0] => $this->getRolUid(),
@@ -662,8 +804,8 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 * @param      string $name peer name
 	 * @param      mixed $value field value
 	 * @param      string $type The type of fieldname the $name is of:
-	 *                     one of the class type constants TYPE_PHPNAME,
-	 *                     TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @return     void
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
@@ -716,8 +858,9 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 * array. If so the setByName() method is called for that column.
 	 *
 	 * You can specify the key type of the array by additionally passing one
-	 * of the class type constants TYPE_PHPNAME, TYPE_COLNAME, TYPE_FIELDNAME,
-	 * TYPE_NUM. The default key type is the column's phpname (e.g. 'authorId')
+	 * of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME,
+	 * BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
+	 * The default key type is the column's phpname (e.g. 'AuthorId')
 	 *
 	 * @param      array  $arr     An array to populate the object from.
 	 * @param      string $keyType The type of keys the array uses.
@@ -767,7 +910,6 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	public function buildPkeyCriteria()
 	{
 		$criteria = new Criteria(RolesPeer::DATABASE_NAME);
-
 		$criteria->add(RolesPeer::ROL_UID, $this->rol_uid);
 
 		return $criteria;
@@ -794,6 +936,15 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	}
 
 	/**
+	 * Returns true if the primary key for this object is null.
+	 * @return     boolean
+	 */
+	public function isPrimaryKeyNull()
+	{
+		return null === $this->getRolUid();
+	}
+
+	/**
 	 * Sets contents of passed object to values from current object.
 	 *
 	 * If desired, this method can also make copies of all associated (fkey referrers)
@@ -801,28 +952,21 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 	 *
 	 * @param      object $copyObj An object of Roles (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+	 * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
 	 * @throws     PropelException
 	 */
-	public function copyInto($copyObj, $deepCopy = false)
+	public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
 	{
-
-		$copyObj->setRolParent($this->rol_parent);
-
-		$copyObj->setRolSystem($this->rol_system);
-
-		$copyObj->setRolCode($this->rol_code);
-
-		$copyObj->setRolCreateDate($this->rol_create_date);
-
-		$copyObj->setRolUpdateDate($this->rol_update_date);
-
-		$copyObj->setRolStatus($this->rol_status);
-
-
-		$copyObj->setNew(true);
-
-		$copyObj->setRolUid(''); // this is a pkey column, so set to default value
-
+		$copyObj->setRolUid($this->getRolUid());
+		$copyObj->setRolParent($this->getRolParent());
+		$copyObj->setRolSystem($this->getRolSystem());
+		$copyObj->setRolCode($this->getRolCode());
+		$copyObj->setRolCreateDate($this->getRolCreateDate());
+		$copyObj->setRolUpdateDate($this->getRolUpdateDate());
+		$copyObj->setRolStatus($this->getRolStatus());
+		if ($makeNew) {
+			$copyObj->setNew(true);
+		}
 	}
 
 	/**
@@ -861,6 +1005,53 @@ abstract class BaseRoles extends BaseObject  implements Persistent {
 			self::$peer = new RolesPeer();
 		}
 		return self::$peer;
+	}
+
+	/**
+	 * Clears the current object and sets all attributes to their default values
+	 */
+	public function clear()
+	{
+		$this->rol_uid = null;
+		$this->rol_parent = null;
+		$this->rol_system = null;
+		$this->rol_code = null;
+		$this->rol_create_date = null;
+		$this->rol_update_date = null;
+		$this->rol_status = null;
+		$this->alreadyInSave = false;
+		$this->alreadyInValidation = false;
+		$this->clearAllReferences();
+		$this->applyDefaultValues();
+		$this->resetModified();
+		$this->setNew(true);
+		$this->setDeleted(false);
+	}
+
+	/**
+	 * Resets all references to other model objects or collections of model objects.
+	 *
+	 * This method is a user-space workaround for PHP's inability to garbage collect
+	 * objects with circular references (even in PHP 5.3). This is currently necessary
+	 * when using Propel in certain daemon or large-volumne/high-memory operations.
+	 *
+	 * @param      boolean $deep Whether to also clear the references on all referrer objects.
+	 */
+	public function clearAllReferences($deep = false)
+	{
+		if ($deep) {
+		} // if ($deep)
+
+	}
+
+	/**
+	 * Return the string representation of this object
+	 *
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return (string) $this->exportTo(RolesPeer::DEFAULT_STRING_FORMAT);
 	}
 
 } // BaseRoles

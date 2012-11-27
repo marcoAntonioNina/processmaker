@@ -46,6 +46,7 @@ class PHP5NodeBuilder extends ObjectBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+		//$script .=" //PHP5NodeBuilder.php ";
 	} // addIncludes()
 
 	/**

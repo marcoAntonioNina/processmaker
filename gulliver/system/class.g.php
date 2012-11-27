@@ -1895,7 +1895,8 @@ class G
         switch ($DBEngine) {
             case 'mysql':
                 $con = Propel::getConnection( 'workflow' );
-                return mysql_real_escape_string( stripslashes( $sqlString ), $con->getResource() );
+                //return mysql_real_escape_string( stripslashes( $sqlString ), $con);
+                return $con->quote($sqlString);
                 break;
             case 'myxml':
                 $sqlString = str_replace( '"', '""', $sqlString );

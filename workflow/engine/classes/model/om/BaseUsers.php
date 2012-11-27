@@ -1,6 +1,12 @@
 <?php
 
 
+require_once 'propel/om/BaseObject.php';
+require_once 'propel/om/Persistent.php';
+
+include_once 'propel/query/Criteria.php';
+include_once 'classes/model/UsersPeer.php';
+
 /**
  * Base class that represents a row from the 'USERS' table.
  *
@@ -327,7 +333,7 @@ abstract class BaseUsers extends BaseObject  implements Persistent
 	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00
 	 * @throws     PropelException - if unable to parse/validate the date/time value.
 	 */
-	public function getUsrDueDate($format = '%x')
+	public function getUsrDueDate($format = 'Y-m-d')
 	{
 		if ($this->usr_due_date === null) {
 			return null;
@@ -561,7 +567,7 @@ abstract class BaseUsers extends BaseObject  implements Persistent
 	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00
 	 * @throws     PropelException - if unable to parse/validate the date/time value.
 	 */
-	public function getUsrBirthday($format = '%x')
+	public function getUsrBirthday($format = 'Y-m-d')
 	{
 		if ($this->usr_birthday === null) {
 			return null;

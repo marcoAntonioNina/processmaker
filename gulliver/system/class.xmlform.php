@@ -270,7 +270,6 @@ class XmlForm_Field
             $query = G::replaceDataField( $this->sql, $aAux );
         }
         //echo $query;
-
         $result = array ();
         if ($this->sqlConnection == 'dbarray') {
             try {

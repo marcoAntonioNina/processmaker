@@ -27,7 +27,8 @@
 
 require_once 'classes/model/om/BaseGroupwf.php';
 require_once 'classes/model/Content.php';
-
+//file required
+require_once 'classes/model/GroupwfPeer.php';
 /**
  * Skeleton subclass for representing a row from the 'GROUPWF' table.
  *

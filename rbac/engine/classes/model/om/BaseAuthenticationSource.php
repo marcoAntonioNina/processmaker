@@ -1,23 +1,20 @@
 <?php
 
-require_once 'propel/om/BaseObject.php';
-
-require_once 'propel/om/Persistent.php';
-
-
-include_once 'propel/util/Criteria.php';
-
-include_once 'classes/model/AuthenticationSourcePeer.php';
-
+ //PHP5ObjectBuilder.php
 /**
  * Base class that represents a row from the 'AUTHENTICATION_SOURCE' table.
  *
  * 
  *
- * @package  rbac-classes-model
+ * @package    propel.generator.classes.model.om
  */
-abstract class BaseAuthenticationSource extends BaseObject  implements Persistent {
+abstract class BaseAuthenticationSource extends BaseObject  implements Persistent
+{
 
+	/**
+	 * Peer class name
+	 */
+	const PEER = 'AuthenticationSourcePeer';
 
 	/**
 	 * The Peer class.
@@ -27,97 +24,96 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	protected static $peer;
 
-
 	/**
 	 * The value for the auth_source_uid field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_uid = '';
-
+	protected $auth_source_uid;
 
 	/**
 	 * The value for the auth_source_name field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_name = '';
-
+	protected $auth_source_name;
 
 	/**
 	 * The value for the auth_source_provider field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_provider = '';
-
+	protected $auth_source_provider;
 
 	/**
 	 * The value for the auth_source_server_name field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_server_name = '';
-
+	protected $auth_source_server_name;
 
 	/**
 	 * The value for the auth_source_port field.
+	 * Note: this column has a database default value of: 389
 	 * @var        int
 	 */
-	protected $auth_source_port = 389;
-
+	protected $auth_source_port;
 
 	/**
 	 * The value for the auth_source_enabled_tls field.
+	 * Note: this column has a database default value of: 0
 	 * @var        int
 	 */
-	protected $auth_source_enabled_tls = 0;
-
+	protected $auth_source_enabled_tls;
 
 	/**
 	 * The value for the auth_source_version field.
+	 * Note: this column has a database default value of: '3'
 	 * @var        string
 	 */
-	protected $auth_source_version = '3';
-
+	protected $auth_source_version;
 
 	/**
 	 * The value for the auth_source_base_dn field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_base_dn = '';
-
+	protected $auth_source_base_dn;
 
 	/**
 	 * The value for the auth_anonymous field.
+	 * Note: this column has a database default value of: 0
 	 * @var        int
 	 */
-	protected $auth_anonymous = 0;
-
+	protected $auth_anonymous;
 
 	/**
 	 * The value for the auth_source_search_user field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_search_user = '';
-
+	protected $auth_source_search_user;
 
 	/**
 	 * The value for the auth_source_password field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_password = '';
-
+	protected $auth_source_password;
 
 	/**
 	 * The value for the auth_source_attributes field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_attributes = '';
-
+	protected $auth_source_attributes;
 
 	/**
 	 * The value for the auth_source_object_classes field.
+	 * Note: this column has a database default value of: ''
 	 * @var        string
 	 */
-	protected $auth_source_object_classes = '';
-
+	protected $auth_source_object_classes;
 
 	/**
 	 * The value for the auth_source_data field.
@@ -140,13 +136,45 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	protected $alreadyInValidation = false;
 
 	/**
+	 * Applies default values to this object.
+	 * This method should be called from the object's constructor (or
+	 * equivalent initialization method).
+	 * @see        __construct()
+	 */
+	public function applyDefaultValues()
+	{
+		$this->auth_source_uid = '';
+		$this->auth_source_name = '';
+		$this->auth_source_provider = '';
+		$this->auth_source_server_name = '';
+		$this->auth_source_port = 389;
+		$this->auth_source_enabled_tls = 0;
+		$this->auth_source_version = '3';
+		$this->auth_source_base_dn = '';
+		$this->auth_anonymous = 0;
+		$this->auth_source_search_user = '';
+		$this->auth_source_password = '';
+		$this->auth_source_attributes = '';
+		$this->auth_source_object_classes = '';
+	}
+
+	/**
+	 * Initializes internal state of BaseAuthenticationSource object.
+	 * @see        applyDefaults()
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->applyDefaultValues();
+	}
+
+	/**
 	 * Get the [auth_source_uid] column value.
 	 * 
 	 * @return     string
 	 */
 	public function getAuthSourceUid()
 	{
-
 		return $this->auth_source_uid;
 	}
 
@@ -157,7 +185,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceName()
 	{
-
 		return $this->auth_source_name;
 	}
 
@@ -168,7 +195,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceProvider()
 	{
-
 		return $this->auth_source_provider;
 	}
 
@@ -179,7 +205,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceServerName()
 	{
-
 		return $this->auth_source_server_name;
 	}
 
@@ -190,7 +215,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourcePort()
 	{
-
 		return $this->auth_source_port;
 	}
 
@@ -201,7 +225,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceEnabledTls()
 	{
-
 		return $this->auth_source_enabled_tls;
 	}
 
@@ -212,7 +235,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceVersion()
 	{
-
 		return $this->auth_source_version;
 	}
 
@@ -223,7 +245,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceBaseDn()
 	{
-
 		return $this->auth_source_base_dn;
 	}
 
@@ -234,7 +255,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthAnonymous()
 	{
-
 		return $this->auth_anonymous;
 	}
 
@@ -245,7 +265,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceSearchUser()
 	{
-
 		return $this->auth_source_search_user;
 	}
 
@@ -256,7 +275,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourcePassword()
 	{
-
 		return $this->auth_source_password;
 	}
 
@@ -267,7 +285,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceAttributes()
 	{
-
 		return $this->auth_source_attributes;
 	}
 
@@ -278,7 +295,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceObjectClasses()
 	{
-
 		return $this->auth_source_object_classes;
 	}
 
@@ -289,7 +305,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 */
 	public function getAuthSourceData()
 	{
-
 		return $this->auth_source_data;
 	}
 
@@ -297,301 +312,272 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 * Set the value of [auth_source_uid] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceUid($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_uid !== $v || $v === '') {
+		if ($this->auth_source_uid !== $v) {
 			$this->auth_source_uid = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_UID;
 		}
 
+		return $this;
 	} // setAuthSourceUid()
 
 	/**
 	 * Set the value of [auth_source_name] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceName($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_name !== $v || $v === '') {
+		if ($this->auth_source_name !== $v) {
 			$this->auth_source_name = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_NAME;
 		}
 
+		return $this;
 	} // setAuthSourceName()
 
 	/**
 	 * Set the value of [auth_source_provider] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceProvider($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_provider !== $v || $v === '') {
+		if ($this->auth_source_provider !== $v) {
 			$this->auth_source_provider = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_PROVIDER;
 		}
 
+		return $this;
 	} // setAuthSourceProvider()
 
 	/**
 	 * Set the value of [auth_source_server_name] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceServerName($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_server_name !== $v || $v === '') {
+		if ($this->auth_source_server_name !== $v) {
 			$this->auth_source_server_name = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_SERVER_NAME;
 		}
 
+		return $this;
 	} // setAuthSourceServerName()
 
 	/**
 	 * Set the value of [auth_source_port] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourcePort($v)
 	{
-
-		// Since the native PHP type for this column is integer,
-		// we will cast the input value to an int (if it is not).
-		if ($v !== null && !is_int($v) && is_numeric($v)) {
+		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->auth_source_port !== $v || $v === 389) {
+		if ($this->auth_source_port !== $v) {
 			$this->auth_source_port = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_PORT;
 		}
 
+		return $this;
 	} // setAuthSourcePort()
 
 	/**
 	 * Set the value of [auth_source_enabled_tls] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceEnabledTls($v)
 	{
-
-		// Since the native PHP type for this column is integer,
-		// we will cast the input value to an int (if it is not).
-		if ($v !== null && !is_int($v) && is_numeric($v)) {
+		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->auth_source_enabled_tls !== $v || $v === 0) {
+		if ($this->auth_source_enabled_tls !== $v) {
 			$this->auth_source_enabled_tls = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_ENABLED_TLS;
 		}
 
+		return $this;
 	} // setAuthSourceEnabledTls()
 
 	/**
 	 * Set the value of [auth_source_version] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceVersion($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_version !== $v || $v === '3') {
+		if ($this->auth_source_version !== $v) {
 			$this->auth_source_version = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_VERSION;
 		}
 
+		return $this;
 	} // setAuthSourceVersion()
 
 	/**
 	 * Set the value of [auth_source_base_dn] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceBaseDn($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_base_dn !== $v || $v === '') {
+		if ($this->auth_source_base_dn !== $v) {
 			$this->auth_source_base_dn = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_BASE_DN;
 		}
 
+		return $this;
 	} // setAuthSourceBaseDn()
 
 	/**
 	 * Set the value of [auth_anonymous] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthAnonymous($v)
 	{
-
-		// Since the native PHP type for this column is integer,
-		// we will cast the input value to an int (if it is not).
-		if ($v !== null && !is_int($v) && is_numeric($v)) {
+		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->auth_anonymous !== $v || $v === 0) {
+		if ($this->auth_anonymous !== $v) {
 			$this->auth_anonymous = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_ANONYMOUS;
 		}
 
+		return $this;
 	} // setAuthAnonymous()
 
 	/**
 	 * Set the value of [auth_source_search_user] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceSearchUser($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_search_user !== $v || $v === '') {
+		if ($this->auth_source_search_user !== $v) {
 			$this->auth_source_search_user = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_SEARCH_USER;
 		}
 
+		return $this;
 	} // setAuthSourceSearchUser()
 
 	/**
 	 * Set the value of [auth_source_password] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourcePassword($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_password !== $v || $v === '') {
+		if ($this->auth_source_password !== $v) {
 			$this->auth_source_password = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_PASSWORD;
 		}
 
+		return $this;
 	} // setAuthSourcePassword()
 
 	/**
 	 * Set the value of [auth_source_attributes] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceAttributes($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_attributes !== $v || $v === '') {
+		if ($this->auth_source_attributes !== $v) {
 			$this->auth_source_attributes = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_ATTRIBUTES;
 		}
 
+		return $this;
 	} // setAuthSourceAttributes()
 
 	/**
 	 * Set the value of [auth_source_object_classes] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceObjectClasses($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
-		if ($this->auth_source_object_classes !== $v || $v === '') {
+		if ($this->auth_source_object_classes !== $v) {
 			$this->auth_source_object_classes = $v;
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_OBJECT_CLASSES;
 		}
 
+		return $this;
 	} // setAuthSourceObjectClasses()
 
 	/**
 	 * Set the value of [auth_source_data] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     void
+	 * @return     AuthenticationSource The current object (for fluent API support)
 	 */
 	public function setAuthSourceData($v)
 	{
-
-		// Since the native PHP type for this column is string,
-		// we will cast the input to a string (if it is not).
-		if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+		if ($v !== null) {
+			$v = (string) $v;
 		}
 
 		if ($this->auth_source_data !== $v) {
@@ -599,59 +585,116 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 			$this->modifiedColumns[] = AuthenticationSourcePeer::AUTH_SOURCE_DATA;
 		}
 
+		return $this;
 	} // setAuthSourceData()
+
+	/**
+	 * Indicates whether the columns in this object are only set to default values.
+	 *
+	 * This method can be used in conjunction with isModified() to indicate whether an object is both
+	 * modified _and_ has some values set which are non-default.
+	 *
+	 * @return     boolean Whether the columns in this object are only been set with default values.
+	 */
+	public function hasOnlyDefaultValues()
+	{
+			if ($this->auth_source_uid !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_name !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_provider !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_server_name !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_port !== 389) {
+				return false;
+			}
+
+			if ($this->auth_source_enabled_tls !== 0) {
+				return false;
+			}
+
+			if ($this->auth_source_version !== '3') {
+				return false;
+			}
+
+			if ($this->auth_source_base_dn !== '') {
+				return false;
+			}
+
+			if ($this->auth_anonymous !== 0) {
+				return false;
+			}
+
+			if ($this->auth_source_search_user !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_password !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_attributes !== '') {
+				return false;
+			}
+
+			if ($this->auth_source_object_classes !== '') {
+				return false;
+			}
+
+		// otherwise, everything was equal, so return TRUE
+		return true;
+	} // hasOnlyDefaultValues()
 
 	/**
 	 * Hydrates (populates) the object variables with values from the database resultset.
 	 *
-	 * An offset (1-based "start column") is specified so that objects can be hydrated
+	 * An offset (0-based "start column") is specified so that objects can be hydrated
 	 * with a subset of the columns in the resultset rows.  This is needed, for example,
 	 * for results of JOIN queries where the resultset row includes columns from two or
 	 * more tables.
 	 *
-	 * @param      ResultSet $rs The ResultSet class with cursor advanced to desired record pos.
-	 * @param      int $startcol 1-based offset column which indicates which restultset column to start with.
+	 * @param      array $row The row returned by PDOStatement->fetch(PDO::FETCH_NUM)
+	 * @param      int $startcol 0-based offset column which indicates which restultset column to start with.
+	 * @param      boolean $rehydrate Whether this object is being re-hydrated from the database.
 	 * @return     int next starting column
 	 * @throws     PropelException  - Any caught Exception will be rewrapped as a PropelException.
 	 */
-	public function hydrate(ResultSet $rs, $startcol = 1)
+	public function hydrate($row, $startcol = 0, $rehydrate = false)
 	{
 		try {
 
-			$this->auth_source_uid = $rs->getString($startcol + 0);
-
-			$this->auth_source_name = $rs->getString($startcol + 1);
-
-			$this->auth_source_provider = $rs->getString($startcol + 2);
-
-			$this->auth_source_server_name = $rs->getString($startcol + 3);
-
-			$this->auth_source_port = $rs->getInt($startcol + 4);
-
-			$this->auth_source_enabled_tls = $rs->getInt($startcol + 5);
-
-			$this->auth_source_version = $rs->getString($startcol + 6);
-
-			$this->auth_source_base_dn = $rs->getString($startcol + 7);
-
-			$this->auth_anonymous = $rs->getInt($startcol + 8);
-
-			$this->auth_source_search_user = $rs->getString($startcol + 9);
-
-			$this->auth_source_password = $rs->getString($startcol + 10);
-
-			$this->auth_source_attributes = $rs->getString($startcol + 11);
-
-			$this->auth_source_object_classes = $rs->getString($startcol + 12);
-
-			$this->auth_source_data = $rs->getString($startcol + 13);
-
+			$this->auth_source_uid = ($row[$startcol + 0] !== null) ? (string) $row[$startcol + 0] : null;
+			$this->auth_source_name = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
+			$this->auth_source_provider = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->auth_source_server_name = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
+			$this->auth_source_port = ($row[$startcol + 4] !== null) ? (int) $row[$startcol + 4] : null;
+			$this->auth_source_enabled_tls = ($row[$startcol + 5] !== null) ? (int) $row[$startcol + 5] : null;
+			$this->auth_source_version = ($row[$startcol + 6] !== null) ? (string) $row[$startcol + 6] : null;
+			$this->auth_source_base_dn = ($row[$startcol + 7] !== null) ? (string) $row[$startcol + 7] : null;
+			$this->auth_anonymous = ($row[$startcol + 8] !== null) ? (int) $row[$startcol + 8] : null;
+			$this->auth_source_search_user = ($row[$startcol + 9] !== null) ? (string) $row[$startcol + 9] : null;
+			$this->auth_source_password = ($row[$startcol + 10] !== null) ? (string) $row[$startcol + 10] : null;
+			$this->auth_source_attributes = ($row[$startcol + 11] !== null) ? (string) $row[$startcol + 11] : null;
+			$this->auth_source_object_classes = ($row[$startcol + 12] !== null) ? (string) $row[$startcol + 12] : null;
+			$this->auth_source_data = ($row[$startcol + 13] !== null) ? (string) $row[$startcol + 13] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
 
-			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 14; // 14 = AuthenticationSourcePeer::NUM_COLUMNS - AuthenticationSourcePeer::NUM_LAZY_LOAD_COLUMNS).
+			if ($rehydrate) {
+				$this->ensureConsistency();
+			}
+
+			return $startcol + 14; // 14 = AuthenticationSourcePeer::NUM_HYDRATE_COLUMNS.
 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating AuthenticationSource object", $e);
@@ -659,78 +702,165 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	}
 
 	/**
+	 * Checks and repairs the internal consistency of the object.
+	 *
+	 * This method is executed after an already-instantiated object is re-hydrated
+	 * from the database.  It exists to check any foreign keys to make sure that
+	 * the objects related to the current object are correct based on foreign key.
+	 *
+	 * You can override this method in the stub class, but you should always invoke
+	 * the base method from the overridden method (i.e. parent::ensureConsistency()),
+	 * in case your model changes.
+	 *
+	 * @throws     PropelException
+	 */
+	public function ensureConsistency()
+	{
+
+	} // ensureConsistency
+
+	/**
+	 * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
+	 *
+	 * This will only work if the object has been saved and has a valid primary key set.
+	 *
+	 * @param      boolean $deep (optional) Whether to also de-associated any related objects.
+	 * @param      PropelPDO $con (optional) The PropelPDO connection to use.
+	 * @return     void
+	 * @throws     PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+	 */
+	public function reload($deep = false, PropelPDO $con = null)
+	{
+		if ($this->isDeleted()) {
+			throw new PropelException("Cannot reload a deleted object.");
+		}
+
+		if ($this->isNew()) {
+			throw new PropelException("Cannot reload an unsaved object.");
+		}
+
+		if ($con === null) {
+			$con = Propel::getConnection(AuthenticationSourcePeer::DATABASE_NAME, Propel::CONNECTION_READ);
+		}
+
+		// We don't need to alter the object instance pool; we're just modifying this instance
+		// already in the pool.
+
+		$stmt = AuthenticationSourcePeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$row = $stmt->fetch(PDO::FETCH_NUM);
+		$stmt->closeCursor();
+		if (!$row) {
+			throw new PropelException('Cannot find matching row in the database to reload object values.');
+		}
+		$this->hydrate($row, 0, true); // rehydrate
+
+		if ($deep) {  // also de-associate any related objects?
+
+		} // if (deep)
+	}
+
+	/**
 	 * Removes this object from datastore and sets delete attribute.
 	 *
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     void
 	 * @throws     PropelException
 	 * @see        BaseObject::setDeleted()
 	 * @see        BaseObject::isDeleted()
 	 */
-	public function delete($con = null)
+	public function delete(PropelPDO $con = null)
 	{
 		if ($this->isDeleted()) {
 			throw new PropelException("This object has already been deleted.");
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(AuthenticationSourcePeer::DATABASE_NAME);
+			$con = Propel::getConnection(AuthenticationSourcePeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
+		$con->beginTransaction();
 		try {
-			$con->begin();
-			AuthenticationSourcePeer::doDelete($this, $con);
-			$this->setDeleted(true);
-			$con->commit();
+			$deleteQuery = AuthenticationSourceQuery::create()
+				->filterByPrimaryKey($this->getPrimaryKey());
+			$ret = $this->preDelete($con);
+			if ($ret) {
+				$deleteQuery->delete($con);
+				$this->postDelete($con);
+				$con->commit();
+				$this->setDeleted(true);
+			} else {
+				$con->commit();
+			}
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
 
 	/**
-	 * Stores the object in the database.  If the object is new,
-	 * it inserts it; otherwise an update is performed.  This method
-	 * wraps the doSave() worker method in a transaction.
+	 * Persists this object to the database.
 	 *
-	 * @param      Connection $con
+	 * If the object is new, it inserts it; otherwise an update is performed.
+	 * All modified related objects will also be persisted in the doSave()
+	 * method.  This method wraps all precipitate database operations in a
+	 * single transaction.
+	 *
+	 * @param      PropelPDO $con
 	 * @return     int The number of rows affected by this insert/update and any referring fk objects' save() operations.
 	 * @throws     PropelException
 	 * @see        doSave()
 	 */
-	public function save($con = null)
+	public function save(PropelPDO $con = null)
 	{
 		if ($this->isDeleted()) {
 			throw new PropelException("You cannot save an object that has been deleted.");
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(AuthenticationSourcePeer::DATABASE_NAME);
+			$con = Propel::getConnection(AuthenticationSourcePeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
+		$con->beginTransaction();
+		$isInsert = $this->isNew();
 		try {
-			$con->begin();
-			$affectedRows = $this->doSave($con);
+			$ret = $this->preSave($con);
+			if ($isInsert) {
+				$ret = $ret && $this->preInsert($con);
+			} else {
+				$ret = $ret && $this->preUpdate($con);
+			}
+			if ($ret) {
+				$affectedRows = $this->doSave($con);
+				if ($isInsert) {
+					$this->postInsert($con);
+				} else {
+					$this->postUpdate($con);
+				}
+				$this->postSave($con);
+				AuthenticationSourcePeer::addInstanceToPool($this);
+			} else {
+				$affectedRows = 0;
+			}
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
 
 	/**
-	 * Stores the object in the database.
+	 * Performs the work of inserting or updating the row in the database.
 	 *
 	 * If the object is new, it inserts it; otherwise an update is performed.
 	 * All related objects are also updated in this method.
 	 *
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     int The number of rows affected by this insert/update and any referring fk objects' save() operations.
 	 * @throws     PropelException
 	 * @see        save()
 	 */
-	protected function doSave($con)
+	protected function doSave(PropelPDO $con)
 	{
 		$affectedRows = 0; // initialize var to track total num of affected rows
 		if (!$this->alreadyInSave) {
@@ -740,19 +870,19 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 			// If this object has been modified, then save it to the database.
 			if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = AuthenticationSourcePeer::doInsert($this, $con);
-					$affectedRows += 1; // we are assuming that there is only 1 row per doInsert() which
-										 // should always be true here (even though technically
-										 // BasePeer::doInsert() can insert multiple rows).
-
+					$criteria = $this->buildCriteria();
+					$pk = BasePeer::doInsert($criteria, $con);
+					$affectedRows = 1;
 					$this->setNew(false);
 				} else {
-					$affectedRows += AuthenticationSourcePeer::doUpdate($this, $con);
+					$affectedRows = AuthenticationSourcePeer::doUpdate($this, $con);
 				}
+
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
 			}
 
 			$this->alreadyInSave = false;
+
 		}
 		return $affectedRows;
 	} // doSave()
@@ -834,14 +964,15 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 *
 	 * @param      string $name name
 	 * @param      string $type The type of fieldname the $name is of:
-	 *                     one of the class type constants TYPE_PHPNAME,
-	 *                     TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @return     mixed Value of field.
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
 		$pos = AuthenticationSourcePeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
-		return $this->getByPosition($pos);
+		$field = $this->getByPosition($pos);
+		return $field;
 	}
 
 	/**
@@ -908,12 +1039,20 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 * You can specify the key type of the array by passing one of the class
 	 * type constants.
 	 *
-	 * @param      string $keyType One of the class type constants TYPE_PHPNAME,
-	 *                        TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
-	 * @return     an associative array containing the field names (as keys) and field values
+	 * @param     string  $keyType (optional) One of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME,
+	 *                    BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
+	 *                    Defaults to BasePeer::TYPE_PHPNAME.
+	 * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+	 * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+	 *
+	 * @return    array an associative array containing the field names (as keys) and field values
 	 */
-	public function toArray($keyType = BasePeer::TYPE_PHPNAME)
+	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
 	{
+		if (isset($alreadyDumpedObjects['AuthenticationSource'][$this->getPrimaryKey()])) {
+			return '*RECURSION*';
+		}
+		$alreadyDumpedObjects['AuthenticationSource'][$this->getPrimaryKey()] = true;
 		$keys = AuthenticationSourcePeer::getFieldNames($keyType);
 		$result = array(
 			$keys[0] => $this->getAuthSourceUid(),
@@ -940,8 +1079,8 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 * @param      string $name peer name
 	 * @param      mixed $value field value
 	 * @param      string $type The type of fieldname the $name is of:
-	 *                     one of the class type constants TYPE_PHPNAME,
-	 *                     TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @return     void
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
@@ -1015,8 +1154,9 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 * array. If so the setByName() method is called for that column.
 	 *
 	 * You can specify the key type of the array by additionally passing one
-	 * of the class type constants TYPE_PHPNAME, TYPE_COLNAME, TYPE_FIELDNAME,
-	 * TYPE_NUM. The default key type is the column's phpname (e.g. 'authorId')
+	 * of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME,
+	 * BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
+	 * The default key type is the column's phpname (e.g. 'AuthorId')
 	 *
 	 * @param      array  $arr     An array to populate the object from.
 	 * @param      string $keyType The type of keys the array uses.
@@ -1080,7 +1220,6 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	public function buildPkeyCriteria()
 	{
 		$criteria = new Criteria(AuthenticationSourcePeer::DATABASE_NAME);
-
 		$criteria->add(AuthenticationSourcePeer::AUTH_SOURCE_UID, $this->auth_source_uid);
 
 		return $criteria;
@@ -1107,6 +1246,15 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	}
 
 	/**
+	 * Returns true if the primary key for this object is null.
+	 * @return     boolean
+	 */
+	public function isPrimaryKeyNull()
+	{
+		return null === $this->getAuthSourceUid();
+	}
+
+	/**
 	 * Sets contents of passed object to values from current object.
 	 *
 	 * If desired, this method can also make copies of all associated (fkey referrers)
@@ -1114,42 +1262,28 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 	 *
 	 * @param      object $copyObj An object of AuthenticationSource (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+	 * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
 	 * @throws     PropelException
 	 */
-	public function copyInto($copyObj, $deepCopy = false)
+	public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
 	{
-
-		$copyObj->setAuthSourceName($this->auth_source_name);
-
-		$copyObj->setAuthSourceProvider($this->auth_source_provider);
-
-		$copyObj->setAuthSourceServerName($this->auth_source_server_name);
-
-		$copyObj->setAuthSourcePort($this->auth_source_port);
-
-		$copyObj->setAuthSourceEnabledTls($this->auth_source_enabled_tls);
-
-		$copyObj->setAuthSourceVersion($this->auth_source_version);
-
-		$copyObj->setAuthSourceBaseDn($this->auth_source_base_dn);
-
-		$copyObj->setAuthAnonymous($this->auth_anonymous);
-
-		$copyObj->setAuthSourceSearchUser($this->auth_source_search_user);
-
-		$copyObj->setAuthSourcePassword($this->auth_source_password);
-
-		$copyObj->setAuthSourceAttributes($this->auth_source_attributes);
-
-		$copyObj->setAuthSourceObjectClasses($this->auth_source_object_classes);
-
-		$copyObj->setAuthSourceData($this->auth_source_data);
-
-
-		$copyObj->setNew(true);
-
-		$copyObj->setAuthSourceUid(''); // this is a pkey column, so set to default value
-
+		$copyObj->setAuthSourceUid($this->getAuthSourceUid());
+		$copyObj->setAuthSourceName($this->getAuthSourceName());
+		$copyObj->setAuthSourceProvider($this->getAuthSourceProvider());
+		$copyObj->setAuthSourceServerName($this->getAuthSourceServerName());
+		$copyObj->setAuthSourcePort($this->getAuthSourcePort());
+		$copyObj->setAuthSourceEnabledTls($this->getAuthSourceEnabledTls());
+		$copyObj->setAuthSourceVersion($this->getAuthSourceVersion());
+		$copyObj->setAuthSourceBaseDn($this->getAuthSourceBaseDn());
+		$copyObj->setAuthAnonymous($this->getAuthAnonymous());
+		$copyObj->setAuthSourceSearchUser($this->getAuthSourceSearchUser());
+		$copyObj->setAuthSourcePassword($this->getAuthSourcePassword());
+		$copyObj->setAuthSourceAttributes($this->getAuthSourceAttributes());
+		$copyObj->setAuthSourceObjectClasses($this->getAuthSourceObjectClasses());
+		$copyObj->setAuthSourceData($this->getAuthSourceData());
+		if ($makeNew) {
+			$copyObj->setNew(true);
+		}
 	}
 
 	/**
@@ -1188,6 +1322,60 @@ abstract class BaseAuthenticationSource extends BaseObject  implements Persisten
 			self::$peer = new AuthenticationSourcePeer();
 		}
 		return self::$peer;
+	}
+
+	/**
+	 * Clears the current object and sets all attributes to their default values
+	 */
+	public function clear()
+	{
+		$this->auth_source_uid = null;
+		$this->auth_source_name = null;
+		$this->auth_source_provider = null;
+		$this->auth_source_server_name = null;
+		$this->auth_source_port = null;
+		$this->auth_source_enabled_tls = null;
+		$this->auth_source_version = null;
+		$this->auth_source_base_dn = null;
+		$this->auth_anonymous = null;
+		$this->auth_source_search_user = null;
+		$this->auth_source_password = null;
+		$this->auth_source_attributes = null;
+		$this->auth_source_object_classes = null;
+		$this->auth_source_data = null;
+		$this->alreadyInSave = false;
+		$this->alreadyInValidation = false;
+		$this->clearAllReferences();
+		$this->applyDefaultValues();
+		$this->resetModified();
+		$this->setNew(true);
+		$this->setDeleted(false);
+	}
+
+	/**
+	 * Resets all references to other model objects or collections of model objects.
+	 *
+	 * This method is a user-space workaround for PHP's inability to garbage collect
+	 * objects with circular references (even in PHP 5.3). This is currently necessary
+	 * when using Propel in certain daemon or large-volumne/high-memory operations.
+	 *
+	 * @param      boolean $deep Whether to also clear the references on all referrer objects.
+	 */
+	public function clearAllReferences($deep = false)
+	{
+		if ($deep) {
+		} // if ($deep)
+
+	}
+
+	/**
+	 * Return the string representation of this object
+	 *
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return (string) $this->exportTo(AuthenticationSourcePeer::DEFAULT_STRING_FORMAT);
 	}
 
 } // BaseAuthenticationSource

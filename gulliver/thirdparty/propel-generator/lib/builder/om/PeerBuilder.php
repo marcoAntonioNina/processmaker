@@ -55,6 +55,9 @@ abstract class PeerBuilder extends OMBuilder
 		$this->addDoSelect($script);
 		$this->addDoSelectStmt($script);	 // <-- there's PDO code in here
 
+        //Add
+        $this->addDoSelectRS($script);
+
 		$this->addAddInstanceToPool($script);
 		$this->addRemoveInstanceFromPool($script);
 		$this->addGetInstanceFromPool($script);
@@ -65,7 +68,6 @@ abstract class PeerBuilder extends OMBuilder
 		$this->addGetPrimaryKeyFromRow($script);
 		$this->addPopulateObjects($script); // <-- there's PDO code in here
 		$this->addPopulateObject($script);
-
 	}
 
 	/**

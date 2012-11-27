@@ -46,6 +46,7 @@ class PHP5NodePeerBuilder extends PeerBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+        //$script .=" //PHP5NodePeerBuilder.php ";
 	} // addIncludes()
 
 	/**

@@ -37,6 +37,7 @@ class PHP5ExtensionObjectBuilder extends ObjectBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+        //$script .=" //PHP5ExtensionObjectBuilder.php";
 		switch($this->getTable()->treeMode()) {
 			case 'NestedSet':
 				$requiredClassFilePath = $this->getNestedSetBuilder()->getClassFilePath();
@@ -76,7 +77,9 @@ require '".$requiredClassFilePath."';
 				$baseClassname = $this->getObjectBuilder()->getClassname();
 			break;
 		}
-
+        $script .="require_once 'classes/model/".$this->getTablePhpName()."Peer.php';";
+        echo "require_once 'classes/model/".$this->getTablePhpName()."Peer.php';";
+        die();
 		$script .= "
 
 /**

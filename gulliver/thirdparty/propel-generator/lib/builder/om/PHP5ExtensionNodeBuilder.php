@@ -37,6 +37,7 @@ class PHP5ExtensionNodeBuilder extends ObjectBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+		//$script .=" //PHP5ExtensionNodeBuilder.php";
 		$script .= "
 require '".$this->getNodeBuilder()->getClassFilePath()."';
 ";

@@ -1,16 +1,12 @@
 <?php
 
-require_once 'propel/util/BasePeer.php';
-// The object class -- needed for instanceof checks in this class.
-// actual class may be a subclass -- as returned by SystemsPeer::getOMClass()
-include_once 'classes/model/Systems.php';
-
+require_once 'classes/model/map/SystemsTableMap.php';
 /**
  * Base static class for performing query and update operations on the 'SYSTEMS' table.
  *
  * 
  *
- * @package  rbac-classes-model
+ * @package    propel.generator.classes.model.om
  */
 abstract class BaseSystemsPeer {
 
@@ -20,8 +16,14 @@ abstract class BaseSystemsPeer {
 	/** the table name for this class */
 	const TABLE_NAME = 'SYSTEMS';
 
+	/** the related Propel class for this table */
+	const OM_CLASS = 'Systems';
+
 	/** A class that can be returned by this peer. */
 	const CLASS_DEFAULT = 'classes.model.Systems';
+
+	/** the related TableMap class for this table */
+	const TM_CLASS = 'SystemsTableMap';
 
 	/** The total number of columns. */
 	const NUM_COLUMNS = 5;
@@ -29,6 +31,8 @@ abstract class BaseSystemsPeer {
 	/** The number of lazy-loaded columns. */
 	const NUM_LAZY_LOAD_COLUMNS = 0;
 
+	/** The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS) */
+	const NUM_HYDRATE_COLUMNS = 5;
 
 	/** the column name for the SYS_UID field */
 	const SYS_UID = 'SYSTEMS.SYS_UID';
@@ -45,8 +49,16 @@ abstract class BaseSystemsPeer {
 	/** the column name for the SYS_STATUS field */
 	const SYS_STATUS = 'SYSTEMS.SYS_STATUS';
 
-	/** The PHP to DB Name Mapping */
-	private static $phpNameMap = null;
+	/** The default string format for model objects of the related table **/
+	const DEFAULT_STRING_FORMAT = 'YAML';
+
+	/**
+	 * An identiy map to hold any loaded instances of Systems objects.
+	 * This must be public so that other peer classes can access this when hydrating from JOIN
+	 * queries.
+	 * @var        array Systems[]
+	 */
+	public static $instances = array();
 
 
 	/**
@@ -55,9 +67,11 @@ abstract class BaseSystemsPeer {
 	 * first dimension keys are the type constants
 	 * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
 	 */
-	private static $fieldNames = array (
+	protected static $fieldNames = array (
 		BasePeer::TYPE_PHPNAME => array ('SysUid', 'SysCode', 'SysCreateDate', 'SysUpdateDate', 'SysStatus', ),
-		BasePeer::TYPE_COLNAME => array (SystemsPeer::SYS_UID, SystemsPeer::SYS_CODE, SystemsPeer::SYS_CREATE_DATE, SystemsPeer::SYS_UPDATE_DATE, SystemsPeer::SYS_STATUS, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('sysUid', 'sysCode', 'sysCreateDate', 'sysUpdateDate', 'sysStatus', ),
+		BasePeer::TYPE_COLNAME => array (self::SYS_UID, self::SYS_CODE, self::SYS_CREATE_DATE, self::SYS_UPDATE_DATE, self::SYS_STATUS, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('SYS_UID', 'SYS_CODE', 'SYS_CREATE_DATE', 'SYS_UPDATE_DATE', 'SYS_STATUS', ),
 		BasePeer::TYPE_FIELDNAME => array ('SYS_UID', 'SYS_CODE', 'SYS_CREATE_DATE', 'SYS_UPDATE_DATE', 'SYS_STATUS', ),
 		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, )
 	);
@@ -68,52 +82,24 @@ abstract class BaseSystemsPeer {
 	 * first dimension keys are the type constants
 	 * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
 	 */
-	private static $fieldKeys = array (
+	protected static $fieldKeys = array (
 		BasePeer::TYPE_PHPNAME => array ('SysUid' => 0, 'SysCode' => 1, 'SysCreateDate' => 2, 'SysUpdateDate' => 3, 'SysStatus' => 4, ),
-		BasePeer::TYPE_COLNAME => array (SystemsPeer::SYS_UID => 0, SystemsPeer::SYS_CODE => 1, SystemsPeer::SYS_CREATE_DATE => 2, SystemsPeer::SYS_UPDATE_DATE => 3, SystemsPeer::SYS_STATUS => 4, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('sysUid' => 0, 'sysCode' => 1, 'sysCreateDate' => 2, 'sysUpdateDate' => 3, 'sysStatus' => 4, ),
+		BasePeer::TYPE_COLNAME => array (self::SYS_UID => 0, self::SYS_CODE => 1, self::SYS_CREATE_DATE => 2, self::SYS_UPDATE_DATE => 3, self::SYS_STATUS => 4, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('SYS_UID' => 0, 'SYS_CODE' => 1, 'SYS_CREATE_DATE' => 2, 'SYS_UPDATE_DATE' => 3, 'SYS_STATUS' => 4, ),
 		BasePeer::TYPE_FIELDNAME => array ('SYS_UID' => 0, 'SYS_CODE' => 1, 'SYS_CREATE_DATE' => 2, 'SYS_UPDATE_DATE' => 3, 'SYS_STATUS' => 4, ),
 		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, )
 	);
 
 	/**
-	 * @return     MapBuilder the map builder for this peer
-	 * @throws     PropelException Any exceptions caught during processing will be
-	 *		 rethrown wrapped into a PropelException.
-	 */
-	public static function getMapBuilder()
-	{
-		include_once 'classes/model/map/SystemsMapBuilder.php';
-		return BasePeer::getMapBuilder('classes.model.map.SystemsMapBuilder');
-	}
-	/**
-	 * Gets a map (hash) of PHP names to DB column names.
-	 *
-	 * @return     array The PHP to DB name map for this peer
-	 * @throws     PropelException Any exceptions caught during processing will be
-	 *		 rethrown wrapped into a PropelException.
-	 * @deprecated Use the getFieldNames() and translateFieldName() methods instead of this.
-	 */
-	public static function getPhpNameMap()
-	{
-		if (self::$phpNameMap === null) {
-			$map = SystemsPeer::getTableMap();
-			$columns = $map->getColumns();
-			$nameMap = array();
-			foreach ($columns as $column) {
-				$nameMap[$column->getPhpName()] = $column->getColumnName();
-			}
-			self::$phpNameMap = $nameMap;
-		}
-		return self::$phpNameMap;
-	}
-	/**
 	 * Translates a fieldname to another type
 	 *
 	 * @param      string $name field name
-	 * @param      string $fromType One of the class type constants TYPE_PHPNAME,
-	 *                         TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 * @param      string $fromType One of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                         BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @param      string $toType   One of the class type constants
 	 * @return     string translated name of the field.
+	 * @throws     PropelException - if the specified name could not be found in the fieldname mappings.
 	 */
 	static public function translateFieldName($name, $fromType, $toType)
 	{
@@ -126,18 +112,18 @@ abstract class BaseSystemsPeer {
 	}
 
 	/**
-	 * Returns an array of of field names.
+	 * Returns an array of field names.
 	 *
 	 * @param      string $type The type of fieldnames to return:
-	 *                      One of the class type constants TYPE_PHPNAME,
-	 *                      TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM
+	 *                      One of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+	 *                      BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM
 	 * @return     array A list of field names
 	 */
 
 	static public function getFieldNames($type = BasePeer::TYPE_PHPNAME)
 	{
 		if (!array_key_exists($type, self::$fieldNames)) {
-			throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants TYPE_PHPNAME, TYPE_COLNAME, TYPE_FIELDNAME, TYPE_NUM. ' . $type . ' was given.');
+			throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME, BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM. ' . $type . ' was given.');
 		}
 		return self::$fieldNames[$type];
 	}
@@ -166,73 +152,81 @@ abstract class BaseSystemsPeer {
 	 * XML schema will not be added to the select list and only loaded
 	 * on demand.
 	 *
-	 * @param      criteria object containing the columns to add.
+	 * @param      Criteria $criteria object containing the columns to add.
+	 * @param      string   $alias    optional table alias
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function addSelectColumns(Criteria $criteria)
+	public static function addSelectColumns(Criteria $criteria, $alias = null)
 	{
-
-		$criteria->addSelectColumn(SystemsPeer::SYS_UID);
-
-		$criteria->addSelectColumn(SystemsPeer::SYS_CODE);
-
-		$criteria->addSelectColumn(SystemsPeer::SYS_CREATE_DATE);
-
-		$criteria->addSelectColumn(SystemsPeer::SYS_UPDATE_DATE);
-
-		$criteria->addSelectColumn(SystemsPeer::SYS_STATUS);
-
+		if (null === $alias) {
+			$criteria->addSelectColumn(SystemsPeer::SYS_UID);
+			$criteria->addSelectColumn(SystemsPeer::SYS_CODE);
+			$criteria->addSelectColumn(SystemsPeer::SYS_CREATE_DATE);
+			$criteria->addSelectColumn(SystemsPeer::SYS_UPDATE_DATE);
+			$criteria->addSelectColumn(SystemsPeer::SYS_STATUS);
+		} else {
+			$criteria->addSelectColumn($alias . '.SYS_UID');
+			$criteria->addSelectColumn($alias . '.SYS_CODE');
+			$criteria->addSelectColumn($alias . '.SYS_CREATE_DATE');
+			$criteria->addSelectColumn($alias . '.SYS_UPDATE_DATE');
+			$criteria->addSelectColumn($alias . '.SYS_STATUS');
+		}
 	}
-
-	const COUNT = 'COUNT(SYSTEMS.SYS_UID)';
-	const COUNT_DISTINCT = 'COUNT(DISTINCT SYSTEMS.SYS_UID)';
 
 	/**
 	 * Returns the number of rows matching criteria.
 	 *
 	 * @param      Criteria $criteria
-	 * @param      boolean $distinct Whether to select only distinct columns (You can also set DISTINCT modifier in Criteria).
-	 * @param      Connection $con
+	 * @param      boolean $distinct Whether to select only distinct columns; deprecated: use Criteria->setDistinct() instead.
+	 * @param      PropelPDO $con
 	 * @return     int Number of matching rows.
 	 */
-	public static function doCount(Criteria $criteria, $distinct = false, $con = null)
+	public static function doCount(Criteria $criteria, $distinct = false, PropelPDO $con = null)
 	{
-		// we're going to modify criteria, so copy it first
+		// we may modify criteria, so copy it first
 		$criteria = clone $criteria;
 
-		// clear out anything that might confuse the ORDER BY clause
-		$criteria->clearSelectColumns()->clearOrderByColumns();
-		if ($distinct || in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
-			$criteria->addSelectColumn(SystemsPeer::COUNT_DISTINCT);
-		} else {
-			$criteria->addSelectColumn(SystemsPeer::COUNT);
+		// We need to set the primary table name, since in the case that there are no WHERE columns
+		// it will be impossible for the BasePeer::createSelectSql() method to determine which
+		// tables go into the FROM clause.
+		$criteria->setPrimaryTableName(SystemsPeer::TABLE_NAME);
+
+		if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
+			$criteria->setDistinct();
 		}
 
-		// just in case we're grouping: add those columns to the select statement
-		foreach($criteria->getGroupByColumns() as $column)
-		{
-			$criteria->addSelectColumn($column);
+		if (!$criteria->hasSelectClause()) {
+			SystemsPeer::addSelectColumns($criteria);
 		}
 
-		$rs = SystemsPeer::doSelectRS($criteria, $con);
-		if ($rs->next()) {
-			return $rs->getInt(1);
-		} else {
-			// no rows returned; we infer that means 0 matches.
-			return 0;
+		$criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
+		$criteria->setDbName(self::DATABASE_NAME); // Set the correct dbName
+
+		if ($con === null) {
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
+		// BasePeer returns a PDOStatement
+		$stmt = BasePeer::doCount($criteria, $con);
+
+		if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+			$count = (int) $row[0];
+		} else {
+			$count = 0; // no rows returned; we infer that means 0 matches.
+		}
+		$stmt->closeCursor();
+		return $count;
 	}
 	/**
-	 * Method to select one object from the DB.
+	 * Selects one object from the DB.
 	 *
 	 * @param      Criteria $criteria object used to create the SELECT statement.
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     Systems
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function doSelectOne(Criteria $criteria, $con = null)
+	public static function doSelectOne(Criteria $criteria, PropelPDO $con = null)
 	{
 		$critcopy = clone $criteria;
 		$critcopy->setLimit(1);
@@ -243,39 +237,38 @@ abstract class BaseSystemsPeer {
 		return null;
 	}
 	/**
-	 * Method to do selects.
+	 * Selects several row from the DB.
 	 *
 	 * @param      Criteria $criteria The Criteria object used to build the SELECT statement.
-	 * @param      Connection $con
+	 * @param      PropelPDO $con
 	 * @return     array Array of selected Objects
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function doSelect(Criteria $criteria, $con = null)
+	public static function doSelect(Criteria $criteria, PropelPDO $con = null)
 	{
-		return SystemsPeer::populateObjects(SystemsPeer::doSelectRS($criteria, $con));
+		return SystemsPeer::populateObjects(SystemsPeer::doSelectStmt($criteria, $con));
 	}
 	/**
-	 * Prepares the Criteria object and uses the parent doSelect()
-	 * method to get a ResultSet.
+	 * Prepares the Criteria object and uses the parent doSelect() method to execute a PDOStatement.
 	 *
-	 * Use this method directly if you want to just get the resultset
-	 * (instead of an array of objects).
+	 * Use this method directly if you want to work with an executed statement durirectly (for example
+	 * to perform your own object hydration).
 	 *
 	 * @param      Criteria $criteria The Criteria object used to build the SELECT statement.
-	 * @param      Connection $con the connection to use
+	 * @param      PropelPDO $con The connection to use
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
-	 * @return     ResultSet The resultset object with numerically-indexed fields.
+	 * @return     PDOStatement The executed PDOStatement object.
 	 * @see        BasePeer::doSelect()
 	 */
-	public static function doSelectRS(Criteria $criteria, $con = null)
+	public static function doSelectStmt(Criteria $criteria, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
-		if (!$criteria->getSelectColumns()) {
+		if (!$criteria->hasSelectClause()) {
 			$criteria = clone $criteria;
 			SystemsPeer::addSelectColumns($criteria);
 		}
@@ -283,10 +276,129 @@ abstract class BaseSystemsPeer {
 		// Set the correct dbName
 		$criteria->setDbName(self::DATABASE_NAME);
 
-		// BasePeer returns a Creole ResultSet, set to return
-		// rows indexed numerically.
+		// BasePeer returns a PDOStatement
 		return BasePeer::doSelect($criteria, $con);
 	}
+	/**
+	 * Adds an object to the instance pool.
+	 *
+	 * Propel keeps cached copies of objects in an instance pool when they are retrieved
+	 * from the database.  In some cases -- especially when you override doSelect*()
+	 * methods in your stub classes -- you may need to explicitly add objects
+	 * to the cache in order to ensure that the same objects are always returned by doSelect*()
+	 * and retrieveByPK*() calls.
+	 *
+	 * @param      Systems $value A Systems object.
+	 * @param      string $key (optional) key to use for instance map (for performance boost if key was already calculated externally).
+	 */
+	public static function addInstanceToPool($obj, $key = null)
+	{
+		if (Propel::isInstancePoolingEnabled()) {
+			if ($key === null) {
+				$key = (string) $obj->getSysUid();
+			} // if key === null
+			self::$instances[$key] = $obj;
+		}
+	}
+
+	/**
+	 * Removes an object from the instance pool.
+	 *
+	 * Propel keeps cached copies of objects in an instance pool when they are retrieved
+	 * from the database.  In some cases -- especially when you override doDelete
+	 * methods in your stub classes -- you may need to explicitly remove objects
+	 * from the cache in order to prevent returning objects that no longer exist.
+	 *
+	 * @param      mixed $value A Systems object or a primary key value.
+	 */
+	public static function removeInstanceFromPool($value)
+	{
+		if (Propel::isInstancePoolingEnabled() && $value !== null) {
+			if (is_object($value) && $value instanceof Systems) {
+				$key = (string) $value->getSysUid();
+			} elseif (is_scalar($value)) {
+				// assume we've been passed a primary key
+				$key = (string) $value;
+			} else {
+				$e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or Systems object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
+				throw $e;
+			}
+
+			unset(self::$instances[$key]);
+		}
+	} // removeInstanceFromPool()
+
+	/**
+	 * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
+	 *
+	 * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+	 * a multi-column primary key, a serialize()d version of the primary key will be returned.
+	 *
+	 * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
+	 * @return     Systems Found object or NULL if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+	 * @see        getPrimaryKeyHash()
+	 */
+	public static function getInstanceFromPool($key)
+	{
+		if (Propel::isInstancePoolingEnabled()) {
+			if (isset(self::$instances[$key])) {
+				return self::$instances[$key];
+			}
+		}
+		return null; // just to be explicit
+	}
+	
+	/**
+	 * Clear the instance pool.
+	 *
+	 * @return     void
+	 */
+	public static function clearInstancePool()
+	{
+		self::$instances = array();
+	}
+	
+	/**
+	 * Method to invalidate the instance pool of all tables related to SYSTEMS
+	 * by a foreign key with ON DELETE CASCADE
+	 */
+	public static function clearRelatedInstancePool()
+	{
+	}
+
+	/**
+	 * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
+	 *
+	 * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+	 * a multi-column primary key, a serialize()d version of the primary key will be returned.
+	 *
+	 * @param      array $row PropelPDO resultset row.
+	 * @param      int $startcol The 0-based offset for reading from the resultset row.
+	 * @return     string A string version of PK or NULL if the components of primary key in result array are all null.
+	 */
+	public static function getPrimaryKeyHashFromRow($row, $startcol = 0)
+	{
+		// If the PK cannot be derived from the row, return NULL.
+		if ($row[$startcol] === null) {
+			return null;
+		}
+		return (string) $row[$startcol];
+	}
+
+	/**
+	 * Retrieves the primary key from the DB resultset row
+	 * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+	 * a multi-column primary key, an array of the primary key columns will be returned.
+	 *
+	 * @param      array $row PropelPDO resultset row.
+	 * @param      int $startcol The 0-based offset for reading from the resultset row.
+	 * @return     mixed The primary key of the row
+	 */
+	public static function getPrimaryKeyFromRow($row, $startcol = 0)
+	{
+		return (string) $row[$startcol];
+	}
+	
 	/**
 	 * The returned array will contain objects of the default type or
 	 * objects that inherit from the default.
@@ -294,23 +406,56 @@ abstract class BaseSystemsPeer {
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function populateObjects(ResultSet $rs)
+	public static function populateObjects(PDOStatement $stmt)
 	{
 		$results = array();
 	
 		// set the class once to avoid overhead in the loop
-		$cls = SystemsPeer::getOMClass();
-		$cls = Propel::import($cls);
+		$cls = SystemsPeer::getOMClass(false);
 		// populate the object(s)
-		while($rs->next()) {
-		
-			$obj = new $cls();
-			$obj->hydrate($rs);
-			$results[] = $obj;
-			
+		while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+			$key = SystemsPeer::getPrimaryKeyHashFromRow($row, 0);
+			if (null !== ($obj = SystemsPeer::getInstanceFromPool($key))) {
+				// We no longer rehydrate the object, since this can cause data loss.
+				// See http://www.propelorm.org/ticket/509
+				// $obj->hydrate($row, 0, true); // rehydrate
+				$results[] = $obj;
+			} else {
+				$obj = new $cls();
+				$obj->hydrate($row);
+				$results[] = $obj;
+				SystemsPeer::addInstanceToPool($obj, $key);
+			} // if key exists
 		}
+		$stmt->closeCursor();
 		return $results;
 	}
+	/**
+	 * Populates an object of the default type or an object that inherit from the default.
+	 *
+	 * @param      array $row PropelPDO resultset row.
+	 * @param      int $startcol The 0-based offset for reading from the resultset row.
+	 * @throws     PropelException Any exceptions caught during processing will be
+	 *		 rethrown wrapped into a PropelException.
+	 * @return     array (Systems object, last column rank)
+	 */
+	public static function populateObject($row, $startcol = 0)
+	{
+		$key = SystemsPeer::getPrimaryKeyHashFromRow($row, $startcol);
+		if (null !== ($obj = SystemsPeer::getInstanceFromPool($key))) {
+			// We no longer rehydrate the object, since this can cause data loss.
+			// See http://www.propelorm.org/ticket/509
+			// $obj->hydrate($row, $startcol, true); // rehydrate
+			$col = $startcol + SystemsPeer::NUM_HYDRATE_COLUMNS;
+		} else {
+			$cls = SystemsPeer::OM_CLASS;
+			$obj = new $cls();
+			$col = $obj->hydrate($row, $startcol);
+			SystemsPeer::addInstanceToPool($obj, $key);
+		}
+		return array($obj, $col);
+	}
+
 	/**
 	 * Returns the TableMap related to this peer.
 	 * This method is not needed for general use but a specific application could have a need.
@@ -324,32 +469,46 @@ abstract class BaseSystemsPeer {
 	}
 
 	/**
-	 * The class that the Peer will make instances of.
-	 *
-	 * This uses a dot-path notation which is tranalted into a path
-	 * relative to a location on the PHP include_path.
-	 * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
-	 *
-	 * @return     string path.to.ClassName
+	 * Add a TableMap instance to the database for this peer class.
 	 */
-	public static function getOMClass()
+	public static function buildTableMap()
 	{
-		return SystemsPeer::CLASS_DEFAULT;
+	  $dbMap = Propel::getDatabaseMap(BaseSystemsPeer::DATABASE_NAME);
+	  if (!$dbMap->hasTable(BaseSystemsPeer::TABLE_NAME))
+	  {
+	    $dbMap->addTableObject(new SystemsTableMap());
+	  }
 	}
 
 	/**
-	 * Method perform an INSERT on the database, given a Systems or Criteria object.
+	 * The class that the Peer will make instances of.
+	 *
+	 * If $withPrefix is true, the returned path
+	 * uses a dot-path notation which is tranalted into a path
+	 * relative to a location on the PHP include_path.
+	 * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
+	 *
+	 * @param      boolean $withPrefix Whether or not to return the path with the class name
+	 * @return     string path.to.ClassName
+	 */
+	public static function getOMClass($withPrefix = true)
+	{
+		return $withPrefix ? SystemsPeer::CLASS_DEFAULT : SystemsPeer::OM_CLASS;
+	}
+
+	/**
+	 * Performs an INSERT on the database, given a Systems or Criteria object.
 	 *
 	 * @param      mixed $values Criteria or Systems object containing data that is used to create the INSERT statement.
-	 * @param      Connection $con the connection to use
+	 * @param      PropelPDO $con the PropelPDO connection to use
 	 * @return     mixed The new primary key.
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function doInsert($values, $con = null)
+	public static function doInsert($values, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		if ($values instanceof Criteria) {
@@ -365,11 +524,11 @@ abstract class BaseSystemsPeer {
 		try {
 			// use transaction because $criteria could contain info
 			// for more than one table (I guess, conceivably)
-			$con->begin();
+			$con->beginTransaction();
 			$pk = BasePeer::doInsert($criteria, $con);
 			$con->commit();
 		} catch(PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 
@@ -377,18 +536,18 @@ abstract class BaseSystemsPeer {
 	}
 
 	/**
-	 * Method perform an UPDATE on the database, given a Systems or Criteria object.
+	 * Performs an UPDATE on the database, given a Systems or Criteria object.
 	 *
 	 * @param      mixed $values Criteria or Systems object containing data that is used to create the UPDATE statement.
-	 * @param      Connection $con The connection to use (specify Connection object to exert more control over transactions).
+	 * @param      PropelPDO $con The connection to use (specify PropelPDO connection object to exert more control over transactions).
 	 * @return     int The number of affected rows (if supported by underlying database driver).
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function doUpdate($values, $con = null)
+	public static function doUpdate($values, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		$selectCriteria = new Criteria(self::DATABASE_NAME);
@@ -397,7 +556,12 @@ abstract class BaseSystemsPeer {
 			$criteria = clone $values; // rename for clarity
 
 			$comparison = $criteria->getComparison(SystemsPeer::SYS_UID);
-			$selectCriteria->add(SystemsPeer::SYS_UID, $criteria->remove(SystemsPeer::SYS_UID), $comparison);
+			$value = $criteria->remove(SystemsPeer::SYS_UID);
+			if ($value) {
+				$selectCriteria->add(SystemsPeer::SYS_UID, $value, $comparison);
+			} else {
+				$selectCriteria->setPrimaryTableName(SystemsPeer::TABLE_NAME);
+			}
 
 		} else { // $values is Systems object
 			$criteria = $values->buildCriteria(); // gets full criteria
@@ -411,55 +575,71 @@ abstract class BaseSystemsPeer {
 	}
 
 	/**
-	 * Method to DELETE all rows from the SYSTEMS table.
+	 * Deletes all rows from the SYSTEMS table.
 	 *
+	 * @param      PropelPDO $con the connection to use
 	 * @return     int The number of affected rows (if supported by underlying database driver).
 	 */
-	public static function doDeleteAll($con = null)
+	public static function doDeleteAll(PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		$affectedRows = 0; // initialize var to track total num of affected rows
 		try {
 			// use transaction because $criteria could contain info
 			// for more than one table or we could emulating ON DELETE CASCADE, etc.
-			$con->begin();
-			$affectedRows += BasePeer::doDeleteAll(SystemsPeer::TABLE_NAME, $con);
+			$con->beginTransaction();
+			$affectedRows += BasePeer::doDeleteAll(SystemsPeer::TABLE_NAME, $con, SystemsPeer::DATABASE_NAME);
+			// Because this db requires some delete cascade/set null emulation, we have to
+			// clear the cached instance *after* the emulation has happened (since
+			// instances get re-added by the select statement contained therein).
+			SystemsPeer::clearInstancePool();
+			SystemsPeer::clearRelatedInstancePool();
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
 
 	/**
-	 * Method perform a DELETE on the database, given a Systems or Criteria object OR a primary key value.
+	 * Performs a DELETE on the database, given a Systems or Criteria object OR a primary key value.
 	 *
 	 * @param      mixed $values Criteria or Systems object or primary key or array of primary keys
 	 *              which is used to create the DELETE statement
-	 * @param      Connection $con the connection to use
+	 * @param      PropelPDO $con the connection to use
 	 * @return     int 	The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
 	 *				if supported by native driver or if emulated using Propel.
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	 public static function doDelete($values, $con = null)
+	 public static function doDelete($values, PropelPDO $con = null)
 	 {
 		if ($con === null) {
-			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		if ($values instanceof Criteria) {
-			$criteria = clone $values; // rename for clarity
-		} elseif ($values instanceof Systems) {
-
+			// invalidate the cache for all objects of this type, since we have no
+			// way of knowing (without running a query) what objects should be invalidated
+			// from the cache based on this Criteria.
+			SystemsPeer::clearInstancePool();
+			// rename for clarity
+			$criteria = clone $values;
+		} elseif ($values instanceof Systems) { // it's a model object
+			// invalidate the cache for this single object
+			SystemsPeer::removeInstanceFromPool($values);
+			// create criteria based on pk values
 			$criteria = $values->buildPkeyCriteria();
-		} else {
-			// it must be the primary key
+		} else { // it's a primary key, or an array of pks
 			$criteria = new Criteria(self::DATABASE_NAME);
 			$criteria->add(SystemsPeer::SYS_UID, (array) $values, Criteria::IN);
+			// invalidate the cache for this object(s)
+			foreach ((array) $values as $singleval) {
+				SystemsPeer::removeInstanceFromPool($singleval);
+			}
 		}
 
 		// Set the correct dbName
@@ -470,13 +650,14 @@ abstract class BaseSystemsPeer {
 		try {
 			// use transaction because $criteria could contain info
 			// for more than one table or we could emulating ON DELETE CASCADE, etc.
-			$con->begin();
+			$con->beginTransaction();
 			
 			$affectedRows += BasePeer::doDelete($criteria, $con);
+			SystemsPeer::clearRelatedInstancePool();
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
-			$con->rollback();
+			$con->rollBack();
 			throw $e;
 		}
 	}
@@ -493,7 +674,7 @@ abstract class BaseSystemsPeer {
 	 *
 	 * @return     mixed TRUE if all columns are valid or the error message of the first invalid column.
 	 */
-	public static function doValidate(Systems $obj, $cols = null)
+	public static function doValidate($obj, $cols = null)
 	{
 		$columns = array();
 
@@ -505,7 +686,7 @@ abstract class BaseSystemsPeer {
 				$cols = array($cols);
 			}
 
-			foreach($cols as $colName) {
+			foreach ($cols as $colName) {
 				if ($tableMap->containsColumn($colName)) {
 					$get = 'get' . $tableMap->getColumn($colName)->getPhpName();
 					$columns[$colName] = $obj->$get();
@@ -521,20 +702,23 @@ abstract class BaseSystemsPeer {
 	/**
 	 * Retrieve a single object by pkey.
 	 *
-	 * @param      mixed $pk the primary key.
-	 * @param      Connection $con the connection to use
+	 * @param      string $pk the primary key.
+	 * @param      PropelPDO $con the connection to use
 	 * @return     Systems
 	 */
-	public static function retrieveByPK($pk, $con = null)
+	public static function retrieveByPK($pk, PropelPDO $con = null)
 	{
+
+		if (null !== ($obj = SystemsPeer::getInstanceFromPool((string) $pk))) {
+			return $obj;
+		}
+
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		$criteria = new Criteria(SystemsPeer::DATABASE_NAME);
-
 		$criteria->add(SystemsPeer::SYS_UID, $pk);
-
 
 		$v = SystemsPeer::doSelect($criteria, $con);
 
@@ -545,21 +729,21 @@ abstract class BaseSystemsPeer {
 	 * Retrieve multiple objects by pkey.
 	 *
 	 * @param      array $pks List of primary keys
-	 * @param      Connection $con the connection to use
+	 * @param      PropelPDO $con the connection to use
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
-	public static function retrieveByPKs($pks, $con = null)
+	public static function retrieveByPKs($pks, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(self::DATABASE_NAME);
+			$con = Propel::getConnection(SystemsPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		$objs = null;
 		if (empty($pks)) {
 			$objs = array();
 		} else {
-			$criteria = new Criteria();
+			$criteria = new Criteria(SystemsPeer::DATABASE_NAME);
 			$criteria->add(SystemsPeer::SYS_UID, $pks, Criteria::IN);
 			$objs = SystemsPeer::doSelect($criteria, $con);
 		}
@@ -568,18 +752,7 @@ abstract class BaseSystemsPeer {
 
 } // BaseSystemsPeer
 
-// static code to register the map builder for this Peer with the main Propel class
-if (Propel::isInit()) {
-	// the MapBuilder classes register themselves with Propel during initialization
-	// so we need to load them here.
-	try {
-		BaseSystemsPeer::getMapBuilder();
-	} catch (Exception $e) {
-		Propel::log('Could not initialize Peer: ' . $e->getMessage(), Propel::LOG_ERR);
-	}
-} else {
-	// even if Propel is not yet initialized, the map builder class can be registered
-	// now and then it will be loaded when Propel initializes.
-	require_once 'classes/model/map/SystemsMapBuilder.php';
-	Propel::registerMapBuilder('classes.model.map.SystemsMapBuilder');
-}
+// This is the static code needed to register the TableMap for this table with the main Propel class.
+//
+BaseSystemsPeer::buildTableMap();
+

@@ -921,4 +921,4 @@ class Propel
 
 // Since the Propel class is not a true singleton, this code cannot go into the __construct()
 Propel::initBaseDir();
-spl_autoload_register(array('Propel', 'autoload'));
+spl_autoload_register(array("Propel", "autoload"));

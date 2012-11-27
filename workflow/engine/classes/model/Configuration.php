@@ -25,8 +25,13 @@
  */
 
 require_once 'classes/model/om/BaseConfiguration.php';
-require_once 'classes/model/Content.php';
+require_once 'classes/model/map/ConfigurationTableMap.php';
+require_once 'classes/model/ConfigurationPeer.php';
 
+//require_once 'propel/om/BaseObject.php';
+//require_once 'propel/om/Persistent.php';
+//
+require_once 'classes/model/Content.php';
 
 /**
  * Skeleton subclass for representing a row from the 'CONFIGURATION' table.
@@ -69,11 +74,16 @@ class Configuration extends BaseConfiguration
     public function load($CfgUid, $ObjUid = '', $ProUid = '', $UsrUid = '', $AppUid = '')
     {
         try {
+            //print_r(debug_backTrace());
+            //die();
             $oRow = ConfigurationPeer::retrieveByPK( $CfgUid, $ObjUid, $ProUid, $UsrUid, $AppUid );
+            
+            //print_r($oRow);
             if (!is_null($oRow)) {
                 $aFields = $oRow->toArray(BasePeer::TYPE_FIELDNAME);
                 $this->fromArray($aFields,BasePeer::TYPE_FIELDNAME);
                 $this->setNew(false);
+                //print_r($aFields);
                 return $aFields;
             } else {
                 throw(new Exception( "The row '$CfgUid, $ObjUid, $ProUid, $UsrUid, $AppUid' in table Configuration doesn't exist!" ));

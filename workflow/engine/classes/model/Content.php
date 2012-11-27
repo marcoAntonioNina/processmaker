@@ -26,7 +26,8 @@
  */
 
 require_once 'classes/model/om/BaseContent.php';
-
+//file required
+require_once 'classes/model/ContentPeer.php';
 /**
  * Skeleton subclass for representing a row from the 'CONTENT' table.
  *

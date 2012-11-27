@@ -57,6 +57,7 @@ class QueryBuilder extends OMBuilder
      */
     protected function addIncludes(&$script)
     {
+        //$script .="//QueryBuilder.php";
     }
 
     /**

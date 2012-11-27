@@ -38,12 +38,13 @@
  */
 class AlternativeCodingStandardsBehavior extends Behavior
 {
+    echo "aqui...";die();
 	// default parameters value
   protected $parameters = array(
   	'brackets_newline'        => 'true',
   	'remove_closing_comments' => 'true',
   	'use_whitespace'          => 'true',
-  	'tab_size'                => 2,
+  	'tab_size'                => 4,
   	'strip_comments'          => 'false'
   );
 

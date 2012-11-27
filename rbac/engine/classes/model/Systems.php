@@ -28,7 +28,10 @@
   */
 require_once 'classes/model/om/BaseSystems.php';
 
+//Files required
 
+  require_once 'classes/model/SystemsPeer.php';
+  require_once 'classes/model/map/SystemsTableMap.php';
 /**
  * Skeleton subclass for representing a row from the 'SYSTEMS' table.
  *

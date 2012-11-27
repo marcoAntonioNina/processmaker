@@ -1,6 +1,12 @@
 <?php
 
 
+require_once 'propel/om/BaseObject.php';
+require_once 'propel/om/Persistent.php';
+
+include_once 'propel/query/Criteria.php';
+include_once 'classes/model/AdditionalTablesPeer.php';
+
 /**
  * Base class that represents a row from the 'ADDITIONAL_TABLES' table.
  *

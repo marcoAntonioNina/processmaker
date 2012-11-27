@@ -98,14 +98,27 @@ class replacementLogo
         $oCriteria = new Criteria( 'workflow' );
         $oCriteria->addSelectColumn( ConfigurationPeer::CFG_VALUE );
         $oCriteria->add( ConfigurationPeer::CFG_UID, 'USER_LOGO_REPLACEMENT' );
-        $oDataset = ConfigurationPeer::doSelectRS( $oCriteria );
-        $oDataset->next();
-        $aRow = $oDataset->getRow();
-        if (isset( $aRow[0] )) {
-            $ainfoLogo = @unserialize( $aRow[0] );
-        } else {
-            $ainfoLogo = null;
+        $stmt = ConfigurationPeer::doSelectStmt( $oCriteria );
+
+        $ainfoLogo = null;
+
+        while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+            $ainfoLogo = @unserialize( $row[0] );
+            //$row = array_change_key_case($row);
+            //$conf = new Configuration();
+            //$conf->hydrate($row);
+            //$conf->setAuthorName($row['author_name']);
+            //$confs[] = $row;
         }
+
+        //$oDataset->next();
+        //$aRow = $oDataset->getRow();
+        //if (isset( $aRow[0] )) {
+        //    $ainfoLogo = @unserialize( $aRow[0] );
+        //} else {
+        //    $ainfoLogo = null;
+        //}
+        //print_r($ainfoLogo);
         return ($ainfoLogo);
     }
 }

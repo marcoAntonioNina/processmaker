@@ -37,6 +37,7 @@ class ExtensionQueryBuilder extends OMBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
+		//$script .=" //ExtensionQueryBuilder.php";
 		$requiredClassFilePath = $this->getQueryBuilder()->getClassFilePath();
 
 		$script .="

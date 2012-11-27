@@ -29,6 +29,14 @@
   */
 require_once 'classes/model/om/BaseUsersRoles.php';
 
+//files Required
+require_once 'classes/model/UsersRolesPeer.php';
+
+require_once 'classes/model/RolesPeer.php';
+require_once 'classes/model/RolesPermissionsPeer.php';
+require_once 'classes/model/PermissionsPeer.php';
+
+
 
 /**
  * Skeleton subclass for representing a row from the 'USERS_ROLES' table.
@@ -57,10 +65,13 @@ class UsersRoles extends BaseUsersRoles {
       $c->addJoin ( UsersRolesPeer::ROL_UID, RolesPeer::ROL_UID );
       $c->add ( UsersRolesPeer::USR_UID, $UsrUid );
       $c->add ( RolesPeer::ROL_SYSTEM, $SysUid );
-      $rs = UsersRolesPeer::doSelectRs( $c );
-      $rs->setFetchmode (ResultSet::FETCHMODE_ASSOC);
-      $rs->next();
-      $row = $rs->getRow();
+      //print_r($c);
+      $rs = UsersRolesPeer::doSelectStmt( $c );
+      //print_r($rs);die();
+      $row = $rs->fetch(PDO::FETCH_BOTH);
+      //$rs->setFetchmode (ResultSet::FETCHMODE_ASSOC);
+      //$rs->next();
+      //$row = $rs->getRow();
       /*  return only the first row, no other rows can be permitted
       while ( is_array ( $row ) ) {
         $rows[] = $row;
@@ -80,20 +91,25 @@ class UsersRoles extends BaseUsersRoles {
     $con = Propel::getConnection(RolesPermissionsPeer::DATABASE_NAME);
     try {
       $c = new Criteria( 'rbac' );
-//      $c->clearSelectColumns();
+      $c->clearSelectColumns();
       $c->addSelectColumn ( RolesPermissionsPeer::PER_UID );
       $c->addSelectColumn ( PermissionsPeer::PER_CODE );
       $c->addJoin ( RolesPermissionsPeer::PER_UID, PermissionsPeer::PER_UID );
       $c->add ( RolesPermissionsPeer::ROL_UID, $sRolUid);
-      $rs = RolesPermissionsPeer::doSelectRs( $c );
-      $rs->setFetchmode (ResultSet::FETCHMODE_ASSOC);
-      $rs->next();
-      $row = $rs->getRow();
+      $rs = RolesPermissionsPeer::doSelectStmt( $c );
+      //$rs->setFetchmode (ResultSet::FETCHMODE_ASSOC);
+      //$rs->next();
+      //$row = $rs->getRow();
       $rows = array();
-      while ( is_array ( $row ) ) {
-        $rows[] = $row;
-        $rs->next();
-        $row = $rs->getRow();
+      //while ( is_array ( $row ) ) {
+        //$rows[] = $row;
+        //$rs->next();
+        //$row = $rs->getRow();
+      //}
+      while ($row = $rs->fetch(PDO::FETCH_BOTH)) {
+            //change lowercase
+            //$row = array_change_key_case($row);
+            $rows[] = $row;
       }
       return $rows;
     }

@@ -37,7 +37,7 @@ class PHP5InterfaceBuilder extends ObjectBuilder
 	 */
 	protected function addIncludes(&$script)
 	{
-
+		//$script .=" //PHP5InterfaceBuilder.php";
 	} // addIncludes()
 
 	/**
