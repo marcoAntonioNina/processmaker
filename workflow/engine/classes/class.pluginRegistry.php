@@ -858,7 +858,9 @@ class PMPluginRegistry
      */
     public function getMenus ($menuId)
     {
+        //echo "<br> plugin <br>";
         foreach ($this->_aMenus as $row => $detail) {
+            //print_r($detail);
             if ($menuId == $detail->sMenuId && file_exists( $detail->sFilename )) {
                 include ($detail->sFilename);
             }

@@ -117,6 +117,7 @@ var naProcess = new input(getField('PRO_TITLE'));
 naProcess.passed();
 
 var verifyProcessInformation = function(oForm) {
+console.info("Entrandoo");
     if (validateNameProcess) {
         var oAux;
         var bContinue = true;

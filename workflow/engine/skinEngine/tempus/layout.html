@@ -1,0 +1,178 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {php} if ((int)$_SESSION['USER_LOGGED'] == 0) {{/php}
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>  <!--Message: To upgrade Internet Explorer Document Mode-->
+    <script type="text/javascript" src="/js/placeHolder.js"></script>
+    {php}}else{{/php}
+    <meta http-equiv="X-UA-Compatible" content="IE=7"/>
+    {php}}{/php}
+    {$header}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- For Opera -->
+    <link rel="icon" type="image/png" href="/images/tempus/favicon195.png">
+
+    <!-- For all Navigators -->
+    <link rel="shortcut icon" href="/images/tempus/favicon48.ico" type="image/x-icon"/>
+
+    <!-- For iPhone 4 Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/tempus/favicon114.png&rdquo;">
+    <!-- For iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/tempus/favicon72.png&rdquo;">
+</head>
+<body>
+
+{php}if ((int)$_SESSION['USER_LOGGED'] != 0) { {/php}
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" id="pm_main_table">
+    <tr>
+        <td valign="top">
+            <table id="headerLayout" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="219px"  valign="top"><img id="logo" src="{$logo_company}"><!--<div id="logo" class="logoLogin"></div>--></td>
+                <td align="left" valign="bottom">
+                    <div class="headerInfo"> <a href="../users/myInfo">{$userfullname}</a> |  {$udate}. 
+                        <!--<a class="tooltipPM" name="ProcessMaker Notifications"><span class="msgskin">{$msgVer}<span class="msgNumber">10</span></span></a>-->
+                        <a class="logoutLink" href="{$linklogout}" name="Logout System"></a>
+                    </div>
+                    <div id="mainMenuDrop">
+                        <ul id="pm_menu">
+                            {foreach from=$menus item=field key=name}
+                            {php}
+                            $subMenu = new Menu();
+                            $subMenus2 = $subMenu->generateArrayForTemplate('processmaker', 'selectedSubMenu', 'subMenu', '-1', 'KT');
+                            {/php}
+                            {if $field.subMenu neq 0}
+                            {php}
+                            echo "si tiene |";
+                            {/php}
+                            {else}
+                            {php}
+                            echo "noooo tiene |";
+                            {/php}
+                            {/if}
+                            {if $field.icon neq ""}
+
+                            <li  id="{$field.idName}" class="{if $field.classname eq 'SelectedMenu'}SelectedMenu{/if} nivel1">
+                                <a class="tooltipPM" href="{$field.target}" name="{$field.label}">
+                                    <img src="{$field.icon}" border="0" alt="{$field.label}"/>
+                                    {$field.label}
+                                </a>
+                                {php}
+                                if (count($subMenus2) > 0) {
+                                {/php}
+                                <ul id="pm_submenu_{$field.idName}">
+                                    {php}
+                                    foreach ($subMenus2 as $key => $value) {
+                                        if (value.icon != '' ) {
+                                        {/php}
+                                        <li  id="{$field.idName}" >
+                                            <a href="{$field.target}" {$field.onclick} {$field.elementclass}>
+                                                <img src="{$field.icon}" border="0" alt="{$field.label}"/>
+                                                {$field.label}
+                                            </a>
+                                        </li>
+                                        {php}
+                                        } else {
+                                        {/php}
+                                        <li  id="{$field.idName}">
+                                            <a href="{$field.target}" {$field.onclick} {$field.elementclass}>
+                                                {$field.label}
+                                            </a>
+                                        </li>
+                                        {php}
+                                        }
+                                    }
+                                    {/php}
+                                </ul>
+                                {php}
+                                }
+                                {/php}
+                            </li>
+                            {else}
+                            <li  id="{$field.idName}" class="{if $field.classname eq 'SelectedMenu'}SelectedMenu{/if} nivel1">
+                                <a class="tooltipPM" href="{$field.target}" name="{$field.label}">
+                                    {$field.label}
+                                </a>
+                                {if $field.subMenu neq 0}
+                                <ul id="pm_submenu_{$field.idName}">
+                                {foreach from=$field.subMenu item=fields key=names}
+                                <li  id="{$fields.idName}" class="{if $fields.classname eq 'SelectedMenu'}SelectedMenu{/if} nivel1">
+                                    <a class="tooltipPM" href="{$fields.target}" name="{$fields.label}">
+                                        {$fields.label}
+                                    </a>
+                                </li>
+                                {/foreach}
+                                </ul>
+                                {/if}
+                            </li>
+                            {/if}
+                            {/foreach}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="center" style="border: 3px solid #666667;">
+            {php}
+            global $G_TEMPLATE;
+            if ($G_TEMPLATE != '') G::LoadTemplate($G_TEMPLATE);
+            {/php}
+        </td>
+    </tr>
+    </table>
+{php}}{/php}
+
+{php} if ((int)$_SESSION['USER_LOGGED'] == 0) { {/php}
+    <div class="mainPageLogin">
+        <div class="loginContainer">
+            <div class="boxTop"><div class="a">&nbsp;</div><div class="b">&nbsp;</div><div class="c">&nbsp;</div></div>
+            <div id="contentLogo" class="content">
+                <div id='logo' class="logoLogin"></div>
+                {php}
+                    global $G_TEMPLATE;
+                    if ($G_TEMPLATE != '') G::LoadTemplate($G_TEMPLATE);
+                {/php}
+                <!--<form id="{$form_id}" action="../login/authentication.php" name="sysLogin" method="post" encType="multipart/form-data" style="margin:0px;" onsubmit="return validateForm('{$form_objectRequiredFields}');">
+                    <input type="hidden" class="notValidateThisFields" name="__notValidateThisFields__" id="__notValidateThisFields__" value="{$form_objectRequiredFields}" />
+                    <input type="hidden" name="DynaformRequiredFields" id="DynaformRequiredFields" value="{$form_objectRequiredFields}" />
+                    <div style="" class="temporalMess warningMess"><div class="iconWarningMessiconMess"></div> <strong>WARNING</strong>: User not registered</div>
+                    <div style="display: none;" class="temporalMess errorMess"><div class="iconErrorMess iconMess"></div><strong>ERROR</strong>: Unavailable workspace</div>
+                    <div style="display: none;" class="temporalMess infoMess"><div class="iconInfoMess iconMess"></div><strong>INFO</strong>: User is administrator</div>
+                    <div class="contentLogin">
+                        <input pm:decimal_separator="." pm:fieldtype="text" name="form[USR_USERNAME]" id="form[USR_USERNAME]" class="userField module_app_input___gray" type="text" style="color:#aaa;" value="UserName" onfocus="ClearPlaceHolder (this)" onblur="SetPlaceHolder (this)" />
+                        <input pm:decimal_separator="." pm:fieldtype="text" name="form[USR_PASSWORD]" id="form[USR_PASSWORD]" class="userPass module_app_input___gray" type="password" style="color:#aaa;" value="UserPassword" onfocus="ClearPlaceHolder (this)" onblur="SetPlaceHolder (this)" />
+                        <!--<select pm:dependent="0" pm:fieldtype="dropdown" pm:label="Workspace" name="form[USER_ENV]" id="form[USER_ENV]" class="module_app_input___gray"><option value="0" selected="selected">Workflow</option><option value="samples">samples</option><option value="workflow">workflow</option></select>-->
+                        <!--<select name="form[USER_LANG]" id="form[USER_LANG]" pm:dependent="0" pm:fieldtype="dropdown" pm:label="Language" class="module_app_input___gray"><option value="0" selected="selected">Language</option><option value="en">English</option></select-->
+                        <!--<input id="userLogin" type="submit" value="Login" name="form[BSUBMIT]" id="form[BSUBMIT]" class="module_app_button___gray " style="">
+                    </div>
+                </form>-->
+                
+            </div>
+            <div class="boxBottom"><div class="a">&nbsp;</div><div class="b">&nbsp;</div><div class="c">&nbsp;</div></div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="Footer">
+        <div class="contentFoot">
+            <!--<div class="legalFoot">&nbsp;&nbsp;&nbsp;Supplied free of charge with no support, certification, warranty,<br/>&nbsp;&nbsp;&nbsp;maintenance nor indemnity by Colosa and its Certified Partners.<br/>&nbsp;&nbsp;&nbsp;Copyright © 2003-2013 Colosa Inc. All rights reserved</div>-->
+            <div class="legalFoot">&nbsp;&nbsp;&nbsp;All rights reserved.<br>
+            &nbsp;&nbsp;&nbsp;Supplied free of charge with no support, certification, warranty,<br>
+            &nbsp;&nbsp;&nbsp;maintenance nor indemnity by Colosa and its Certified Partners. </div>
+            <div class="linksFoot">| <a href="http://www.colosa.com">Colosa</a> | <a href="http://bugs.processmaker.com">BugTracker</a> |</div>
+            <div class="poweredFoot">
+                <div class="socialFoot">
+                    <a class="faceFoot linkFoot" href="https://www.facebook.com/processmaker"></a>
+                    <a class="tweetFoot linkFoot" href="http://twitter.com/processmaker"></a>
+                    <a class="youFoot linkFoot" href="http://www.youtube.com/processmaker#play/uploads"></a>
+                    <a class="rssFoot linkFoot" href="http://feeds.feedburner.com/processmaker"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{php}}{/php}
+</body>
+</html>

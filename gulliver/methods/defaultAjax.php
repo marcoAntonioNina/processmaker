@@ -35,7 +35,6 @@ $_DBArray = array ();
 if (isset( $_SESSION['_DBArray'] )) {
     $_DBArray = $_SESSION['_DBArray'];
 }
-
 $xmlFile = G::getUIDName( urlDecode( $_POST['form'] ) );
 $sPath = XMLFORM_AJAX_PATH;
 

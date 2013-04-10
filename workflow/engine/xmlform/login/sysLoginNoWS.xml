@@ -26,8 +26,6 @@ SELECT LANG_ID, LANG_NAME FROM langOptions
 </BSUBMIT>
 
 <JS type="javascript"><![CDATA[
-
-
 setFocus (getField ('USR_USERNAME'));
 
 leimnud.event.add(document.getElementById('form[BSUBMIT]'), 'click', function() {

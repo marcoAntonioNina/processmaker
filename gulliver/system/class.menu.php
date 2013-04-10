@@ -324,6 +324,7 @@ class Menu
      */
     public function generateArrayForTemplate($G_MAIN_MENU, $classOn, $classOff, $G_MENU_SELECTED, $G_ID_MENU_SELECTED)
     {
+        //echo " |" . $G_MAIN_MENU . "-" . $classOn  . "-" . $classOff  . "-" .$G_MENU_SELECTED  . "-" . $G_ID_MENU_SELECTED. "</br>";
         $menus = array();
         if ($G_MAIN_MENU == null) {
             return $menus;

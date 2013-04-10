@@ -231,7 +231,7 @@ class SkinEngine
       $body   = $oHeadPublisher->getExtJsScripts();
 
       //default
-      $templateFile = G::ExpandPath( "skinEngine" ).'base'.PATH_SEP .'extJsInitLoad.html';
+      $templateFile = G::ExpandPath( "skinEngine" ).'tempus'.PATH_SEP .'extJsInitLoad.html';
       //Custom skins
       if (defined('PATH_CUSTOM_SKINS') && is_dir(PATH_CUSTOM_SKINS . $this->mainSkin)) {
         $templateFile = PATH_CUSTOM_SKINS . $this->mainSkin . PATH_SEP .'extJsInitLoad.html';
@@ -618,11 +618,78 @@ class SkinEngine
 
       $oMenu = new Menu();
       $menus = $oMenu->generateArrayForTemplate($G_MAIN_MENU, 'SelectedMenu', 'mainMenu', $G_MENU_SELECTED, $G_ID_MENU_SELECTED);
+      $oSubMenu = new Menu();
+        foreach($menus as $key => $value) {
+            $target = explode('/', $value['target']);
+            $amount = count ($target);
+            $file = PATH_CORE . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
+            if (!file_exists($file)) {
+                $file = PATH_PLUGINS . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
+            }
+            if (file_exists($file)) {
+                
+                $ar=fopen($file,"r") or die("No se pudo abrir el archivo");
+                $countGlobal = 0;
+                $delete = array('"', "'");
+                while (!feof($ar))
+                {
+                    $linea=fgets($ar);
+                    $lineasalto=nl2br($linea);
+
+                    $resultado = strpos($lineasalto, '$G_SUB_MENU');
+                    if($resultado !== FALSE){
+                        $cad = explode('=', $lineasalto);
+                        $gSubMenu = explode(';', $cad[1]);
+                        $gSubMenu = str_replace($delete, "", $gSubMenu[0]);
+                        $countGlobal++;
+                    }
+                    $resultado = strpos($lineasalto, '$G_ID_MENU_SELECTED');
+                    if($resultado !== FALSE){
+                        $cad = explode('=', $lineasalto);
+                        $gIdMenuSelected = explode(';', $cad[1]);
+                        $gIdMenuSelected = str_replace($delete, "", $gIdMenuSelected[0]);
+                        $countGlobal++;
+                    }
+                    $resultado = strpos($lineasalto, '$G_ID_SUB_MENU_SELECTED');
+                    if($resultado !== FALSE){
+                        $cad = explode('=', $lineasalto);
+                        $gIdSubMenuSelected = explode(';', $cad[1]);
+                        $gIdSubMenuSelected = str_replace($delete, "", $gIdSubMenuSelected[0]);
+                        $countGlobal++;
+                    }
+                    if ($countGlobal == 3) {
+                        break;
+                    }
+                }
+                fclose($ar);
+                $subMenus = $oSubMenu->generateArrayForTemplate(trim($gSubMenu), '', 'subMenu', trim($gIdMenuSelected), trim($gIdSubMenuSelected));
+                $menus[$key]['subMenu'] = $subMenus;
+            }
+        }
+      //  //$target = explode();
+      //  //$subMenus = $oSubMenu->generateArrayForTemplate($G_SUB_MENU, 'selectedSubMenu', 'subMenu', $G_SUB_MENU_SELECTED, $G_ID_SUB_MENU_SELECTED);
+      //}
+      //echo SYS_SKIN;die();
+      //print_r($menus);
+      //die();
+      //print_r($menus);die();
       $smarty->assign('menus', $menus);
 
       $oSubMenu = new Menu();
       $subMenus = $oSubMenu->generateArrayForTemplate($G_SUB_MENU, 'selectedSubMenu', 'subMenu', $G_SUB_MENU_SELECTED, $G_ID_SUB_MENU_SELECTED);
+      //$subMenus = '';
+      //echo "menu - ".$G_MAIN_MENU ."---". $G_SUB_MENU ." --". $G_ID_SUB_MENU_SELECTED."<br>";
       $smarty->assign('subMenus', $subMenus);
+      //die();
+      
+      //echo "
+      //<script type=\"text/javascript\">
+      //console.info('$G_MENU_SELECTED');
+      //console.info('$G_ID_MENU_SELECTED');
+      //console.table('$subMenus');
+      //</script>
+      //";
+      //print_r($subMenus);
 
       if (! defined('NO_DISPLAY_USERNAME')) {
         define('NO_DISPLAY_USERNAME', 0);
@@ -688,6 +755,7 @@ class SkinEngine
         }
         else {
           $sCompanyLogo = $oPluginRegistry->getCompanyLogo('/images/processmaker.logo.jpg');
+          //$sCompanyLogo = $oPluginRegistry->getCompanyLogo('/images/tempus/layout/logo.png');
         }
       }
       else {
