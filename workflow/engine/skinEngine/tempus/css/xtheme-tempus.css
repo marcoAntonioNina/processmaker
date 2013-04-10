@@ -17,7 +17,7 @@
 .ext-el-mask-msg {
     border-color:#ffffff;
   /*  background-color:#3f4757;*/
-   /* background-image:url(/images/tempus/box/tb-blue.gif);*/
+   /* background-image:url(/skins/tempus/images/box/tb-blue.gif);*/
 }
 .ext-el-mask-msg div {
     background-color: #ececec;
@@ -28,7 +28,7 @@
 
 .x-mask-loading div {
     background-color:#ececec;
-    background-image:url(/images/tempus/grid/loading.gif);
+    background-image:url(/skins/tempus/images/grid/loading.gif);
     color: #545454;
 }
 
@@ -63,20 +63,20 @@
 }
 
 .x-shadow .xsmc {
-    background-image: url(/images/tempus/panel/shadow-c.png);
+    background-image: url(/skins/tempus/images/panel/shadow-c.png);
 }
 
 .x-shadow .xsml, .x-shadow .xsmr {
-    background-image: url(/images/tempus/panel/shadow-lr.png);
+    background-image: url(/skins/tempus/images/panel/shadow-lr.png);
 }
 
 .x-shadow .xstl, .x-shadow .xstc,  .x-shadow .xstr, .x-shadow .xsbl, .x-shadow .xsbc, .x-shadow .xsbr{
-    background-image: url(/images/tempus/panel/shadow.png);
+    background-image: url(/skins/tempus/images/panel/shadow.png);
 }
 
 .loading-indicator {
     font-size: 14px;
-    background-image: url(/images/tempus/grid/loading.gif);
+    background-image: url(/skins/tempus/images/grid/loading.gif);
     background-color:#ececec;
     color: #545454;
 }
@@ -96,13 +96,13 @@
 
 ul.x-tab-strip-top{
     background-color:#F4F4F4;
-/*	background-image: url(/images/tempus/tabs/tab-strip-bg.gif);*/
+/*	background-image: url(/skins/tempus/images/tabs/tab-strip-bg.gif);*/
 	border-bottom-color:#8E8E8E;
 }
 
 ul.x-tab-strip-bottom{
     background-color:#F4F4F4;
-	background-image: url(/images/tempus/tabs/tab-strip-btm-bg.gif);
+	background-image: url(/skins/tempus/images/tabs/tab-strip-btm-bg.gif);
 	border-top-color:#cccccc;
 }
 
@@ -136,7 +136,7 @@ ul.x-tab-strip-bottom{
 .x-tab-panel-bwrap .x-tab-strip-top .x-tab-right .x-tab-strip-text, 
 .x-tab-panel-bwrap .x-tab-strip-top .x-tab-left .x-tab-strip-text, 
 .x-tab-panel-bwrap .x-tab-strip-top .x-tab-strip-inner .x-tab-strip-text{
-		background: url("/images/tempus/submenu/separator.png") no-repeat scroll right top transparent;
+		background: url("/skins/tempus/images/submenu/separator.png") no-repeat scroll right top transparent;
     color: #6D6D6D;
     display: block;
     font-family: Verdana,Arial,Helvetica,sans-serif;
@@ -252,38 +252,38 @@ ul.x-tab-strip-bottom{
 }
 
 .x-tab-strip-top .x-tab-right, .x-tab-strip-top .x-tab-left, .x-tab-strip-top .x-tab-strip-inner{
-	background-image: url(/images/tempus/tabs/tabs-sprite.gif);
+	background-image: url(/skins/tempus/images/tabs/tabs-sprite.gif);
 }
 
 .x-tab-strip-bottom .x-tab-right {
-	background-image: url(/images/tempus/tabs/tab-btm-inactive-right-bg.gif);
+	background-image: url(/skins/tempus/images/tabs/tab-btm-inactive-right-bg.gif);
 }
 
 .x-tab-strip-bottom .x-tab-left {
-	background-image: url(/images/tempus/tabs/tab-btm-inactive-left-bg.gif);
+	background-image: url(/skins/tempus/images/tabs/tab-btm-inactive-left-bg.gif);
 }
 .x-tab-strip-top .x-tab-strip-active .x-tab-right span.x-tab-strip-text {
     color: #ffffff;
 }
 .x-tab-strip-bottom .x-tab-strip-active .x-tab-right {
-	background-image: url(/images/tempus/tabs/tab-btm-right-bg.gif);
+	background-image: url(/skins/tempus/images/tabs/tab-btm-right-bg.gif);
 }
 
 .x-tab-strip-bottom .x-tab-strip-active .x-tab-left {
-	background-image: url(/images/tempus/tabs/tab-btm-left-bg.gif);
+	background-image: url(/skins/tempus/images/tabs/tab-btm-left-bg.gif);
 }
 .x-tab-strip .x-tab-strip-active a.x-tab-strip-close {
     opacity: 1;
 }
 .x-tab-strip .x-tab-strip-closable a.x-tab-strip-close {
-	background-image:url(/images/tempus/tabs/tab-close.png);
+	background-image:url(/skins/tempus/images/tabs/tab-close.png);
 	height: 16px;
 	width:16px;
 }
 
 
 .x-tab-strip .x-tab-strip-closable a.x-tab-strip-close:hover{
-	background-image:url(/images/tempus/tabs/tab-close.png);
+	background-image:url(/skins/tempus/images/tabs/tab-close.png);
 	height: 16px;
 	width:16px;
 
@@ -303,7 +303,7 @@ ul.x-tab-strip-bottom{
 }
 
 .x-tab-scroller-left {
-    background-image:url(/images/tempus/tabs/scroll-left.gif);
+    background-image:url(/skins/tempus/images/tabs/scroll-left.gif);
     border-bottom-color:#8db2e3;
 }
 
@@ -320,7 +320,7 @@ ul.x-tab-strip-bottom{
 }
 
 .x-tab-scroller-right {
-    background-image:url(/images/tempus/tabs/scroll-right.gif);
+    background-image:url(/skins/tempus/images/tabs/scroll-right.gif);
     border-bottom-color:#8db2e3;
 }
 
@@ -337,7 +337,7 @@ ul.x-tab-strip-bottom{
 .x-form-text, textarea.x-form-field{
     color: #545454;
     background-color:#ECECEC;
-  /*  background-image:url(/images/tempus/form/text-bg.gif);*/
+  /*  background-image:url(/skins/tempus/images/form/text-bg.gif);*/
     border-color:#A0A0A0;
     border-width:1px;
 }
@@ -380,7 +380,7 @@ ul.x-tab-strip-bottom{
 }
 
 .x-form-field-wrap .x-form-trigger{
-    background-image:url(/images/tempus/form/trigger.gif);
+    background-image:url(/skins/tempus/images/form/trigger.gif);
     border-bottom-color:#A0A0A0;
  /*   border-bottom-width:0px;
     height:24px;*/
@@ -423,15 +423,15 @@ ul.x-tab-strip-bottom{
 }
 
 .x-form-field-wrap .x-form-date-trigger{
-    background-image: url(/images/tempus/form/date-trigger.gif);
+    background-image: url(/skins/tempus/images/form/date-trigger.gif);
 }
 
 .x-form-field-wrap .x-form-clear-trigger{
-    background-image: url(/images/tempus/form/clear-trigger.gif);
+    background-image: url(/skins/tempus/images/form/clear-trigger.gif);
 }
 
 .x-form-field-wrap .x-form-search-trigger{
-    background-image: url(/images/tempus/form/search-trigger.gif);
+    background-image: url(/skins/tempus/images/form/search-trigger.gif);
 }
 
 .x-trigger-wrap-focus .x-form-trigger{
@@ -453,7 +453,7 @@ ul.x-tab-strip-bottom{
 .x-form-invalid, textarea.x-form-invalid,
 .ext-webkit .x-form-invalid, .ext-webkit textarea.x-form-invalid{
   background-color:#FFDBEB;
-	background-image:url(/images/tempus/grid/invalid_line.gif);
+	background-image:url(/skins/tempus/images/grid/invalid_line.gif);
 	border-color:#c50d34;
 }
 .x-form-label-left label.x-form-item-label{
@@ -480,7 +480,7 @@ ul.x-tab-strip-bottom{
 
 .x-form-inner-invalid, textarea.x-form-inner-invalid{
     background-color:#fff;
-	background-image:url(/images/tempus/grid/invalid_line.gif);
+	background-image:url(/skins/tempus/images/grid/invalid_line.gif);
 }
 
 .x-form-grow-sizer {
@@ -494,7 +494,7 @@ ul.x-tab-strip-bottom{
 .x-form-invalid-msg {
     color:#c0272b;
     font:normal 14px tahoma, arial, helvetica, sans-serif;
-    background-image:url(/images/tempus/shared/warning.gif);
+    background-image:url(/skins/tempus/images/shared/warning.gif);
 }
 
 .x-form-empty-field {
@@ -518,7 +518,7 @@ ul.x-tab-strip-bottom{
 }
 
 .x-form-invalid-icon {
-    background-image:url(/images/tempus/form/exclamation.png);
+    background-image:url(/skins/tempus/images/form/exclamation.png);
     height:25px;
     width:19px;
     background-position:center right;
@@ -585,24 +585,24 @@ ul.x-tab-strip-bottom{
 }
 
 .x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc{
-	background-image:url(/images/tempus/button/btn.gif);
+	background-image:url(/skins/tempus/images/button/btn.gif);
 }
 .x-btn-mc{
-	background-image:url(/images/tempus/button/btn.gif);
+	background-image:url(/skins/tempus/images/button/btn.gif);
 	background-position: 0 -1130px;
 }
 .x-btn-mc button.deleteButtonReport{
-	background-image:url(/images/tempus/icons/del.png)!important;
+	background-image:url(/skins/tempus/images/icons/del.png)!important;
 }
 .x-btn-mc button.generateButtonReport{
-	background-image:url(/images/tempus/icons/search_button.png)!important;
+	background-image:url(/skins/tempus/images/icons/search_button.png)!important;
 	background-position: center center;
 }
 .x-btn-mc button.x-btn-arrow{
 	background-image:none !important;
 }
 .x-btn-bc{
-	background-image:url(/images/tempus/button/btn.gif);
+	background-image:url(/skins/tempus/images/button/btn.gif);
 /*	background-position: 0 -16px;*/
 }
 
@@ -616,29 +616,29 @@ ul.x-tab-strip-bottom{
 }
 
 .x-btn-mc em.x-btn-arrow {
-    background-image:url(/images/tempus/button/arrow.gif);
+    background-image:url(/skins/tempus/images/button/arrow.gif);
     padding-right:13px;
 }
 
 .x-btn-mc em.x-btn-split {
-    background-image:url(/images/tempus/button/s-arrow.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow.gif);
     padding-right:20px;
 }
 
 .x-btn-over .x-btn-mc em.x-btn-split, .x-btn-click .x-btn-mc em.x-btn-split, .x-btn-menu-active .x-btn-mc em.x-btn-split, .x-btn-pressed .x-btn-mc em.x-btn-split {
-    background-image:url(/images/tempus/button/s-arrow-o.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-o.gif);
 }
 
 .x-btn-mc em.x-btn-arrow-bottom {
-    background-image:url(/images/tempus/button/s-arrow-b-noline.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-b-noline.gif);
 }
 
 .x-btn-mc em.x-btn-split-bottom {
-    background-image:url(/images/tempus/button/s-arrow-b.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-b.gif);
 }
 
 .x-btn-over .x-btn-mc em.x-btn-split-bottom, .x-btn-click .x-btn-mc em.x-btn-split-bottom, .x-btn-menu-active .x-btn-mc em.x-btn-split-bottom, .x-btn-pressed .x-btn-mc em.x-btn-split-bottom {
-    background-image:url(/images/tempus/button/s-arrow-bo.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-bo.gif);
 }
 
 .x-btn-group-header {
@@ -646,44 +646,44 @@ ul.x-tab-strip-bottom{
 }
 
 .x-btn-group-tc {
-	background-image: url(/images/tempus/button/group-tb.gif);
+	background-image: url(/skins/tempus/images/button/group-tb.gif);
 }
 
 .x-btn-group-tl {
-	background-image: url(/images/tempus/button/group-cs.gif);
+	background-image: url(/skins/tempus/images/button/group-cs.gif);
 }
 
 .x-btn-group-tr {
-	background-image: url(/images/tempus/button/group-cs.gif);
+	background-image: url(/skins/tempus/images/button/group-cs.gif);
 }
 
 .x-btn-group-bc {
-	background-image: url(/images/tempus/button/group-tb.gif);
+	background-image: url(/skins/tempus/images/button/group-tb.gif);
 }
 
 .x-btn-group-bl {
-	background-image: url(/images/tempus/button/group-cs.gif);
+	background-image: url(/skins/tempus/images/button/group-cs.gif);
 }
 
 .x-btn-group-br {
-	background-image: url(/images/tempus/button/group-cs.gif);
+	background-image: url(/skins/tempus/images/button/group-cs.gif);
 }
 
 .x-btn-group-ml {
-	background-image: url(/images/tempus/button/group-lr.gif);
+	background-image: url(/skins/tempus/images/button/group-lr.gif);
 }
 
 .x-btn-group-mr {
-	background-image: url(/images/tempus/button/group-lr.gif);
+	background-image: url(/skins/tempus/images/button/group-lr.gif);
 }
 
 .x-btn-group-notitle .x-btn-group-tc {
-	background-image: url(/images/tempus/button/group-tb.gif);
+	background-image: url(/skins/tempus/images/button/group-tb.gif);
 }
 .x-toolbar{
 	border-color:#aaa;
   background-color:#E7E7E7;
-  /*background-image:url(/images/tempus/toolbar/bg.gif);*/
+  /*background-image:url(/skins/tempus/images/toolbar/bg.gif);*/
 }
 
 .x-toolbar td,.x-toolbar span,.x-toolbar input,.x-toolbar div,.x-toolbar select,.x-toolbar label{
@@ -700,27 +700,27 @@ ul.x-tab-strip-bottom{
 }
 
 .x-toolbar .x-btn-mc em.x-btn-split {
-    background-image:url(/images/tempus/button/s-arrow-noline.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-noline.gif);
 }
 
 .x-toolbar .x-btn-over .x-btn-mc em.x-btn-split, .x-toolbar .x-btn-click .x-btn-mc em.x-btn-split, 
 .x-toolbar .x-btn-menu-active .x-btn-mc em.x-btn-split, .x-toolbar .x-btn-pressed .x-btn-mc em.x-btn-split 
 {
-    background-image:url(/images/tempus/button/s-arrow-o.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-o.gif);
 }
 
 .x-toolbar .x-btn-mc em.x-btn-split-bottom {
-    background-image:url(/images/tempus/button/s-arrow-b-noline.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-b-noline.gif);
 }
 
 .x-toolbar .x-btn-over .x-btn-mc em.x-btn-split-bottom, .x-toolbar .x-btn-click .x-btn-mc em.x-btn-split-bottom, 
 .x-toolbar .x-btn-menu-active .x-btn-mc em.x-btn-split-bottom, .x-toolbar .x-btn-pressed .x-btn-mc em.x-btn-split-bottom 
 {
-    background-image:url(/images/tempus/button/s-arrow-bo.gif);
+    background-image:url(/skins/tempus/images/button/s-arrow-bo.gif);
 }
 
 .x-toolbar .xtb-sep {
-	background-image: url(/images/tempus/grid/grid-blue-split.gif);
+	background-image: url(/skins/tempus/images/grid/grid-blue-split.gif);
 }
 
 .x-toolbar .x-btn {
@@ -741,45 +741,45 @@ ul.x-tab-strip-bottom{
 }
 
 .x-tbar-page-first{
-	background-image: url(/images/tempus/grid/page-first.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-first.png) !important;
 }
 
 .x-tbar-loading{
-	background-image: url(/images/tempus/grid/refresh.png) !important;
+	background-image: url(/skins/tempus/images/grid/refresh.png) !important;
 }
 
 .x-tbar-page-last{
-	background-image: url(/images/tempus/grid/page-last.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-last.png) !important;
 }
 
 .x-tbar-page-next{
-	background-image: url(/images/tempus/grid/page-next.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-next.png) !important;
 }
 
 .x-tbar-page-prev{
-	background-image: url(/images/tempus/grid/page-prev.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-prev.png) !important;
 }
 
 .x-item-disabled .x-tbar-loading{
-	background-image: url(/images/tempus/grid/loading.gif) !important;
+	background-image: url(/skins/tempus/images/grid/loading.gif) !important;
 	background-color:#ececec;
   color: #545454;
 }
 
 .x-item-disabled .x-tbar-page-first{
-	background-image: url(/images/tempus/grid/page-first-disabled.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-first-disabled.png) !important;
 }
 
 .x-item-disabled .x-tbar-page-last{
-	background-image: url(/images/tempus/grid/page-last-disabled.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-last-disabled.png) !important;
 }
 
 .x-item-disabled .x-tbar-page-next{
-	background-image: url(/images/tempus/grid/page-next-disabled.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-next-disabled.png) !important;
 }
 
 .x-item-disabled .x-tbar-page-prev{
-	background-image: url(/images/tempus/grid/page-prev-disabled.png) !important;
+	background-image: url(/skins/tempus/images/grid/page-prev-disabled.png) !important;
 }
 
 .x-paging-info {
@@ -787,11 +787,11 @@ ul.x-tab-strip-bottom{
 }
 
 .x-toolbar-more-icon {
-    background-image: url(/images/tempus/toolbar/more.gif) !important;
+    background-image: url(/skins/tempus/images/toolbar/more.gif) !important;
 }
 
 .x-statusbar .x-status-busy {
-    background-image: url(/images/tempus/grid/loading.gif);
+    background-image: url(/skins/tempus/images/grid/loading.gif);
     background-repeat: no-repeat;
     background-position: center center;
     background-color:#ececec;
@@ -809,29 +809,29 @@ ul.x-tab-strip-bottom{
 .x-resizable-over .x-resizable-handle-east, .x-resizable-pinned .x-resizable-handle-east,
 .x-resizable-over .x-resizable-handle-west, .x-resizable-pinned .x-resizable-handle-west
 {
-    background-image:url(/images/tempus/sizer/e-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/e-handle.gif);
 }
 
 .x-resizable-over .x-resizable-handle-south, .x-resizable-pinned .x-resizable-handle-south,
 .x-resizable-over .x-resizable-handle-north, .x-resizable-pinned .x-resizable-handle-north
 {
-    background-image:url(/images/tempus/sizer/s-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/s-handle.gif);
 }
 
 .x-resizable-over .x-resizable-handle-north, .x-resizable-pinned .x-resizable-handle-north{
-    background-image:url(/images/tempus/sizer/s-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/s-handle.gif);
 }
 .x-resizable-over .x-resizable-handle-southeast, .x-resizable-pinned .x-resizable-handle-southeast{
-    background-image:url(/images/tempus/sizer/se-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/se-handle.gif);
 }
 .x-resizable-over .x-resizable-handle-northwest, .x-resizable-pinned .x-resizable-handle-northwest{
-    background-image:url(/images/tempus/sizer/nw-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/nw-handle.gif);
 }
 .x-resizable-over .x-resizable-handle-northeast, .x-resizable-pinned .x-resizable-handle-northeast{
-    background-image:url(/images/tempus/sizer/ne-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/ne-handle.gif);
 }
 .x-resizable-over .x-resizable-handle-southwest, .x-resizable-pinned .x-resizable-handle-southwest{
-    background-image:url(/images/tempus/sizer/sw-handle.gif);
+    background-image:url(/skins/tempus/images/sizer/sw-handle.gif);
 }
 .x-resizable-proxy{
     border-color:#3b5a82;
@@ -843,7 +843,7 @@ ul.x-tab-strip-bottom{
   background-color:#F4F4F4;
 }
 .x-grid3-row-body {
-	background:url(/images/tempus/icons/editProcessDesc.png) 8px 0 no-repeat;
+	background:url(/skins/tempus/images/icons/editProcessDesc.png) 8px 0 no-repeat;
 	padding-left:35px;
 	color: #000;
 	border-top: 1px #F4F4F4 solid;
@@ -865,7 +865,7 @@ ul.x-tab-strip-bottom{
 
 .x-grid-row-loading {
     background-color: #fff;
-    background-image:url(/images/tempus/shared/loading-balls.gif);
+    background-image:url(/skins/tempus/images/shared/loading-balls.gif);
 }
 
 .x-grid3-row {
@@ -894,7 +894,7 @@ ul.x-tab-strip-bottom{
 
 .x-grid3-header{
   background-color:#ddd;
-/*	background-image:url(/images/tempus/grid/grid3-hrow.gif);
+/*	background-image:url(/skins/tempus/images/grid/grid3-hrow.gif);
 	background-position: top center;
 	background-repeat: repeat-x;*/
 }
@@ -905,7 +905,7 @@ ul.x-tab-strip-bottom{
 
 .x-grid3-header-pop-inner {
     border-left-color:#eee;
-    background-image:url(/images/tempus/grid/hd-pop.gif);
+    background-image:url(/skins/tempus/images/grid/hd-pop.gif);
 }
 
 td.x-grid3-hd-over, td.sort-desc, td.sort-asc, td.x-grid3-hd-menu-open {
@@ -915,7 +915,7 @@ td.x-grid3-hd-over, td.sort-desc, td.sort-asc, td.x-grid3-hd-menu-open {
 
 td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-asc .x-grid3-hd-inner, td.x-grid3-hd-menu-open .x-grid3-hd-inner {
     background-color:#efefef;
-    background-image:url(/images/tempus/grid/grid3-hrow-over.gif);
+    background-image:url(/skins/tempus/images/grid/grid3-hrow-over.gif);
     background-position: center center;
     background-repeat: repeat-x;
     color: #374A58;
@@ -928,14 +928,14 @@ td.x-grid3-col {
 }
 
 .sort-asc .x-grid3-sort-icon {
-	background-image: url(/images/tempus/grid/sort_asc.png);
+	background-image: url(/skins/tempus/images/grid/sort_asc.png);
 	width:15px;
 	height:9px;
 	margin-right:5px;
 }
 
 .sort-desc .x-grid3-sort-icon {
-	background-image: url(/images/tempus/grid/sort_desc.png);
+	background-image: url(/skins/tempus/images/grid/sort_desc.png);
 	width:15px;
 	height:9px;
 	margin-left:5px;
@@ -946,7 +946,7 @@ td.x-grid3-col {
 }
 
 .x-grid3-split {
-	background-image: url(/images/tempus/grid/grid-split.gif);
+	background-image: url(/skins/tempus/images/grid/grid-split.gif);
 }
 
 .x-grid3-hd-text {
@@ -955,20 +955,20 @@ td.x-grid3-col {
 
 .x-dd-drag-proxy .x-grid3-hd-inner{
   background-color:#ebf3fd;
-	background-image:url(/images/tempus/grid/grid3-hrow-over.gif);
+	background-image:url(/skins/tempus/images/grid/grid3-hrow-over.gif);
 	border-color:#aaccf6;
 }
 
 .col-move-top{
-	background-image:url(/images/tempus/grid/col-move-top.gif);
+	background-image:url(/skins/tempus/images/grid/col-move-top.gif);
 }
 
 .col-move-bottom{
-	background-image:url(/images/tempus/grid/col-move-bottom.gif);
+	background-image:url(/skins/tempus/images/grid/col-move-bottom.gif);
 }
 
 /*.x-grid3-row-selected {
-	background-image:url(/images/tempus/grid/gridOver.png);
+	background-image:url(/skins/tempus/images/grid/gridOver.png);
 	background-repeat: repeat-x;
 	background-color: #EAEAEA;
   border-style: solid;
@@ -992,7 +992,7 @@ td.x-grid3-col {
 
 .x-grid3-locked td.x-grid3-row-marker, .x-grid3-locked .x-grid3-row-selected td.x-grid3-row-marker{
     background-color:#ebeadb !important;
-    background-image:url(/images/tempus/grid/grid-hrow.gif) !important;
+    background-image:url(/skins/tempus/images/grid/grid-hrow.gif) !important;
     color:#374A58;
     border-top-color:#fff;
     border-right-color:#6fa0df !important;
@@ -1003,7 +1003,7 @@ td.x-grid3-col {
 }
 
 .x-grid3-dirty-cell {
-    background-image:url(/images/tempus/grid/dirty.gif);
+    background-image:url(/skins/tempus/images/grid/dirty.gif);
 }
 
 .x-grid3-topbar, .x-grid3-bottombar{
@@ -1015,7 +1015,7 @@ td.x-grid3-col {
 }
 
 .x-props-grid .x-grid3-td-name .x-grid3-cell-inner{
-	background-image:url(/images/tempus/grid/grid3-special-col-bg.gif) !important;
+	background-image:url(/skins/tempus/images/grid/grid3-special-col-bg.gif) !important;
  /*   color:#fff !important;*/
 }
 .x-props-grid .x-grid3-td-value {
@@ -1028,45 +1028,45 @@ td.x-grid3-col {
 }
 
 .xg-hmenu-sort-asc .x-menu-item-icon{
-	background-image: url(/images/tempus/grid/hmenu-asc.png);
+	background-image: url(/skins/tempus/images/grid/hmenu-asc.png);
 }
 
 .xg-hmenu-sort-desc .x-menu-item-icon{
-	background-image: url(/images/tempus/grid/hmenu-desc.png);
+	background-image: url(/skins/tempus/images/grid/hmenu-desc.png);
 }
 
 .xg-hmenu-lock .x-menu-item-icon{
-	background-image: url(/images/tempus/grid/hmenu-lock.png);
+	background-image: url(/skins/tempus/images/grid/hmenu-lock.png);
 }
 
 .xg-hmenu-unlock .x-menu-item-icon{
-	background-image: url(/images/tempus/grid/hmenu-unlock.png);
+	background-image: url(/skins/tempus/images/grid/hmenu-unlock.png);
 }
 
 .x-grid3-hd-btn {
     background-color:#c2c9d0;
-    background-image:url(/images/tempus/grid/grid3-hd-btn.gif);
+    background-image:url(/skins/tempus/images/grid/grid3-hd-btn.gif);
 }
 
 .x-grid3-body .x-grid3-td-expander {
-    /*background-image:url(/images/tempus/grid/grid3-special-col-bg.gif);*/
+    /*background-image:url(/skins/tempus/images/grid/grid3-special-col-bg.gif);*/
     background: none repeat scroll 0 0 #CCCCCC;
 }
 
 .x-grid3-row-expander {
-    background-image:url(/images/tempus/grid/row-expand-sprite.png);
+    background-image:url(/skins/tempus/images/grid/row-expand-sprite.png);
 }
 
 .x-grid3-body .x-grid3-td-checker {
-    background-image: url(/images/tempus/grid/grid3-special-col-bg.gif);
+    background-image: url(/skins/tempus/images/grid/grid3-special-col-bg.gif);
 }
 
 .x-grid3-row-checker, .x-grid3-hd-checker {
-    background-image:url(/images/tempus/grid/row-check-sprite.gif);
+    background-image:url(/skins/tempus/images/grid/row-check-sprite.gif);
 }
 
 .x-grid3-body .x-grid3-td-numberer {
-    background-image:url(/images/tempus/grid/grid3-special-col-bg.gif);
+    background-image:url(/skins/tempus/images/grid/grid3-special-col-bg.gif);
 }
 
 .x-grid3-body .x-grid3-td-numberer .x-grid3-cell-inner {
@@ -1074,22 +1074,22 @@ td.x-grid3-col {
 }
 
 .x-grid3-body .x-grid3-td-row-icon {
-    background-image:url(/images/tempus/grid/grid3-special-col-bg.gif);
+    background-image:url(/skins/tempus/images/grid/grid3-special-col-bg.gif);
 }
 
 .x-grid3-body .x-grid3-row-selected .x-grid3-td-numberer,
 .x-grid3-body .x-grid3-row-selected .x-grid3-td-checker,
 .x-grid3-body .x-grid3-row-selected .x-grid3-td-expander {
-    /*background-image:url(/images/tempus/grid/grid3-special-col-sel-bg.gif);*/
+    /*background-image:url(/skins/tempus/images/grid/grid3-special-col-sel-bg.gif);*/
     background: none repeat scroll 0 0 #00A2E5;
 }
 
 .x-grid3-check-col {
-	background-image:url(/images/tempus/menu/unchecked.gif);
+	background-image:url(/skins/tempus/images/menu/unchecked.gif);
 }
 
 .x-grid3-check-col-on {
-	background-image:url(/images/tempus/menu/checked.gif);
+	background-image:url(/skins/tempus/images/menu/checked.gif);
 }
 
 .x-grid-group, .x-grid-group-body, .x-grid-group-hd {
@@ -1102,26 +1102,26 @@ td.x-grid3-col {
 }
 
 .x-grid-group-hd div.x-grid-group-title {
-    background-image:url(/images/tempus/grid/group-collapse.gif);
+    background-image:url(/skins/tempus/images/grid/group-collapse.gif);
     background-position: 3px 3px;
     color: #5F5F5F;
     font: bold 11px tahoma,arial,helvetica,sans-serif;
 }
 
 .x-grid-group-collapsed .x-grid-group-hd div.x-grid-group-title {
-    background-image:url(/images/tempus/grid/group-expand.gif);
+    background-image:url(/skins/tempus/images/grid/group-expand.gif);
 }
 
 .x-group-by-icon {
-    background-image:url(/images/tempus/grid/group-by.gif);
+    background-image:url(/skins/tempus/images/grid/group-by.gif);
 }
 
 .x-cols-icon {
-    background-image:url(/images/tempus/grid/columns.gif);
+    background-image:url(/skins/tempus/images/grid/columns.gif);
 }
 
 .x-show-groups-icon {
-    background-image:url(/images/tempus/grid/group-by.gif);
+    background-image:url(/skins/tempus/images/grid/group-by.gif);
 }
 
 .x-grid-empty {
@@ -1149,15 +1149,15 @@ td.x-grid3-col {
 }
 
 .x-dd-drop-nodrop .x-dd-drop-icon{
-  background-image: url(/images/tempus/grid/drop-no.gif);
+  background-image: url(/skins/tempus/images/grid/drop-no.gif);
 }
 
 .x-dd-drop-ok .x-dd-drop-icon{
-  background-image: url(/images/tempus/grid/drop-yes.gif);
+  background-image: url(/skins/tempus/images/grid/drop-yes.gif);
 }
 
 .x-dd-drop-ok-add .x-dd-drop-icon{
-  background-image: url(/images/tempus/grid/drop-add.gif);
+  background-image: url(/skins/tempus/images/grid/drop-add.gif);
 }
 
 .x-view-selector {
@@ -1165,7 +1165,7 @@ td.x-grid3-col {
     border-color:#3399bb;
 }
 .x-tree-node-expanded{
-	/*background-image:url(/images/tempus/panel/white-top-bottom.gif) !important;*/
+	/*background-image:url(/skins/tempus/images/panel/white-top-bottom.gif) !important;*/
 	background-color: #EEEEEE;
 	
 }
@@ -1174,19 +1174,19 @@ td.x-grid3-col {
 }
 
 .x-tree-node-expanded .x-tree-node-icon{
-	background-image:url(/images/tempus/tree/folder-open.png);
+	background-image:url(/skins/tempus/images/tree/folder-open.png);
 }
 
 .x-tree-node-leaf .x-tree-node-icon{
-	background-image:url(/images/tempus/tree/leaf.gif);
+	background-image:url(/skins/tempus/images/tree/leaf.gif);
 }
 
 .x-tree-node-collapsed .x-tree-node-icon{
-	background-image:url(/images/tempus/tree/folder.png);
+	background-image:url(/skins/tempus/images/tree/folder.png);
 }
 
 .x-tree-node-loading .x-tree-node-icon{
-	background-image:url(/images/tempus/tree/loading.gif) !important;
+	background-image:url(/skins/tempus/images/tree/loading.gif) !important;
 	background-color:#ececec;
   color: #545454;
 }
@@ -1205,51 +1205,51 @@ td.x-grid3-col {
 }
 
 .x-tree-lines .x-tree-elbow{
-	background-image:url(/images/tempus/tree/elbow.gif);
+	background-image:url(/skins/tempus/images/tree/elbow.gif);
 }
 
 .x-tree-lines .x-tree-elbow-plus{
-	background-image:url(/images/tempus/tree/elbow-plus.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-plus.gif);
 }
 
 .x-tree-lines .x-tree-elbow-minus{
-	background-image:url(/images/tempus/tree/elbow-minus.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-minus.gif);
 }
 
 .x-tree-lines .x-tree-elbow-end{
-	background-image:url(/images/tempus/tree/elbow-end.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-end.gif);
 }
 
 .x-tree-lines .x-tree-elbow-end-plus{
-	background-image:url(/images/tempus/tree/elbow-end-plus.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-end-plus.gif);
 }
 
 .x-tree-lines .x-tree-elbow-end-minus{
-	background-image:url(/images/tempus/tree/elbow-end-minus.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-end-minus.gif);
 }
 
 .x-tree-lines .x-tree-elbow-line{
-	background-image:url(/images/tempus/tree/elbow-line.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-line.gif);
 }
 
 .x-tree-no-lines .x-tree-elbow-plus{
-	background-image:url(/images/tempus/tree/elbow-plus-nl.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-plus-nl.gif);
 }
 
 .x-tree-no-lines .x-tree-elbow-minus{
-	background-image:url(/images/tempus/tree/elbow-minus-nl.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-minus-nl.gif);
 }
 
 .x-tree-no-lines .x-tree-elbow-end-plus{
-	background-image:url(/images/tempus/tree/elbow-end-plus-nl.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-end-plus-nl.gif);
 }
 
 .x-tree-no-lines .x-tree-elbow-end-minus{
-	background-image:url(/images/tempus/tree/elbow-end-minus-nl.gif);
+	background-image:url(/skins/tempus/images/tree/elbow-end-minus-nl.gif);
 }
 
 .x-tree-arrows .x-tree-elbow-plus{
-    background-image:url(/images/tempus/tree/arrows.gif);
+    background-image:url(/skins/tempus/images/tree/arrows.gif);
 }
 
 .x-tree-arrows .x-tree-elbow-minus{
@@ -1257,7 +1257,7 @@ td.x-grid3-col {
 }
 
 .x-tree-arrows .x-tree-elbow-end-plus{
-    background-image:url(/images/tempus/tree/arrows.gif);
+    background-image:url(/skins/tempus/images/tree/arrows.gif);
 }
 
 .x-tree-arrows .x-tree-elbow-end-minus{
@@ -1337,19 +1337,19 @@ td.x-grid3-col {
 }
 
 .x-tree-drop-ok-append .x-dd-drop-icon{
-  background-image: url(/images/tempus/tree/drop-add.gif);
+  background-image: url(/skins/tempus/images/tree/drop-add.gif);
 }
 
 .x-tree-drop-ok-above .x-dd-drop-icon{
-  background-image: url(/images/tempus/tree/drop-over.gif);
+  background-image: url(/skins/tempus/images/tree/drop-over.gif);
 }
 
 .x-tree-drop-ok-below .x-dd-drop-icon{
-  background-image: url(/images/tempus/tree/drop-under.gif);
+  background-image: url(/skins/tempus/images/tree/drop-under.gif);
 }
 
 .x-tree-drop-ok-between .x-dd-drop-icon{
-  background-image: url(/images/tempus/tree/drop-between.gif);
+  background-image: url(/skins/tempus/images/tree/drop-between.gif);
 }
 .x-date-picker {
     border: 0px #878787 solid;
@@ -1358,7 +1358,7 @@ td.x-grid3-col {
 
 .x-date-middle,.x-date-left,.x-date-right {
 	background-color: #00a2e5;
-	background-image: url(/images/tempus/shared/hd-sprite.gif);
+	background-image: url(/skins/tempus/images/shared/hd-sprite.gif);
 	color:#fff;
 	font:bold 14px "sans serif", tahoma, verdana, helvetica;
 	
@@ -1369,20 +1369,20 @@ td.x-grid3-col {
 }
 
 .x-date-middle .x-btn-mc em.x-btn-arrow {
-    background-image:url(/images/tempus/toolbar/btn-arrow-light.png);
+    background-image:url(/skins/tempus/images/toolbar/btn-arrow-light.png);
 }
 
 .x-date-right a {
-    background-image: url(/images/tempus/shared/right-btn.png);
+    background-image: url(/skins/tempus/images/shared/right-btn.png);
 }
 
 .x-date-left a{
-	background-image: url(/images/tempus/shared/left-btn.png);
+	background-image: url(/skins/tempus/images/shared/left-btn.png);
 }
 
 .x-date-inner th {
   background-color:#EAEAEA;
-  background-image:url(/images/tempus/toolbar/bg.gif);
+  background-image:url(/skins/tempus/images/toolbar/bg.gif);
 	border-bottom-color:#ffffff;
   font:normal 12px arial, helvetica,tahoma,sans-serif;
 /*	color:#0099cc;*/
@@ -1401,13 +1401,13 @@ td.x-grid3-col {
 }
 
 .x-date-inner .x-date-active{
-	/*background-image:url(/images/tempus/shared/bgCrystalCyan.png);
+	/*background-image:url(/skins/tempus/images/shared/bgCrystalCyan.png);
 	background-repeat: repeat-x;*/
 	border: 1px #ffffff solid;
 }
 
 .x-date-inner .x-date-selected a{
-	background-image:url(/images/tempus/shared/bgCrystal.png);
+	background-image:url(/skins/tempus/images/shared/bgCrystal.png);
 	background-repeat: repeat-x;
 	border-color:#D1D1D1;
 	color: #545454 !important;
@@ -1432,7 +1432,7 @@ td.x-grid3-col {
 .x-date-bottom {
     border-top-color:#ffffff;
     background-color:#00AFE9;
-    background-image:url(/images/tempus/shared/glass-bg.gif);
+    background-image:url(/skins/tempus/images/shared/glass-bg.gif);
     padding: 0px;
 }
 
@@ -1464,7 +1464,7 @@ td.x-grid3-col {
 }
 
 .x-date-mp-btns button {
-	background-image: url("/images/tempus/shared/bgCrystalCyan.png");
+	background-image: url("/skins/tempus/images/shared/bgCrystalCyan.png");
   background-repeat: repeat-x;
 	color:#ffffff;
 	border-color: #ffffff;
@@ -1473,7 +1473,7 @@ td.x-grid3-col {
 
 .x-date-mp-btns {
     background-color: #dfecfb;
-	background-image: url(/images/tempus/shared/glass-bg.gif);
+	background-image: url(/skins/tempus/images/shared/glass-bg.gif);
 }
 
 .x-date-mp-btns td{
@@ -1501,7 +1501,7 @@ td.x-date-mp-sel a {
 }
 
 .x-date-mp-ybtn a {
-    background-image:url(/images/tempus/panel/tool-sprites.png);
+    background-image:url(/skins/tempus/images/panel/tool-sprites.png);
 }
 
 td.x-date-mp-sep {
@@ -1511,11 +1511,11 @@ td.x-date-mp-sep {
     border-collapse: collapse;
 }
 .x-tip .x-tip-close{
-	background-image: url(/images/tempus/qtip/close.png);
+	background-image: url(/skins/tempus/images/qtip/close.png);
 }
 
 .x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
-	background-image: url(/images/tempus/qtip/tip-sprite.png);
+	background-image: url(/skins/tempus/images/qtip/tip-sprite.png);
 }
 
 .x-tip .x-tip-mc {
@@ -1538,20 +1538,20 @@ td.x-date-mp-sep {
 .x-form-invalid-tip .x-tip-tc, .x-form-invalid-tip .x-tip-tl, .x-form-invalid-tip .x-tip-tr, .x-form-invalid-tip .x-tip-bc,
 .x-form-invalid-tip .x-tip-bl, .x-form-invalid-tip .x-tip-br, .x-form-invalid-tip .x-tip-ml, .x-form-invalid-tip .x-tip-mr
 {
-	background-image: url(/images/tempus/form/error-tip-corners.gif);
+	background-image: url(/skins/tempus/images/form/error-tip-corners.gif);
 }
 
 .x-form-invalid-tip .x-tip-body {
-    background-image:url(/images/tempus/form/exclamation.png);
+    background-image:url(/skins/tempus/images/form/exclamation.png);
 }
 
 .x-tip-anchor {
-    background-image:url(/images/tempus/qtip/tip-anchor-sprite.png);
+    background-image:url(/skins/tempus/images/qtip/tip-anchor-sprite.png);
 }
 .x-menu {
 	border-color:#A4A9AA;
   background-color:#D3D3D3;
-/*	background-image:url(/images/tempus/menu/menu.gif);*/
+/*	background-image:url(/skins/tempus/images/menu/menu.gif);*/
 }
 
 .x-menu-nosep {
@@ -1563,7 +1563,7 @@ td.x-date-mp-sep {
 }
 
 .x-menu-item-arrow{
-	background-image:url(/images/tempus/menu/menu-parent.png);
+	background-image:url(/skins/tempus/images/menu/menu-parent.gif);
 }
 
 .x-menu-sep {
@@ -1591,15 +1591,15 @@ a.x-menu-item span{
 }
 
 .x-menu-check-item .x-menu-item-icon{
-	background-image:url(/images/tempus/menu/unchecked.gif);
+	background-image:url(/skins/tempus/images/menu/unchecked.gif);
 }
 
 .x-menu-item-checked .x-menu-item-icon{
-	background-image:url(/images/tempus/menu/checked.gif);
+	background-image:url(/skins/tempus/images/menu/checked.gif);
 }
 
 .x-menu-item-checked .x-menu-group-item .x-menu-item-icon{
-    background-image:url(/images/tempus/menu/group-checked.gif);
+    background-image:url(/skins/tempus/images/menu/group-checked.gif);
 }
 
 .x-menu-group-item .x-menu-item-icon{
@@ -1620,31 +1620,31 @@ a.x-menu-item span{
 }
 
 .x-menu-scroller-top {
-    background-image:url(/images/tempus/layout/mini-top.gif);
+    background-image:url(/skins/tempus/images/layout/mini-top.gif);
 }
 
 .x-menu-scroller-bottom {
-    background-image:url(/images/tempus/layout/mini-bottom.gif);
+    background-image:url(/skins/tempus/images/layout/mini-bottom.gif);
 }
 .x-box-tl {
-	background-image: url(/images/tempus/box/corners.gif);
+	background-image: url(/skins/tempus/images/box/corners.gif);
 }
 
 .x-box-tc {
-	background-image: url(/images/tempus/box/tb.gif);
+	background-image: url(/skins/tempus/images/box/tb.gif);
 }
 
 .x-box-tr {
-	background-image: url(/images/tempus/box/corners.gif);
+	background-image: url(/skins/tempus/images/box/corners.gif);
 }
 
 .x-box-ml {
-	background-image: url(/images/tempus/box/l.gif);
+	background-image: url(/skins/tempus/images/box/l.gif);
 }
 
 .x-box-mc {
 	background-color: #eee;
-    background-image: url(/images/tempus/box/tb.gif);
+    background-image: url(/skins/tempus/images/box/tb.gif);
 	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
 	color: #393939;
 	font-size: 15px;
@@ -1656,27 +1656,27 @@ a.x-menu-item span{
 }
 
 .x-box-mr {
-	background-image: url(/images/tempus/box/r.gif);
+	background-image: url(/skins/tempus/images/box/r.gif);
 }
 
 .x-box-bl {
-	background-image: url(/images/tempus/box/corners.gif);
+	background-image: url(/skins/tempus/images/box/corners.gif);
 }
 
 .x-box-bc {
-	background-image: url(/images/tempus/box/tb.gif);
+	background-image: url(/skins/tempus/images/box/tb.gif);
 }
 
 .x-box-br {
-	background-image: url(/images/tempus/box/corners.gif);
+	background-image: url(/skins/tempus/images/box/corners.gif);
 }
 
 .x-box-blue .x-box-bl, .x-box-blue .x-box-br, .x-box-blue .x-box-tl, .x-box-blue .x-box-tr {
-	background-image: url(/images/tempus/box/corners-blue.gif);
+	background-image: url(/skins/tempus/images/box/corners-blue.gif);
 }
 
 .x-box-blue .x-box-bc, .x-box-blue .x-box-mc, .x-box-blue .x-box-tc {
-	background-image: url(/images/tempus/box/tb-blue.gif);
+	background-image: url(/skins/tempus/images/box/tb-blue.gif);
 }
 
 .x-box-blue .x-box-mc {
@@ -1688,11 +1688,11 @@ a.x-menu-item span{
 }
 
 .x-box-blue .x-box-ml {
-	background-image: url(/images/tempus/box/l-blue.gif);
+	background-image: url(/skins/tempus/images/box/l-blue.gif);
 }
 
 .x-box-blue .x-box-mr {
-	background-image: url(/images/tempus/box/r-blue.gif);
+	background-image: url(/skins/tempus/images/box/r-blue.gif);
 }
 .x-combo-list {
     border:1px solid #a0a0a0;
@@ -1708,7 +1708,7 @@ a.x-menu-item span{
 .x-combo-list-hd {
     font:bold 14px tahoma, arial, helvetica, sans-serif;
     color:fff;
-    background-image: url(/images/tempus/layout/panel-title-light-bg.gif);
+    background-image: url(/skins/tempus/images/layout/panel-title-light-bg.gif);
     border-bottom-color:#98c0f4;
 }
 
@@ -1737,7 +1737,7 @@ a.x-menu-item span{
 .x-panel {
     border-color: #aaa;
     font-size: 14px;
-    /*background-image:url(/images/tempus/layout/backgroundCyan.png); */
+    /*background-image:url(/skins/tempus/images/layout/backgroundCyan.png); */
 }
 
 .x-panel-header {
@@ -1746,20 +1746,20 @@ a.x-menu-item span{
     font-size: 14px;
     font-family: tahoma,arial,verdana,sans-serif;
     border-color:#cccccc;
-    background-image: url("/images/tempus/panel/top-bottom.gif");
+    background-image: url("/skins/tempus/images/panel/top-bottom.gif");
 }
 
 .x-panel-body {
   /*  color: #fffff6;*/
     border-color:#cccccc;
- /*   background-image:url(/images/tempus/layout/backgroundCyan.png);*/
+ /*   background-image:url(/skins/tempus/images/layout/backgroundCyan.png);*/
 }
 
 
 .x-tab-panel .x-panel-body {
     color: #0099cc;
     border-color:#8E8E8E;
-/*    background-image:url(/images/tempus/layout/backgroundCyan.png);*/
+/*    background-image:url(/skins/tempus/images/layout/backgroundCyan.png);*/
 }
 
 .x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar {
@@ -1781,16 +1781,16 @@ a.x-menu-item span{
 }
 
 .x-panel-tc {
-	background-image: url(/images/tempus/panel/top-bottom.gif);
+	background-image: url(/skins/tempus/images/panel/top-bottom.gif);
 }
 
 .x-panel-tl, .x-panel-tr, .x-panel-bl,  .x-panel-br{
-	background-image: url(/images/tempus/panel/corners-sprite.gif);
+	background-image: url(/skins/tempus/images/panel/corners-sprite.gif);
   border-bottom-color:#a1a1a1;
 }
 
 .x-panel-bc {
-	background-image: url(/images/tempus/panel/top-bottom.gif);
+	background-image: url(/skins/tempus/images/panel/top-bottom.gif);
 	/*border-bottom: 1px solid #A1A1A1;*/
 }
 
@@ -1800,17 +1800,17 @@ a.x-menu-item span{
 }
 
 .x-panel-ml {
-    background-image:url(/images/tempus/panel/left-right.gif);
+    background-image:url(/skins/tempus/images/panel/left-right.gif);
 }
 
 .x-panel-mr {
-	background-image: url(/images/tempus/panel/left-right.gif);
+	background-image: url(/skins/tempus/images/panel/left-right.gif);
 	background-color: #F4F4F4;
 	/*border-right: 1px solid #A1A1A1;*/
 }
 
 .x-tool {
-    background-image:url(/images/tempus/panel/tool-sprites.png);
+    background-image:url(/skins/tempus/images/panel/tool-sprites.png);
 }
 
 .x-panel-ghost {
@@ -1839,27 +1839,27 @@ a.x-menu-item span{
 }
 
 .x-window-tc {
-	background-image: url(/images/tempus/window/top-bottom.png);
+	background-image: url(/skins/tempus/images/window/top-bottom.png);
 }
 
 .x-window-tl {
-	background-image: url(/images/tempus/window/left-corners.png);
+	background-image: url(/skins/tempus/images/window/left-corners.png);
 }
 
 .x-window-tr {
-	background-image: url(/images/tempus/window/right-corners.png);
+	background-image: url(/skins/tempus/images/window/right-corners.png);
 }
 
 .x-window-bc {
-	background-image: url(/images/tempus/window/top-bottom.png);
+	background-image: url(/skins/tempus/images/window/top-bottom.png);
 }
 
 .x-window-bl {
-	background-image: url(/images/tempus/window/left-corners.png);
+	background-image: url(/skins/tempus/images/window/left-corners.png);
 }
 
 .x-window-br {
-	background-image: url(/images/tempus/window/right-corners.png);
+	background-image: url(/skins/tempus/images/window/right-corners.png);
 }
 
 .x-window-mc {
@@ -1869,11 +1869,11 @@ a.x-menu-item span{
 }
 
 .x-window-ml {
-	background-image: url(/images/tempus/window/left-right.png);
+	background-image: url(/skins/tempus/images/window/left-right.png);
 }
 
 .x-window-mr {
-	background-image: url(/images/tempus/window/left-right.png);
+	background-image: url(/skins/tempus/images/window/left-right.png);
 }
 
 .x-window-maximized .x-window-tc {
@@ -1914,71 +1914,71 @@ body.x-body-masked .x-window-plain .x-window-mc {
     /*background-color:#fff;*/
 }
 iframe{
-   /*    background-image: url(/images/tempus/layout/background.png);*/
+   /*    background-image: url(/skins/tempus/images/layout/background.png);*/
        background-color: #F4F4F4 !important;
 }
 
 .x-html-editor-tb .x-btn-text {
-    background-image:url(/images/tempus/ext/default/editor/tb-sprite.gif) !important;
+    background-image:url(/images/ext/default/editor/tb-sprite.gif) !important;
 }
 .x-html-editor-tb .x-edit-italic, .x-menu-item img.x-edit-italic {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -16px 0 !important;
 }
 .x-html-editor-tb .x-edit-bold, .x-menu-item img.x-edit-bold {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: 0 0 !important;
 }
 .x-html-editor-tb .x-edit-underline, .x-menu-item img.x-edit-underline {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -32px 0 !important;
 }
 .x-html-editor-tb .x-edit-increasefontsize, .x-menu-item img.x-edit-increasefontsize {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -48px 0 !important;
 }
 .x-html-editor-tb .x-edit-decreasefontsize, .x-menu-item img.x-edit-decreasefontsize {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -64px 0 !important;
 }
 .x-html-editor-tb .x-edit-forecolor, .x-menu-item img.x-edit-forecolor {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -160px 0 !important;
 }
 .x-html-editor-tb .x-edit-backcolor, .x-menu-item img.x-edit-backcolor {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -176px 0 !important;
 }
 .x-html-editor-tb .x-edit-justifyleft, .x-menu-item img.x-edit-justifyleft {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -112px 0 !important;
 }
 .x-html-editor-tb .x-edit-justifycenter, .x-menu-item img.x-edit-justifycenter {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -128px 0 !important;
 }
 .x-html-editor-tb .x-edit-justifyright, .x-menu-item img.x-edit-justifyright {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -144px 0 !important;
 }
 .x-html-editor-tb .x-edit-createlink, .x-menu-item img.x-edit-createlink {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -208px 0 !important;
 }
 .x-html-editor-tb .x-edit-insertorderedlist, .x-menu-item img.x-edit-insertorderedlist {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -80px 0 !important;
 }
 .x-html-editor-tb .x-edit-insertunorderedlist, .x-menu-item img.x-edit-insertunorderedlist {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -96px 0 !important;
 }
 .x-html-editor-tb .x-edit-sourceedit, .x-menu-item img.x-edit-sourceedit {
-    background-image: url("/images/tempus/editor/tb-sprite.gif") !important;
+    background-image: url("/skins/tempus/images/editor/tb-sprite.gif") !important;
     background-position: -192px 0 !important;
 }
 .x-html-editor-tb .x-btn-text {
-    background-image:url(/images/tempus/editor/tb-sprite.gif);
+    background-image:url(/skins/tempus/images/editor/tb-sprite.gif);
 }
 
 
@@ -2003,13 +2003,13 @@ iframe{
 }
 .x-border-layout-ct {
     /*background-color:#3f4757;*/
-   /* background: #F4F4F4 url(/images/tempus/layout/background.png);*/
+   /* background: #F4F4F4 url(/skins/tempus/images/layout/background.png);*/
 }
 
 .x-accordion-hd {
 	color:#fff;
     font-weight:normal;
-    background-image: url(/images/tempus/panel/light-hd.gif);
+    background-image: url(/skins/tempus/images/panel/light-hd.gif);
 }
 
 .x-layout-collapsed{
@@ -2022,35 +2022,35 @@ iframe{
 }
 
 .x-layout-split-west .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-left.gif);
+    background-image:url(/skins/tempus/images/layout/mini-left.gif);
 }
 
 .x-layout-split-east .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-right.gif);
+    background-image:url(/skins/tempus/images/layout/mini-right.gif);
 }
 
 .x-layout-split-north .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-top.gif);
+    background-image:url(/skins/tempus/images/layout/mini-top.gif);
 }
 
 .x-layout-split-south .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-bottom.gif);
+    background-image:url(/skins/tempus/images/layout/mini-bottom.gif);
 }
 
 .x-layout-cmini-west .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-right.gif);
+    background-image:url(/skins/tempus/images/layout/mini-right.gif);
 }
 
 .x-layout-cmini-east .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-left.gif);
+    background-image:url(/skins/tempus/images/layout/mini-left.gif);
 }
 
 .x-layout-cmini-north .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-bottom.gif);
+    background-image:url(/skins/tempus/images/layout/mini-bottom.gif);
 }
 
 .x-layout-cmini-south .x-layout-mini {
-    background-image:url(/images/tempus/layout/mini-top.gif);
+    background-image:url(/skins/tempus/images/layout/mini-top.gif);
 }
 .x-progress-wrap {
     border-color:#aaa;
@@ -2063,7 +2063,7 @@ iframe{
 
 .x-progress-bar {
     background-color:#0099cc;
-    background-image:url(/images/tempus/progress/progress-bg.gif);
+    background-image:url(/skins/tempus/images/progress/progress-bg.gif);
     border: 1px solid #E6F3F9;
     height: 16px !important; /* structural override for Accessibility Theme */
 }
@@ -2081,7 +2081,7 @@ iframe{
 }
 .x-list-header{
     background-color:#F4F4F4;
-	background-image:url(/images/tempus/toolbar/bg.gif);
+	background-image:url(/skins/tempus/images/toolbar/bg.gif);
 	background-position:0 top;
 }
 
@@ -2113,23 +2113,23 @@ iframe{
 }
 
 .x-list-header-inner em.sort-asc, .x-list-header-inner em.sort-desc {
-    background-image:url(/images/tempus/grid/sort-hd.gif);
+    background-image:url(/skins/tempus/images/grid/sort-hd.gif);
     border-color: #3e4e6c;
 }
 .x-slider-horz, .x-slider-horz .x-slider-end, .x-slider-horz .x-slider-inner {
-    background-image:url(/images/tempus/slider/slider-bg.png);
+    background-image:url(/skins/tempus/images/slider/slider-bg.png);
 }
 
 .x-slider-horz .x-slider-thumb {
-    background-image:url(/images/tempus/slider/slider-thumb.png);
+    background-image:url(/skins/tempus/images/slider/slider-thumb.png);
 }
 
 .x-slider-vert, .x-slider-vert .x-slider-end, .x-slider-vert .x-slider-inner {
-    background-image:url(/images/tempus/slider/slider-v-bg.png);
+    background-image:url(/skins/tempus/images/slider/slider-v-bg.png);
 }
 
 .x-slider-vert .x-slider-thumb {
-    background-image:url(/images/tempus/slider/slider-v-thumb.png);
+    background-image:url(/skins/tempus/images/slider/slider-v-thumb.png);
 }
 .x-window-dlg .ext-mb-text,
 .x-window-dlg .x-window-header-text {
@@ -2141,25 +2141,25 @@ iframe{
 }
 
 .x-window-dlg .x-msg-box-wait {
-    background-image:url(/images/tempus/grid/loading.gif);
+    background-image:url(/skins/tempus/images/grid/loading.gif);
     background-color:#ececec;
     color: #545454;
 }
 
 .x-window-dlg .ext-mb-info {
-    background-image:url(/images/tempus/window/information.png);
+    background-image:url(/skins/tempus/images/window/information.png);
 }
 
 .x-window-dlg .ext-mb-warning {
-    background-image:url(/images/tempus/window/warning.png);
+    background-image:url(/skins/tempus/images/window/warning.png);
 }
 
 .x-window-dlg .ext-mb-question {
-    background-image:url(/images/tempus/window/question.png);
+    background-image:url(/skins/tempus/images/window/question.png);
 }
 
 .x-window-dlg .ext-mb-error {
-    background-image:url(/images/tempus/window/error.png);
+    background-image:url(/skins/tempus/images/window/error.png);
 }
 
 
@@ -2185,14 +2185,14 @@ th.x-date-weeknumber-header a em span, .x-date-weeknumber-cell a em span{
 	color: #8ac7d6 !important;
 }
 .x-row-editor .x-btns {
-    background: url("/images/tempus/editor/row-editor-btns.gif") no-repeat scroll 0 0 transparent;
+    background: url("/skins/tempus/images/editor/row-editor-btns.gif") no-repeat scroll 0 0 transparent;
     left: 20px;
     padding-left: 5px;
     position: absolute;
     top: 28px;
 }
 .x-row-editor .x-btns .x-plain-bwrap {
-    background: url("/images/tempus/editor/row-editor-btns.gif") no-repeat scroll right -31px transparent;
+    background: url("/skins/tempus/images/editor/row-editor-btns.gif") no-repeat scroll right -31px transparent;
     padding-right: 5px;
 }
 .x-plain, .x-plain-bwrap {
@@ -2204,12 +2204,12 @@ th.x-date-weeknumber-header a em span, .x-date-weeknumber-cell a em span{
     margin-bottom: 5px;
 }
 .x-row-editor-footer {
-  /*  background: url("/images/tempus/editor/row-editor-bg.gif") repeat-x scroll 0 0 transparent;*/
+  /*  background: url("/skins/tempus/images/editor/row-editor-bg.gif") repeat-x scroll 0 0 transparent;*/
     height: 2px;
     overflow: hidden;
 }
 .x-row-editor .x-btns .x-plain-body {
-    background: url("/images/tempus/editor/row-editor-btns.gif") repeat-x scroll 0 -62px transparent;
+    background: url("/skins/tempus/images/editor/row-editor-btns.gif") repeat-x scroll 0 -62px transparent;
     height: 31px;
 }
 .x-plain-body {

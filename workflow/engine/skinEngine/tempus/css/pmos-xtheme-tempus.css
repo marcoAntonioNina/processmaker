@@ -48,19 +48,19 @@
     border-right: 1px solid #96969D;
 }
 .x-locationbar-folder-icon {
-    background-image: url("/skin/ext/images/icons/gray/locationbar/location_folder.png") !important;
+    background-image: url("/skin/ext/skins/tempus/images/icons/gray/locationbar/location_folder.png") !important;
 }
 .x-locationbar-back-icon {
-    background-image: url("/skin/ext/images/icons/gray/locationbar/location_back.png") !important;
+    background-image: url("/skin/ext/skins/tempus/images/icons/gray/locationbar/location_back.png") !important;
 }
 .x-locationbar-forward-icon {
-    background-image: url("/skin/ext/images/icons/gray/locationbar/location_forward.png") !important;
+    background-image: url("/skin/ext/skins/tempus/images/icons/gray/locationbar/location_forward.png") !important;
 }
 .x-locationbar-reload-icon {
-    background-image: url("/skin/ext/images/icons/gray/locationbar/location_reload.png") !important;
+    background-image: url("/skin/ext/skins/tempus/images/icons/gray/locationbar/location_reload.png") !important;
 }
 .x-locationbar .x-btn-menu-arrow-wrap .x-btn-center button {
-    background:#F4F4F4 url(/skin/ext/images/icons/gray/locationbar/btn-arrow.gif) no-repeat scroll 0pt 3px;
+    background:#F4F4F4 url(/skin/ext/skins/tempus/images/icons/gray/locationbar/btn-arrow.gif) no-repeat scroll 0pt 3px;
     width: 12px;
 }
 .x-locationbar .x-btn-menu-active .x-btn-menu-arrow-wrap .x-btn-center button {
@@ -69,7 +69,7 @@
 .x-locationbar .x-btn-click .x-btn-center, 
 .x-locationbar .x-btn-pressed .x-btn-center, 
 .x-locationbar .x-btn-menu-active .x-btn-center {
-    background:#F4F4F4 url(/skin/ext/images/icons/gray/locationbar/tb-btn-sprite.gif) repeat-x scroll 0pt -105px;
+    background:#F4F4F4 url(/skin/ext/skins/tempus/images/icons/gray/locationbar/tb-btn-sprite.gif) repeat-x scroll 0pt -105px;
 }
 
 /*Los botones de EXT solamente s even iguales en los x-form*/
@@ -118,19 +118,19 @@ button.x-btn-text:focus,.x-combo-selected{
 }
 
 .icon-activate{
-  background-image: url("/images/icons/activate.png");
+  background-image: url("/skins/tempus/images/icons/activate.png");
 }
 
 .icon-deactivate{
-  background-image: url("/images/icons/deactivate.png");
+  background-image: url("/skins/tempus/images/icons/deactivate.png");
 }
 
 .icon-debug{
-  background-image: url("/images/icons/debug.png");
+  background-image: url("/skins/tempus/images/icons/debug.png");
 }
 
 .icon-debug-disabled{
-  background-image: url("/images/icons/debug_disabled.png");
+  background-image: url("/skins/tempus/images/icons/debug_disabled.png");
 }
 /**
  * Cases Interface styles
@@ -138,7 +138,7 @@ button.x-btn-text:focus,.x-combo-selected{
 
 #details-panel .x-panel-body {
   padding: 10px;
-/*  background-image:url(/images/tempus/layout/backgroundCyan.png);*/
+/*  background-image:url(/skins/tempus/images/layout/backgroundCyan.png);*/
 /*  background: #F4F4F4;
   color: #555;*/
 }
@@ -177,270 +177,270 @@ button.x-btn-text:focus,.x-combo-selected{
 
 .x-tree-node-icon{
   width:18px !important;
-  background-image:url( /images/tempus/icons/sprites.png);
+  background-image:url( /skins/tempus/images/icons/sprites.png);
   height:18px !important;
 }
 .ss_nodo_org{
-	background-image: url("/images/tempus/icons/nodo.png") !important;
+	background-image: url("/skins/tempus/images/icons/nodo.png") !important;
 }
 .ICON_CASES_NOTES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -4501px !important;
 }
 .ICON_PM_TABLES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -5815px !important;
 }
 .ICON_FOLDERS {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -7777px !important;
 }
 .ICON_STEPS {
-    background-image: url("/images/tempus/icons/step-over.png") !important;
+    background-image: url("/skins/tempus/images/icons/step-over.png") !important;
 }
 .ICON_CASES_FOLDERS {
-  /*background-image: url(/images/tempus/icons/cases-inbox.png) !important;*/
+  /*background-image: url(/skins/tempus/images/icons/cases-inbox.png) !important;*/
 }
 
 .ICON_CASES_INBOX {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -7957px !important;
 }
 .ICON_LOGIN {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -8929px !important;
 }
 .ICON_CASES_DRAFT {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -12439px !important;
 }
 
 .ICON_CASES_SENT {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -11773px !important;
 }
 
 .ICON_CASES_SELFSERVICE {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -955px !important;
 }
 
 .ICON_CASES_PAUSED {
 	
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position: 0 -4035px !important;
 }
 
 .ICON_CASES_COMPLETED {
-    background-image: url(/images/tempus/icons/cases-completed1.png) !important;
+    background-image: url(/skins/tempus/images/icons/cases-completed1.png) !important;
 }
 
 .ICON_CASES_CANCELLED {
-    background-image: url(/images/tempus/icons/cases-cancelled.png) !important;
+    background-image: url(/skins/tempus/images/icons/cases-cancelled.png) !important;
 }
 
 .ICON_CASES_FOLDERS {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -13213px !important;
 }
 
 .ICON_SEARCHS {
-  background-image: url(/images/tempus/icons/sprites.png) !important;
+  background-image: url(/skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -18641px !important;
 }
 .ICON_CASES_SEARCH {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -11089px !important;
 }
 
 .ICON_ADMIN {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -17371px !important;
 }
 
 .ICON_CASES_TO_REVISE {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -11881px !important;
 }
 
 .ICON_CASES_TO_REASSIGN {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -973px !important;
 }
 
 .ICON_CASES_START_PAGE {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -3925px !important;
 }
 .ICON_CASES_START_CASE {
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -19px !important;
 }
 .ICON_CASES_HOME {
-  background-image:url(/images/tempus/icons/sprites.png) !important;
+  background-image:url(/skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -8497px !important;
 }
 
 .ICON_CASES_DELETE {
-  background-image:url(/images/tempus/icons/delete-16x16.gif) !important;
+  background-image:url(/skins/tempus/images/icons/delete-16x16.gif) !important;
 }
 
 .ICON_CASES_CANCEL {
-  background-image:url(/images/tempus/icons/deactivate.png) !important;
+  background-image:url(/skins/tempus/images/icons/deactivate.png) !important;
 }
 
 .ICON_CASES_UNPAUSE {
-  background-image:url(/images/tempus/icons/activate.png) !important;
+  background-image:url(/skins/tempus/images/icons/activate.png) !important;
 }
 
 .ICON_CASES_OPEN {
-  background-image:url(/images/tempus/icons/edit.gif) !important;
+  background-image:url(/skins/tempus/images/icons/edit.gif) !important;
 }
 
 .ICON_CASES_LIST_SETUP {
-    background-image: url("/images/tempus/icons/icon-pmcaseslist-conf.png") !important;
+    background-image: url("/skins/tempus/images/icons/icon-pmcaseslist-conf.png") !important;
     height: 15px !important;
     width: 15px !important;
 }
 .ICON_APPCACHEVIEW_SETUP {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -18711px !important;
 }
 .ICON_ADDITIONAL_TABLES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -5815px !important;
 }
 .ICON_LANGUAGES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -18675px !important;
 }
 .ICON_PLUGINS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -12961px !important;
 }
 .ICON_UPGRADE {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -10873px !important;
 }
 .ICON_EMAILS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -6715px !important;
 }
 .ICON_WEBSERVICES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -14095px !important;
 }
 .ICON_SKINS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -18692px !important;
 }
 .ICON_LOGO {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -18658px !important;
 }
 .ICON_ENVIRONMENT_SETTINGS{
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -53px !important;
 }
 .ICON_HEARTBEAT {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -8335px !important;
 }
 .ICON_CLEAR_CACHE {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -18730px !important;
 }
 .ICON_CALENDAR {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -2899px !important;
 }
 .ICON_LOG_CASE_SCHEDULER {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -17011px !important;
 }
 .ICON_PROCESS_CATEGORY {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -14833px !important;
 } 
 
 .ICON_USERS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -17173px !important;
 }
 .ICON_ROLES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -325px !important;
 }
 .ICON_GROUPS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -8173px !important;
 }
 .ICON_DEPARTAMENTS {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -3871px !important;
 }
 .ICON_AUTHSOURCES {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -8929px !important;
 }
 .ICON_DASHBOARD {
-    background-image: url("/images/tempus/icons/icon-dashboard.png") !important;
+    background-image: url("/skins/tempus/images/icons/icon-dashboard.png") !important;
     height: 15px !important;
     width: 15px !important;
 }
 .ICON_ASSIGN_TASK{
-		background-image: url("/images/tempus/icons/flechav1A.png") !important;
+		background-image: url("/skins/tempus/images/icons/flechav1A.png") !important;
 	}
 .ICON_UX {
-    background-image: url("/images/tempus/icons/user-experience-icon.png") !important;
+    background-image: url("/skins/tempus/images/icons/user-experience-icon.png") !important;
 }
 .ICON_VIEWPMTABLE{
-		background-image: url("/images/tempus/icons/table.png") !important;	
+		background-image: url("/skins/tempus/images/icons/table.png") !important;	
 }
 .ICON_SYSTEM{
-		background-image: url("/images/tempus/icons/database.png") !important;		
+		background-image: url("/skins/tempus/images/icons/database.png") !important;		
 }
 .upload-icon {
-    background: url("/images/tempus/icons/cases-documents.png") no-repeat scroll 0 0 transparent !important;
+    background: url("/skins/tempus/images/icons/cases-documents.png") no-repeat scroll 0 0 transparent !important;
 }
 .x-cols-icon {
-    background-image: url("/images/tempus/icons/column.png");
+    background-image: url("/skins/tempus/images/icons/column.png");
 }
 .x-menu-check-item .x-menu-item-icon {
-   background-image: url("/images/tempus/icons/uncheck.png");
+   background-image: url("/skins/tempus/images/icons/uncheck.png");
 }
 .x-menu-item-checked .x-menu-item-icon {
-   background-image: url("/images/tempus/icons/check.png");
+   background-image: url("/skins/tempus/images/icons/check.png");
 }
 .ICON_CASESTREE_FOLDER {
-    background-image: url("/images/tempus/icons/folder.png") !important;
+    background-image: url("/skins/tempus/images/icons/folder.png") !important;
 }
 .ICON_CASES_LIST_SETUP {
-    background-image: url("/images/tempus/icons/icon-pmcaseslist-conf.png") !important;
+    background-image: url("/skins/tempus/images/icons/icon-pmcaseslist-conf.png") !important;
     height: 15px !important;
 	  width: 15px !important;
 }
 .ICON_ID_SETUP_PLUGIN_SM{
-		background-image: url("/images/tempus/icons/icon-setup-cases-list.png") !important;
+		background-image: url("/skins/tempus/images/icons/icon-setup-cases-list.png") !important;
     height: 15px !important;
 	  width: 15px !important;
 }
 .ICON_BROKERAGE_INBOX{
-		background-image: url("/images/tempus/icons/icon-brokerage-list.png") !important;
+		background-image: url("/skins/tempus/images/icons/icon-brokerage-list.png") !important;
     height: 15px !important;
 	  width: 15px !important;	
 }
 .ICON_START_ACCOUNT{
-		background-image: url("/images/tempus/icons/icon-start-account.png") !important;
+		background-image: url("/skins/tempus/images/icons/icon-start-account.png") !important;
     height: 15px !important;
 	  width: 15px !important;	
 }
 .ICON_CRON {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -16939px !important;
 }
 .ICON_EVENT {
-    background-image: url("/images/tempus/icons/sprites.png") !important;
+    background-image: url("/skins/tempus/images/icons/sprites.png") !important;
     background-position: 0 -15517px !important;
 }
 .ICON_INFORMATION {
@@ -457,16 +457,16 @@ button.x-btn-text:focus,.x-combo-selected{
     width: 16px !important;
 }
 .x-pm-home {
-    background-image: url("/images/tempus/icons/homeIcon.png") !important;
+    background-image: url("/skins/tempus/images/icons/homeIcon.png") !important;
 }
 .x-pm-designer {
-    background-image: url("/images/tempus/icons/designerIcon.png") !important;
+    background-image: url("/skins/tempus/images/icons/designerIcon.png") !important;
 }
 .x-pm-dashboard {
-    background-image: url("/images/tempus/icons/dashboard.png") !important;
+    background-image: url("/skins/tempus/images/icons/dashboard.png") !important;
 }
 .x-pm-setup {
-    background-image: url("/images/tempus/icons/setupIcon.png") !important;
+    background-image: url("/skins/tempus/images/icons/setupIcon.png") !important;
 }
 .ux-auth-header-icon {
     background: url("../images/ext/default/locked.png") no-repeat scroll 0 4px transparent !important;
@@ -533,13 +533,13 @@ button.x-btn-text:focus,.x-combo-selected{
   padding-left:18px !important;
 }
 .grid_with_checkbox .x-grid3-row{
-  background-image:url(/images/tempus/icons/unchecked.png) !important;
+  background-image:url(/skins/tempus/images/icons/unchecked.png) !important;
   background-repeat: no-repeat !important;
   padding-left:18px !important;
 }
 
 .grid_with_checkbox .x-grid3-row.x-grid3-row-selected{
-  background-image:url(/images/tempus/icons/checked.png) !important;
+  background-image:url(/skins/tempus/images/icons/checked.png) !important;
   background-repeat: no-repeat !important;
   padding-left:18px !important;
 }
@@ -589,11 +589,11 @@ Pone en mayúsuclas el texto que se encuentra en el toolbar de arriba
 }
 /*Cambiamos el menos y más*/
 #ext-gen38.x-tree-root-ct .x-tree-elbow-minus,#ext-gen38.x-tree-root-ct .x-tree-elbow-end-minus{
-  background-image:url(/images/tempus/icons/sprites.png) !important;
+  background-image:url(/skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -2395px !important;
 }
 #ext-gen38.x-tree-root-ct .x-tree-elbow-plus,#ext-gen38.x-tree-root-ct .x-tree-elbow-end-plus{
-  background-image:url(/images/tempus/icons/sprites.png) !important;
+  background-image:url(/skins/tempus/images/icons/sprites.png) !important;
   background-position:0 -2359px !important;
 }
 
@@ -650,12 +650,12 @@ Pone en mayúsuclas el texto que se encuentra en el toolbar de arriba
 
 .icon-expand-all{
   /*ss_bullet_toggle_plus*/
-  background-image:url(/images/tempus/icons/sprites.gif.png) !important;
+  background-image:url(/skins/tempus/images/icons/sprites.gif.png) !important;
   background-position:0 -2359px !important;
 }
 .icon-collapse-all{
   /*ss_bullet_toggle_minus*/
-  background-image:url(/images/tempus/icons/sprites.gif.png) !important;
+  background-image:url(/skins/tempus/images/icons/sprites.gif.png) !important;
   background-position:0 -2395px !important;
 }
 #startCaseTreePanel .x-tree-elbow-end-minus,
@@ -709,7 +709,7 @@ Pone en mayúsuclas el texto que se encuentra en el toolbar de arriba
 .x-btn-icon .x-btn-small .x-btn-text {
     height: 16px;
     width: 16px;
-    background-image: url("/images/tempus/icons/upload.png");
+    background-image: url("/skins/tempus/images/icons/upload.png");
 }
 
 .ext-gecko .x-btn button, .ext-webkit .x-btn button {

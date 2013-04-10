@@ -3,7 +3,7 @@
 Sprite modificado de http://ajaxbestiary.com/Labs/SilkSprite/
 */
 .ss_sprite{
-  background-image:url( /images/tempus/icons/sprites.png) !important;
+  background-image:url( /skins/tempus/images/icons/sprites.png) !important;
   background-position: right center;
   background-repeat:no-repeat;
   display:inline;
@@ -21,7 +21,7 @@ Sprite modificado de http://ajaxbestiary.com/Labs/SilkSprite/
 }
 .pm_toolbar td{padding:0;margin:0}
 
-.panel_headerBar___processmaker{background:url("/images/tempus/toolbar/bg.gif") #F0F0F0 !important}
+.panel_headerBar___processmaker{background:url("/skins/tempus/images/toolbar/bg.gif") #F0F0F0 !important}
 
 .button_menu_ext{padding-left:20px !important;height:18px !important;}
 .button_large_ext{padding-left:20px !important;height:32px !important;}
@@ -192,7 +192,7 @@ Sprite modificado de http://ajaxbestiary.com/Labs/SilkSprite/
 .ss_camera_go{background-position:0 -3133px !important}
 .ss_camera_link{background-position:0 -3151px !important}
 .ss_camera_small{background-position:0 -3169px !important}
-.ss_cancel{background-image:url(/images/tempus/icons/del.png)!important;}
+.ss_cancel{background-image:url(/skins/tempus/images/icons/del.png)!important;}
 .ss_car{background-position:0 -3205px !important}
 .ss_car_add{background-position:0 -3223px !important}
 .ss_car_delete{background-position:0 -3241px !important}

@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'armataregular';
-    src: url('/fonts/armata-regular-webfont.eot');
-    src: url('/fonts/armata-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/armata-regular-webfont.woff') format('woff'),
-         url('/fonts/armata-regular-webfont.ttf') format('truetype'),
-         url('/fonts/armata-regular-webfont.svg#armataregular') format('svg');
+    src: url('/skins/tempus/fonts/armata-regular-webfont.eot');
+    src: url('/skins/tempus/fonts/armata-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/skins/tempus/fonts/armata-regular-webfont.woff') format('woff'),
+         url('/skins/tempus/fonts/armata-regular-webfont.ttf') format('truetype'),
+         url('/skins/tempus/fonts/armata-regular-webfont.svg#armataregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'roboto_condensedregular';
-    src: url('/fonts/robotocondensed-regular-webfont.eot');
-    src: url('/fonts/robotocondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/robotocondensed-regular-webfont.woff') format('woff'),
-         url('/fonts/robotocondensed-regular-webfont.ttf') format('truetype'),
-         url('/fonts/robotocondensed-regular-webfont.svg#roboto_condensedregular') format('svg');
+    src: url('/skins/tempus/fonts/robotocondensed-regular-webfont.eot');
+    src: url('/skins/tempus/fonts/robotocondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/skins/tempus/fonts/robotocondensed-regular-webfont.woff') format('woff'),
+         url('/skins/tempus/fonts/robotocondensed-regular-webfont.ttf') format('truetype'),
+         url('/skins/tempus/fonts/robotocondensed-regular-webfont.svg#roboto_condensedregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -77,7 +77,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
 	z-index: 100px;
 }
 .gearFoot{
-	background: transparent url(/images/tempus/layout/footer01.png) no-repeat left top scroll;
+	background: transparent url(/skins/tempus/images/layout/footer01.png) no-repeat left top scroll;
 	height:44px;
 	width:100%;		
 }
@@ -122,31 +122,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', end
   float: left;	
 }
 .faceFoot{
-  background: transparent url(/images/tempus/layout/faceIcon.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/faceIcon.png) no-repeat right center scroll;  
 }
 .faceFoot:hover{
-  background: transparent url(/images/tempus/layout/faceIconOver.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/faceIconOver.png) no-repeat right center scroll;  
 }
 .tweetFoot{
-  background: transparent url(/images/tempus/layout/tweetIcon.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/tweetIcon.png) no-repeat right center scroll;  
 }
 .tweetFoot:hover{
-  background: transparent url(/images/tempus/layout/tweetIconOver.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/tweetIconOver.png) no-repeat right center scroll;  
 }
 .youFoot{
-  background: transparent url(/images/tempus/layout/youIcon.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/youIcon.png) no-repeat right center scroll;  
 }
 .youFoot:hover{
-  background: transparent url(/images/tempus/layout/youIconOver.png) no-repeat right center scroll;  
+  background: transparent url(/skins/tempus/images/layout/youIconOver.png) no-repeat right center scroll;  
 }
 .rssFoot{
-  background: transparent url(/images/tempus/layout/rssIcon.png) no-repeat right center scroll;
+  background: transparent url(/skins/tempus/images/layout/rssIcon.png) no-repeat right center scroll;
 }
 .rssFoot:hover{
-  background: transparent url(/images/tempus/layout/rssIconOver.png) no-repeat right center scroll;
+  background: transparent url(/skins/tempus/images/layout/rssIconOver.png) no-repeat right center scroll;
 }
 .poweredFoot{
-	background: transparent url(/images/tempus/layout/poweredBy.png) no-repeat right center scroll;
+	background: transparent url(/skins/tempus/images/layout/poweredBy.png) no-repeat right center scroll;
 	height:45px;
 	width: 33%;
 	float: left;
@@ -208,18 +208,18 @@ background: linear-gradient(to bottom,  #d5edf7 0%,#c4d6e5 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5edf7', endColorstr='#c4d6e5',GradientType=0 ); /* IE6-9 */
 }
 .iconWarningMess{
-		background: transparent url("/images/tempus/icons/warning.png") left center no-repeat scroll;
+		background: transparent url("/skins/tempus/images/icons/warning.png") left center no-repeat scroll;
 }
 .iconErrorMess{
-		background: transparent url("/images/tempus/icons/error.png") left center no-repeat scroll;		
+		background: transparent url("/skins/tempus/images/icons/error.png") left center no-repeat scroll;		
 }
 .iconInfoMess{
-		background: transparent url("/images/tempus/icons/info.png") left center no-repeat scroll;		
+		background: transparent url("/skins/tempus/images/icons/info.png") left center no-repeat scroll;		
 }
 #temporalMessageERROR
 {
     background-color: #FFABA9;
-    background-image: url("/images/tempus/icons/error.png");
+    background-image: url("/skins/tempus/images/icons/error.png");
     background-position: 6px center;
     background-repeat: no-repeat;
     border-color: #FFFFFF;
@@ -238,7 +238,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5edf7', end
 #temporalMessageWARNING
 {
     background-color: #FFF7D8;
-    background-image: url("/images/tempus/icons/warning.png");
+    background-image: url("/skins/tempus/images/icons/warning.png");
     background-position: 6px center;
     background-repeat: no-repeat;
     border-color: #FFFFFF;
@@ -257,7 +257,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5edf7', end
 #temporalMessageINFO
 {
   	background-color: #AAE5FF;
-    background-image: url("/images/tempus/icons/info.png");
+    background-image: url("/skins/tempus/images/icons/info.png");
     background-position: 6px center;
     background-repeat: no-repeat;
     border-color: #FFFFFF;
@@ -480,7 +480,7 @@ span.XtreeMinus:hover
 }
 /* Menues */
 TD.subMenu {
-	background-image: url('/images/tempus/icons/bsm.jpg');
+	background-image: url('/skins/tempus/images/icons/bsm.jpg');
 	background-repeat: repeat-x;
 	height: 25px;
 }
@@ -559,21 +559,21 @@ a.linkInBlue:hover
 {
 	left:0px;
 	top:0px;
-	background-image:url(/images/tempus/icons/ftlL.png);
+	background-image:url(/skins/tempus/images/icons/ftlL.png);
 	background-color:#1b313b;
 }
 .boxTopPanel div.c
 {
 	top:0px;
 	right:0px;
-	background-image:url(/images/tempus/icons/ftrL.png);
+	background-image:url(/skins/tempus/images/icons/ftrL.png);
 	background-color:#1b313b;
 }
 .boxTopPanel div.b
 {
 	width:100%;
 	height:16px;
-	background: #1b313b url(/images/tempus/icons/ftc.png) repeat-x;
+	background: #1b313b url(/skins/tempus/images/icons/ftc.png) repeat-x;
 }
 /* BoxPanel Bottom Model END */
 /* XmlForm BEGIN  */
@@ -611,7 +611,7 @@ form.formDefault .content
 form.formDefault input.FormField
 {
 	border: 1px solid #CCC;
-	background: #FFFFFF url(/images/tempus/icons/input_back.gif) repeat-x;
+	background: #FFFFFF url(/skins/tempus/images/icons/input_back.gif) repeat-x;
 	color:#333333;
 	font-family: 'armataregular';
 	font-size: 10px;
@@ -653,7 +653,7 @@ form.formDefault textarea.FormTextArea
 form.formDefault textarea.FormTextPM
 {
 	border: 1px solid #CCC;
-	background: #FFFFFF url(/images/tempus/icons/input_back.gif) repeat-x;
+	background: #FFFFFF url(/skins/tempus/images/icons/input_back.gif) repeat-x;
 	color:#333;
 	font:normal 12 Courier New, monospace ;
 	overflow:auto;
@@ -812,7 +812,7 @@ tr.Selected
 {
 	color: #fff !important;
   background-color:#00A2E5;
-  /*background-image:url(/images/tempus/grid/gridOver.png);*/
+  /*background-image:url(/skins/tempus/images/grid/gridOver.png);*/
   /*background-repeat: repeat-x;*/
 }
 .pagedTableDefault .cellSelected1
@@ -872,7 +872,7 @@ font-weight:bold;
 /*Adicion Rube*/
 .pagedTableDefault .pagedTable .masterDetailMain
 {
-	background-image:url(/images/masterDetailMain.png);
+	background-image:url(/skins/tempus/images/masterDetailMain.png);
   background-repeat: repeat-x;
 	text-decoration:none;
 	color:#5B5B5B;
@@ -882,7 +882,7 @@ font-weight:bold;
 }
 .pagedTableDefault .pagedTable .masterDetailOther
 {
-	background-image:url(/images/masterDetailOther.png);
+	background-image:url(/skins/tempus/images/masterDetailOther.png);
   background-repeat: repeat-x;
 	text-decoration:none;
 	color:#5B5B5B;
@@ -902,7 +902,7 @@ font-weight:bold;
 	display:block;
 }
 A.firstPage {
-	background-image: url('/images/tempus/grid/pagination_1_first.png');
+	background-image: url('/skins/tempus/images/grid/pagination_1_first.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -911,7 +911,7 @@ A.firstPage {
 	text-decoration:none;
 }
 A.noFirstPage {
-	background-image: url('/images/tempus/grid/nopagination_1_first.png');
+	background-image: url('/skins/tempus/images/grid/nopagination_1_first.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -920,7 +920,7 @@ A.noFirstPage {
 	text-decoration:none;
 }
 A.previousPage {
-	background-image: url('/images/tempus/grid/pagination_1_previous.png');
+	background-image: url('/skins/tempus/images/grid/pagination_1_previous.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -929,7 +929,7 @@ A.previousPage {
 	text-decoration:none;
 }
 A.noPreviousPage {
-	background-image: url('/images/tempus/grid/nopagination_1_previous.png');
+	background-image: url('/skins/tempus/images/grid/nopagination_1_previous.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -938,7 +938,7 @@ A.noPreviousPage {
 	text-decoration:none;
 }
 A.nextPage {
-	background-image: url('/images/tempus/grid/pagination_1_next.png');
+	background-image: url('/skins/tempus/images/grid/pagination_1_next.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -947,7 +947,7 @@ A.nextPage {
 	text-decoration:none;
 }
 A.noNextPage {
-	background-image: url('/images/tempus/grid/nopagination_1_next.png');
+	background-image: url('/skins/tempus/images/grid/nopagination_1_next.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -956,7 +956,7 @@ A.noNextPage {
 	text-decoration:none;
 }
 A.lastPage {
-	background-image: url('/images/tempus/grid/pagination_1_last.png');
+	background-image: url('/skins/tempus/images/grid/pagination_1_last.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -965,7 +965,7 @@ A.lastPage {
 	text-decoration:none;
 }
 A.noLastPage {
-	background-image: url('/images/tempus/grid/nopagination_1_last.png');
+	background-image: url('/skins/tempus/images/grid/nopagination_1_last.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	padding-left:21px;
@@ -1581,7 +1581,7 @@ table.tableGrid_view td
 	-moz-background-clip:border;
 	-moz-background-inline-policy:continuous;
 	-moz-background-origin:padding;
-	background:#5C9CCC url(/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) repeat-x scroll 50% 50%;
+	background:#5C9CCC url(/skins/tempus/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) repeat-x scroll 50% 50%;
 	border:1px solid #4297D7;
 	color:#FFFFFF;
 	font-weight:bold;
@@ -1607,7 +1607,7 @@ table.tableGrid_view td
  START CSS FOR THE HEADER ROW - WpmgE YOU SEE MONTH AND YEAR
 ********************/
 .DHTMLSuite_calendar .DHTMLSuite_calendarHeading{	/* Heading of calendar, where you see the month and year */
-	background-image:url(/images/calendar/calendar_heading.png);
+	background-image:url(/skins/tempus/images/calendar/calendar_heading.png);
 	background-repeat:repeat-x;
 	height:21px;
 	border-bottom:1px solid #8F8F8F;
@@ -1619,7 +1619,7 @@ table.tableGrid_view td
 	font-size: 10px;
 }
 .DHTMLSuite_calendarCloseButton{	/* Close button at the top right corner of the calendar */
-	background-image:url(/images/calendar/calendar-close.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-close.gif);
 	background-repeat:no-repeat;
 	width:13px;
 	height:13px;
@@ -1710,22 +1710,22 @@ table.tableGrid_view td
 	font-size: 10px;
 }
 .DHTMLSuite_calendar_btnNextYear{	/* Next year button */
-	background-image:url(/images/calendar/calendar-next-year.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-next-year.gif);
 	right:2px;
 	font-size: 10px;
 }
 .DHTMLSuite_calendar_btnPreviousYear{	/* Previous year button */
-	background-image:url(/images/calendar/calendar-previous-year.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-previous-year.gif);
 	left:2px;
 	font-size: 10px;
 }
 .DHTMLSuite_calendar_btnNextMonth{	/* Next month button */
-	background-image:url(/images/calendar/calendar-next-month.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-next-month.gif);
 	right:18px;
 	font-size: 10px;
 }
 .DHTMLSuite_calendar_btnPreviousMonth{	/* Previous month button */
-	background-image:url(/images/calendar/calendar-previous-month.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-previous-month.gif);
 	left:18px;
 	font-size: 10px;
 }
@@ -1880,14 +1880,14 @@ table.tableGrid_view td
 }
 /* UP AND DOWN ARROWS INSIDE DROP DOWNS **/
 .DHTMLSuite_calendar_dropDown_arrowUp{	/* Drop down - moving to previous year */
-	background-image:url(/images/calendar/calendar-dropdown-up.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-dropdown-up.gif);
 	background-repeat:no-repeat;
 	background-position:center center;
 	height:8px;
 	font-size: 10px;
 }
 .DHTMLSuite_calendar_dropDown_arrowDown{	/* Drop down - moving to previous year */
-	background-image:url(/images/calendar/calendar-dropdown-down.gif);
+	background-image:url(/skins/tempus/images/calendar/calendar-dropdown-down.gif);
 	background-repeat:no-repeat;
 	background-position:center center;
 	height:8px;
@@ -1918,14 +1918,14 @@ table.tableGrid_view td
 }
 .calendar_picker_min{
 	cursor:pointer;
-	background-image:url(/images/btncal_min.png);
+	background-image:url(/skins/tempus/images/btncal_min.png);
 	float:left; width:96px; height:23px;
 	color:#000;
 	font-size: 10px;
 }
 .calendar_picker{
 	cursor:pointer;
-	background-image:url(/images/btncal.png);
+	background-image:url(/skins/tempus/images/btncal.png);
 	float:left; width:121px; height:23px;
 	color:#000;
 	font-size: 10px;
@@ -1964,7 +1964,7 @@ table.tableGrid_view td
 #jq-intro li p {font-size: .9em;}
 body.jq-enhanced #jq-intro li {position: relative;}
 html.js div.jq-checkpointSubhead {display: none;}
-body.jq-enhanced #jq-intro li div.jq-checkpointSubhead { position: absolute; width: 253px; height: 54px; background: url(/images/bg_ctaTooltip.png) 0 0 no-repeat; top: -1.5em; left: -35%; z-index: 100;}
+body.jq-enhanced #jq-intro li div.jq-checkpointSubhead { position: absolute; width: 253px; height: 54px; background: url(/skins/tempus/images/bg_ctaTooltip.png) 0 0 no-repeat; top: -1.5em; left: -35%; z-index: 100;}
 body.jq-enhanced #jq-intro li div.jq-checkpointSubhead p{font-size: 1em; padding: 10px 5px 0 50px; color: #AE0001; font-weight: bold; line-height: 1.3em; margin: 0; cursor: pointer;}
 .toggler { font-size:10px;height: 200px; position: relative;}
 #effect { width:180px;font-size:10px;height: 135px; padding: 0.4em; position: relative; background: #fff; }
@@ -1985,7 +1985,7 @@ body.jq-enhanced #jq-intro li div.jq-checkpointSubhead p{font-size: 1em; padding
     direction: ltr;
 }
 .htmleditor{    
-    background:#FFFFFF url(../images/input_back.gif) repeat-x scroll 0 0;
+    background:#FFFFFF url(../skins/tempus/images/input_back.gif) repeat-x scroll 0 0;
     border:1px solid #AAAAAA;
     color:#333333;
     font-family:sans-serif;
@@ -2118,7 +2118,7 @@ input#DynaformRequiredFields {
 */
 .resizer-west-closed ,
 .resizer-east-closed {
-	background: #B4B4B4 url(/images/separator-v.gif) center no-repeat ;
+	background: #B4B4B4 url(/skins/tempus/images/separator-v.gif) center no-repeat ;
 	border-top: 1px solid #8E8E8E;
 	border-bottom: 1px solid #8E8E8E;
 }
@@ -2141,20 +2141,20 @@ span.button-close-east	{ right: 0; }
 span.button-pin-west	{ right: 1px; }
 span.button-pin-east	{ left:	 1px; }
 /* CUSTOM pin-buttons */
-span.button-pin-up 		  		{ background: url(/images/pin-up-off.gif) no-repeat center; }
-span.button-pin-up:hover   		{ background: url(/images/pin-up-on.gif)  no-repeat center; }
-span.button-pin-down 	  		{ background: url(/images/pin-dn-off.gif) no-repeat center; }
-span.button-pin-down:hover 		{ background: url(/images/pin-dn-on.gif)  no-repeat center; }
+span.button-pin-up 		  		{ background: url(/skins/tempus/images/pin-up-off.gif) no-repeat center; }
+span.button-pin-up:hover   		{ background: url(/skins/tempus/images/pin-up-on.gif)  no-repeat center; }
+span.button-pin-down 	  		{ background: url(/skins/tempus/images/pin-dn-off.gif) no-repeat center; }
+span.button-pin-down:hover 		{ background: url(/skins/tempus/images/pin-dn-on.gif)  no-repeat center; }
 /* CUSTOM close-buttons */
-span.button-close-west			{ background: url(/images/go-lt-off.gif) no-repeat center; }
-span.button-close-west:hover	{ background: url(/images/go-lt-on.gif)  no-repeat center; }
-span.button-close-east			{ background: url(/images/go-rt-off.gif) no-repeat center; }
-span.button-close-east:hover	{ background: url(/images/go-rt-on.gif)  no-repeat center; }
+span.button-close-west			{ background: url(/skins/tempus/images/go-lt-off.gif) no-repeat center; }
+span.button-close-west:hover	{ background: url(/skins/tempus/images/go-lt-on.gif)  no-repeat center; }
+span.button-close-east			{ background: url(/skins/tempus/images/go-rt-off.gif) no-repeat center; }
+span.button-close-east:hover	{ background: url(/skins/tempus/images/go-rt-on.gif)  no-repeat center; }
 /* STANDARD toggler-buttons - when the east/west panes are 'closed' */
-.toggler-west-closed		{ background: url(/images/go-rt-off.gif) no-repeat center; }
-.toggler-west-closed:hover	{ background: url(/images/go-rt-on.gif)  no-repeat center; }
-.toggler-east-closed		{ background: url(/images/go-lt-off.gif) no-repeat center; }
-.toggler-east-closed:hover	{ background: url(/images/go-lt-on.gif)  no-repeat center; }
+.toggler-west-closed		{ background: url(/skins/tempus/images/go-rt-off.gif) no-repeat center; }
+.toggler-west-closed:hover	{ background: url(/skins/tempus/images/go-rt-on.gif)  no-repeat center; }
+.toggler-east-closed		{ background: url(/skins/tempus/images/go-lt-off.gif) no-repeat center; }
+.toggler-east-closed:hover	{ background: url(/skins/tempus/images/go-lt-on.gif)  no-repeat center; }
 /*
 *	INNER LAYOUT RESIZERS & TOGGLERS
 *
@@ -2397,16 +2397,16 @@ table.DynarchCalendar-titleCont {
   margin-left: -23px;
 }
 .DynarchCalendar-prevMonth div {
-	background-image: url("/images/tempus/shared/left-btn.png");
+	background-image: url("/skins/tempus/images/shared/left-btn.png");
 }
 .DynarchCalendar-nextMonth div {
-	background-image: url("/images/tempus/shared/right-btn.png");
+	background-image: url("/skins/tempus/images/shared/right-btn.png");
 }
 .DynarchCalendar-prevYear div {
-	background-image: url("/images/tempus/shared/left-btnx2.png");	
+	background-image: url("/skins/tempus/images/shared/left-btnx2.png");	
 }
 .DynarchCalendar-nextYear div {
-	background-image: url("/images/tempus/shared/right-btnx2.png");
+	background-image: url("/skins/tempus/images/shared/right-btnx2.png");
 }
 .DynarchCalendar-menu {
   position: absolute;
@@ -2561,7 +2561,7 @@ table.DynarchCalendar-titleCont {
 .DynarchCalendar-hover-navBtn,
 .DynarchCalendar-hover-bottomBar-today,
 .DynarchCalendar-menu table td div.DynarchCalendar-hover-navBtn {
-  background: #69BDDC url("/images/tempus/shared/bgCrystalCyan.png") repeat-x 0 50%;
+  background: #69BDDC url("/skins/tempus/images/shared/bgCrystalCyan.png") repeat-x 0 50%;
   color: #ffffff;
 }
 .DynarchCalendar-hover-bottomBar-today{border: 1px solid #ffffff !important;}
@@ -2596,7 +2596,7 @@ button.x-btn-text:focus,.x-combo-selected{
 /* STYLES */
 /* HEADER */
 .logoutLink {
-    background-image: url("/images/tempus/menu/menu.png");    background-position: center -658px;    background-repeat: no-repeat;    color: #666667 !important;    font-size: 10px;    width: 20px;
+    background-image: url("/skins/tempus/images/menu/menu.png");    background-position: center -658px;    background-repeat: no-repeat;    color: #666667 !important;    font-size: 10px;    width: 20px;
     height: 20px;    white-space: nowrap;
     display: inline-block;
     vertical-align: bottom;
@@ -2606,7 +2606,7 @@ button.x-btn-text:focus,.x-combo-selected{
 .msgskin {
 	color: #666667 !important;
 	white-space: nowrap;
-	background: #fff url("/images/tempus/menu/notificationOn.png") no-repeat 2px center;
+	background: #fff url("/skins/tempus/images/menu/notificationOn.png") no-repeat 2px center;
 	padding: 2px 3px 2px 20px;
 	/*border-left: 1px solid #00a2e5;*/
 	/*border-right: 1px solid #00a2e5;*/
@@ -2668,7 +2668,7 @@ form.formDefault .FormFieldContent br, form.formDefault .FormFieldContentRadio b
 }
 form.formDefault .FormTitleInfo {
  background-color: #F2F7FF !important;
-    background-image: url("/images/tempus/form/infoTitle.png") !important;
+    background-image: url("/skins/tempus/images/form/infoTitle.png") !important;
     background-position: left center !important;
     background-repeat: no-repeat !important;
     color: #152E5E;
@@ -2713,35 +2713,35 @@ table#pm_menu td.SelectedMenu .c, table#pm_menu td.mainMenu .c{
 		width: 10px !important;
 }
 table#pm_menu td.SelectedMenu .a{
-    background-image: url('/images/tempus/menu/menu_on_01.png');
+    background-image: url('/skins/tempus/images/menu/menu_on_01.png');
     background-repeat:no-repeat;
     width: 17px;
 }
 table#pm_menu td.SelectedMenu .b{
-    background-image: url('/images/tempus/menu/menu_on_02.png');
+    background-image: url('/skins/tempus/images/menu/menu_on_02.png');
     background-position:bottom;
 		background-repeat:repeat-x;
 }
 table#pm_menu td.SelectedMenu .c{
-    background-image: url('/images/tempus/menu/menu_on_04.png');
+    background-image: url('/skins/tempus/images/menu/menu_on_04.png');
     background-repeat:no-repeat;
 }
 
 table#pm_menu td.mainMenu .a{
-    background-image: url('/images/tempus/menu/menu_off_01.png');
+    background-image: url('/skins/tempus/images/menu/menu_off_01.png');
     background-repeat:no-repeat;
 }
 table#pm_menu td.mainMenu .b{
-    background-image: url('/images/tempus/menu/menu_off_02.png');
+    background-image: url('/skins/tempus/images/menu/menu_off_02.png');
 		background-repeat:repeat-x;
 }		
 		
  table#pm_menu td.mainMenu .c{
-    background-image: url('/images/tempus/menu/menu_off_04.png');
+    background-image: url('/skins/tempus/images/menu/menu_off_04.png');
     background-repeat:no-repeat;
 }
 table#pm_menu td.mainMenu a.mainMenuHome{
- 		background: transparent url('/images/tempus/menu/homeOff.png') no-repeat center center scroll;
+ 		background: transparent url('/skins/tempus/images/menu/homeOff.png') no-repeat center center scroll;
     width: 40px;
     display: block;
     height: 17px;
@@ -2749,7 +2749,7 @@ table#pm_menu td.mainMenu a.mainMenuHome{
     margin-right: 10px;
 }
 table#pm_menu td.SelectedMenu a.mainMenuHome{
- 		background: transparent url('/images/tempus/menu/home.png') no-repeat center center scroll;
+ 		background: transparent url('/skins/tempus/images/menu/home.png') no-repeat center center scroll;
     width: 40px;
     height: 17px;
     display: block;
@@ -2784,7 +2784,7 @@ ul#pm_submenu a img{
   max-height: 20px;
 }
 ul#pm_submenu li.SelectedSubMenu{
-    background-image: url('/images/tempus/submenu/submenuon_02.png') !important;
+    background-image: url('/skins/tempus/images/submenu/submenuon_02.png') !important;
 		background-repeat:repeat-x !important;
     padding-left:6px !important;
 		padding-right:6px !important;
@@ -2808,17 +2808,17 @@ ul#pm_submenu li.SelectedSubMenu .a, ul#pm_submenu li.SelectedSubMenu .c{
 		width: 6px !important;
 }
 ul#pm_submenu li.SelectedSubMenu .a{
-    background-image: url('/images/tempus/submenu/submenuon_01.png') !important;
+    background-image: url('/skins/tempus/images/submenu/submenuon_01.png') !important;
     left:0px;
 		top:0px;
 }
 ul#pm_submenu li.SelectedSubMenu .c{
-    background-image: url('/images/tempus/submenu/submenuon_04.png') !important;
+    background-image: url('/skins/tempus/images/submenu/submenuon_04.png') !important;
     top:0px;
 		right:0px;
 }
 ul#pm_submenu li.SubMenu{
-  /*  background-image: url('/images/tempus/submenu/submenu_02.png') !important/;
+  /*  background-image: url('/skins/tempus/images/submenu/submenu_02.png') !important/;
 		background-repeat:repeat-x !important;*/
     padding-left:6px !important;
 		padding-right:6px !important;
@@ -2833,12 +2833,12 @@ ul#pm_submenu li.SubMenu .a, ul#pm_submenu li.SubMenu .c{
 		width: 6px !important;
 }
 ul#pm_submenu li.SubMenu .a{
-   /* background-image: url('/images/tempus/submenu/submenu_01.png') !important;*/
+   /* background-image: url('/skins/tempus/images/submenu/submenu_01.png') !important;*/
     left:0px;
 		top:0px;
 }
 ul#pm_submenu li.SubMenu .c{
-    /*background-image: url('/images/tempus/submenu/submenu_04.png') !important;*/
+    /*background-image: url('/skins/tempus/images/submenu/submenu_04.png') !important;*/
     top:0px;
 		right:0px;
 }
@@ -2868,7 +2868,7 @@ ul#pm_submenu li.SubMenu .c{
 	left:0px;
 	top:0px;
 	width:5px;
-	/*background-image:url(/images/tempus/box/box_01.png) !important;
+	/*background-image:url(/skins/tempus/images/box/box_01.png) !important;
 	background-color:transparent;*/
 	background-image: none;
 	border-top: 1px solid #666667;
@@ -2879,7 +2879,7 @@ ul#pm_submenu li.SubMenu .c{
 	top:0px;
 	right:0px;
 	width:5px;
-	/*background-image:url(/images/tempus/box/box_04.png) !important;
+	/*background-image:url(/skins/tempus/images/box/box_04.png) !important;
 	background-color:transparent;*/
 	background-image: none;
 	border-top: 1px solid #666667;
@@ -2889,7 +2889,7 @@ ul#pm_submenu li.SubMenu .c{
 {
 	width:100%;
 	height:5px;
-	/*background-image:url(/images/tempus/box/box_02.png) !important;
+	/*background-image:url(/skins/tempus/images/box/box_02.png) !important;
 	background-repeat:repeat-x;*/
 	background-image: none;
 	border-top: 1px solid #666667;
@@ -2915,7 +2915,7 @@ ul#pm_submenu li.SubMenu .c{
 {
 	left:0px;
 	bottom:0px;
-	/*background-image:url(/images/tempus/box/box_08.png) !important;
+	/*background-image:url(/skins/tempus/images/box/box_08.png) !important;
 	background-color:transparent;*/
 	background-image: none;
 	border-bottom: 1px solid #666667;
@@ -2925,7 +2925,7 @@ ul#pm_submenu li.SubMenu .c{
 {
 	bottom:0px;
 	right:0px;
-	/*background-image:url(/images/tempus/box/box_10.png) !important;
+	/*background-image:url(/skins/tempus/images/box/box_10.png) !important;
 	background-color:transparent;*/
 	background-image: none;
 	border-bottom: 1px solid #666667;
@@ -2935,7 +2935,7 @@ ul#pm_submenu li.SubMenu .c{
 {
 	width:100%;
 	height:6px;
-	background-image:url(/images/tempus/box/box_11.png) !important;
+	background-image:url(/skins/tempus/images/box/box_11.png) !important;
 	background-repeat:repeat-x;
 	background-color:transparent;
 	background-position: left top;
@@ -2969,7 +2969,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
    text-align: center;
 }
 .logoLogin{
-	background-image:url(/images/tempus/layout/logo.png);
+	background-image:url(/skins/tempus/images/layout/logo.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	margin: auto;
@@ -3158,12 +3158,12 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
     height: auto !important;
 }
 .userField{    			
-	background: #fff url(/images/tempus/form/user-silhouette.png) no-repeat left center scroll; 
+	background: #fff url(/skins/tempus/images/form/user-silhouette.png) no-repeat left center scroll; 
 	padding-left: 38px;
 	padding-right: 15px;	
 }
 .userPass{
-	background: #fff url(/images/tempus/form/lock_disable.png) no-repeat left center scroll;	
+	background: #fff url(/skins/tempus/images/form/lock_disable.png) no-repeat left center scroll;	
 	padding-left: 38px;
 	padding-right: 15px;
 }
@@ -3252,7 +3252,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 }
 
 .menuIcon{
-	background-image: url(/images/tempus/menu/menu.png) ;
+	background-image: url(/skins/tempus/images/menu/menu.png) ;
 	background-repeat: no-repeat;	
 	/*width: 16px;*/
 	height: 16px;
@@ -3275,7 +3275,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 #mainMenuDrop li.nivel1:hover>a.userIcon, .userIcon:hover{ background-position: 8px -856px;} 
 
 .formIcon{
-	background-image: url(/images/tempus/form/form.png) ;
+	background-image: url(/skins/tempus/images/form/form.png) ;
 	background-repeat: no-repeat;	
 	height: 16px;	
 	padding: 2px 4px 2px 18px;
@@ -3306,7 +3306,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 	height: 0px;	
 }
 .tableGrid .Record a{
-	background-image: url(/images/tempus/form/form.png);
+	background-image: url(/skins/tempus/images/form/form.png);
 	background-position: 0 0;
 	background-repeat: no-repeat;	
 	height: 16px;	
@@ -3323,7 +3323,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 	/*vertical-align: top;*/
 }
 .tableGrid .tableGrid a{
-/*	background-image: url(/images/tempus/form/form.png);
+/*	background-image: url(/skins/tempus/images/form/form.png);
 	background-position: 0 -216px;
 	background-repeat: no-repeat;		
 	padding: 1px 4px 1px 12px;	*/
@@ -3341,7 +3341,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 	text-decoration: none;
 }
 .FormDate a[id*="date1"]{
-	background-image: url(/images/tempus/form/form.png);
+	background-image: url(/skins/tempus/images/form/form.png);
 	background-position: 0 -144px;
 	background-repeat: no-repeat;	
 	height: 16px;
@@ -3357,7 +3357,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 	text-decoration: none;
 }
 .FormDate a{
-	background-image: url(/images/tempus/form/form.png);
+	background-image: url(/skins/tempus/images/form/form.png);
 	background-position: 0 -72px;
 	background-repeat: no-repeat;	
 	height: 16px;

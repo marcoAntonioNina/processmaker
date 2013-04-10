@@ -26,7 +26,7 @@ body
   /*background: #ADE3F7;*/
   color: #000 !important;
   background-color:#C4EEF8;
-  background-image:url(/images/tempus/grid/gridOver.png);
+  background-image:url(/skins/tempus/images/grid/gridOver.png);
   background-repeat: repeat-x;
 }
 .x-grid3-row:nth-child(odd) { 
@@ -38,20 +38,20 @@ body
 .x-grid3-row-selected .x-grid3-cell {
   color: #fff !important;
   background-color: #00A2E5;
-  /*background-image:url(/images/tempus/grid/gridSelected.png);*/
+  /*background-image:url(/skins/tempus/images/grid/gridSelected.png);*/
   /*background-repeat: repeat-x;*/
   
 }
 .x-grid3-row-over .x-grid3-cell {
   color: #fff !important;
   background-color: #00A2E5;
-  /*background-image:url(/images/tempus/grid/gridOver.png);*/
+  /*background-image:url(/skins/tempus/images/grid/gridOver.png);*/
   /*background-repeat: repeat-x;*/
 }
 .x-grid3-row-over .x-grid3-cell .x-grid3-cell-inner{
 	color: #fff !important;
 	background-color: #00A2E5;
-  /*background-image:url(/images/tempus/grid/gridOver.png);*/
+  /*background-image:url(/skins/tempus/images/grid/gridOver.png);*/
   /*background-repeat: repeat-x;*/
   
 }
@@ -160,7 +160,7 @@ ul#pm_menu li.SelectedMenu a,ul#pm_menu li:hover a{
 }
 .detailArea{
 	background-color: #E3F0F6 !important;
-    background-image: url("/images/tempus/form/fielText.png") !important;
+    background-image: url("/skins/tempus/images/form/fielText.png") !important;
     background-repeat: repeat-x !important;
     border: 0 none !important;
     color    :#333333;
@@ -172,7 +172,7 @@ ul#pm_menu li.SelectedMenu a,ul#pm_menu li:hover a{
 	border-bottom: 2px solid #ccc;
 	text-transform: uppercase;
 	background-color: #D5D5D5;
-    background-image: url("/images/tempus/grid/grid3-hrow.gif");
+    background-image: url("/skins/tempus/images/grid/grid3-hrow.gif");
     background-position: center top;
     background-repeat: repeat-x;
     color: #545454;
@@ -185,7 +185,7 @@ ul#pm_menu li.SelectedMenu a,ul#pm_menu li:hover a{
 }
 .detailField{
 	background-color:	#E3F0F6 !important;
-    background-image:	url("/images/tempus/form/fielText.png") !important;
+    background-image:	url("/skins/tempus/images/form/fielText.png") !important;
     background-repeat:	repeat-x !important;
     border:	0 none !important;
     color:	#333333;

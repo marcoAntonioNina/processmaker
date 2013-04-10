@@ -91,14 +91,14 @@ form.formDefault .FormButton {
 {
 	left:0px;
 	top:0px;
-	background-image:url(/images/tempus/icons/ftl.png);
+	background-image:url(/skins/tempus/images/icons/ftl.png);
 	background-color:#F4F4F4;
 }
 .boxTop div.c, .boxTopBlue div.c
 {
 	top:0px;
 	right:0px;
-	background-image:url(/images/tempus/icons/ftr.png);
+	background-image:url(/skins/tempus/images/icons/ftr.png);
 	background-color:#F4F4F4;
 }
 .boxTop div.b, .boxTopBlue div.b
@@ -200,21 +200,21 @@ form.formDefault .FormButton {
 {
 	left:0px;
 	top:0px;
-	background-image:url(/images/tempus/icons/ftlL.png);
+	background-image:url(/skins/tempus/images/icons/ftlL.png);
 	background-color:#F4F4F4;
 }
 .boxTopPanel div.c
 {
 	top:0px;
 	right:0px;
-	background-image:url(/images/tempus/icons/ftrL.png);
+	background-image:url(/skins/tempus/images/icons/ftrL.png);
 	background-color:#F4F4F4;
 }
 .boxTopPanel div.b
 {
 	width:100%;
 	height:16px;
-	background: #F4F4F4 url(/images/tempus/icons/ftc.png) repeat-x;
+	background: #F4F4F4 url(/skins/tempus/images/icons/ftc.png) repeat-x;
 }
 
 /* BoxPanel Bottom Model END */
@@ -256,7 +256,7 @@ form.formDefault .content
 form.formDefault input.FormField
 {
 	border: 1px solid #CCC;
-	background: #FFFFFF url(/images/tempus/icons/input_back.gif) repeat-x;
+	background: #FFFFFF url(/skins/tempus/images/icons/input_back.gif) repeat-x;
 	color:#333333;
 	font:normal 11px Arial,Helvetica,sans-serif;
 }
@@ -284,7 +284,7 @@ form.formDefault .FormFieldContent
 form.formDefault textarea.FormTextArea
 {
 	border: 1px solid #CCC;
-	background: #FFFFFF url(/images/tempus/icons/input_back.gif) repeat-x;
+	background: #FFFFFF url(/skins/tempus/images/icons/input_back.gif) repeat-x;
 	color:#333333;
 	font:normal 11px Arial,Helvetica,sans-serif;
 	overflow:auto;
@@ -292,7 +292,7 @@ form.formDefault textarea.FormTextArea
 form.formDefault textarea.FormTextPM
 {
 	border: 1px solid #CCC;
-	background: #FFFFFF url(/images/tempus/icons/input_back.gif) repeat-x;
+	background: #FFFFFF url(/skins/tempus/images/icons/input_back.gif) repeat-x;
 	color:#333333;
 	font:normal 12 Courier New, monospace ;
 	overflow:auto;
@@ -389,7 +389,7 @@ tr.Selected
 /*	background-color:#ADE3F7;*/
 	color: #000 !important;
   background-color:#C4EEF8;
-  background-image:url(/images/tempus/grid/gridOver.png);
+  background-image:url(/skins/tempus/images/grid/gridOver.png);
   background-repeat: repeat-x;
 }
 .pagedTableDefault .cellSelected1

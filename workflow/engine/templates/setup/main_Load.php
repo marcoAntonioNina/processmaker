@@ -9,34 +9,26 @@
 </iframe>
 </body>
 <script>
-  var content = document.getElementById('logo');
-    content = (content != null) ? 60 : 90;
-  //console.info(screen.width);
-  //console.info(screen.height);
-  oClientWinSize = getClientWindowSize();
-  //console.info(oClientWinSize);
-  //console.info("table");
-  //console.info(document.getElementById('headerLayout'));
-  tabbb = document.getElementById('headerLayout');
-  //console.info(tabbb.height);
-  if ( document.getElementById('pm_submenu') ) 
+var content = document.getElementById('logo');
+content = (content != null) ? 60 : 90;
+
+oClientWinSize = getClientWindowSize();
+tabbb = document.getElementById('headerLayout');
+if ( document.getElementById('pm_submenu') ) 
     document.getElementById('pm_submenu').style.display = 'none';
-  document.documentElement.style.overflowY = 'hidden';
-  
-  function autoResizeScreen() {
+document.documentElement.style.overflowY = 'hidden';
+
+function autoResizeScreen() {
     oCasesFrame    = document.getElementById('adminFrame');
-    //console.info(oCasesFrame);
     oClientWinSize = getClientWindowSize();
-    //console.info(oClientWinSize);
     height = oClientWinSize.height-content;//90
-    //console.info(height);
     oCasesFrame.style.height = height;
     oCasesSubFrame = oCasesFrame.contentWindow.document.getElementById('setup-frame');
-
+    
     if(oCasesSubFrame)
-      oCasesSubFrame.style.height = height-5;
+        oCasesSubFrame.style.height = height-5;
     else
-      setTimeout('autoResizeScreen()', 2000);
-  }
+        setTimeout('autoResizeScreen()', 2000);
+}
 </script>
 </html>
