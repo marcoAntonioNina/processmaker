@@ -505,7 +505,7 @@ class classGTest extends PHPUnit_Framework_TestCase
         $this->assertTrue( $params[1]->getName() == 'strSkin');
         $this->assertTrue( $params[1]->isArray() == false);
         $this->assertTrue( $params[1]->isOptional () == true);
-        $this->assertTrue( $params[1]->getDefaultValue() == 'classic');
+        $this->assertTrue( $params[1]->getDefaultValue() == 'tempus');
         $this->assertTrue( $params[2]->getName() == 'objContent');
         $this->assertTrue( $params[2]->isArray() == false);
         $this->assertTrue( $params[2]->isOptional () == true);

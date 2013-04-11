@@ -36,7 +36,7 @@
     <php>
         <var name="SYS_SYS" value="os" />
         <var name="SYS_LANG" value="en" />
-        <var name="SYS_SKIN" value="classic" />
+        <var name="SYS_SKIN" value="tempus" />
         <var name="zDB_ADAPTER" value="mysql" />
         <var name="zDB_HOST" value="localhost" />
         <var name="zDB_NAME" value="wf_os" />

@@ -19,7 +19,7 @@ print "Output directory: $outputDir\n";
 define ('PATH_GULLIVER',   ROOT_PATH . 'gulliver/system/');
 define ('PATH_THIRDPARTY', ROOT_PATH . 'gulliver/thirdparty/');
 define ('PATH_CORE', ROOT_PATH . 'workflow/engine');
-define ('SYS_SKIN', 'classic');
+define ('SYS_SKIN', 'tempus');
 define ('SYS_LANG', 'en');
 
 // set include path

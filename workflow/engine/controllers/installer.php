@@ -813,7 +813,7 @@ class Installer extends Controller
             $envFile = PATH_CONFIG . 'env.ini';
 
             //writting for new installtions to use the classic skin
-            $updatedConf['default_skin'] = 'classic';
+            $updatedConf['default_skin'] = 'tempus';
             $info->uri = '/sys' . $_REQUEST['workspace'] . '/en/tempus/login/login';
 
             try {
