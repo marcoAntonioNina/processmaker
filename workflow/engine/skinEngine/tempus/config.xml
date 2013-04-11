@@ -9,6 +9,7 @@
         <version>2.5</version>
         <createDate>2013-03-20 12:36:09</createDate>
         <modifiedDate>2013-03-20 12:36:09</modifiedDate>
+        <dropdownMenu>1</dropdownMenu>
     </information>
     <cssFiles>
         <skin>

@@ -115,6 +115,11 @@ function newSkin ($baseSkin = 'classic')
                 ) );
                 $pathBase = G::ExpandPath( "skinEngine" ) . 'base' . PATH_SEP;
                 break;
+            case 'tempus':
+                copy_skin_folder( G::ExpandPath( "skinEngine" ) . 'tempus' . PATH_SEP, PATH_CUSTOM_SKINS . $skinFolder, array ("config.xml"
+                ) );
+                $pathBase = G::ExpandPath( "skinEngine" ) . 'tempus' . PATH_SEP;
+                break;
             default:
                 //Commmon copy/paste of a folder + xmlrepalce
                 copy_skin_folder( PATH_CUSTOM_SKINS . $skinBase, PATH_CUSTOM_SKINS . $skinFolder, array ("config.xml"

@@ -3200,6 +3200,7 @@ form.formDefault .content, div.treeBase .content, .loginContainer .content
 	height: 16px;
 	border-left: 1px dotted #CCCCCC;
 	padding: 3px 5px;
+    text-transform:capitalize;
 }
 #mainMenuDrop li.nivel1:hover>a{
 	color: #fff;	
