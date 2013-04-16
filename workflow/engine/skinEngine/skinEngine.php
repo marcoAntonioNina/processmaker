@@ -644,6 +644,7 @@ class SkinEngine
       }
 
       $oMenu = new Menu();
+      $oSubMenu = new Menu();
       $menus = $oMenu->generateArrayForTemplate($G_MAIN_MENU, 'SelectedMenu', 'mainMenu', $G_MENU_SELECTED, $G_ID_MENU_SELECTED);
       //Add of submenu
       foreach($menus as $key => $value) {
@@ -670,38 +671,38 @@ class SkinEngine
                   if($result !== FALSE){
                       $cad = explode('=', $lineJump);
                       $gSubMenu = explode(';', $cad[1]);
-                      $gSubMenu = str_replace($delete, "", $gSubMenu[0]);
+                      $gSubMenu = trim(str_replace($delete, "", $gSubMenu[0]));
                       $countGlobal++;
                   }
                   $result = strpos($lineJump, '$G_ID_MENU_SELECTED');
                   if($result !== FALSE){
                       $cad = explode('=', $lineJump);
                       $gIdMenuSelected = explode(';', $cad[1]);
-                      $gIdMenuSelected = str_replace($delete, "", $gIdMenuSelected[0]);
+                      $gIdMenuSelected = trim(str_replace($delete, "", $gIdMenuSelected[0]));
                       $countGlobal++;
                   }
                   $result = strpos($lineJump, '$G_ID_SUB_MENU_SELECTED');
                   if($result !== FALSE){
                       $cad = explode('=', $lineJump);
                       $gIdSubMenuSelected = explode(';', $cad[1]);
-                      $gIdSubMenuSelected = str_replace($delete, "", $gIdSubMenuSelected[0]);
+                      $gIdSubMenuSelected = trim(str_replace($delete, "", $gIdSubMenuSelected[0]));
                       $countGlobal++;
                   }
                   if ($countGlobal == 3) {
                       break;
                   }
               }
-             fclose($ar);
+              fclose($ar);
               $subMenus = '';
               if ($gSubMenu != '' && $gIdMenuSelected != '' && $gIdSubMenuSelected != '') {
-                  $subMenus = $oSubMenu->generateArrayForTemplate(trim($gSubMenu), '', 'subMenu', trim($gIdMenuSelected), trim($gIdSubMenuSelected));
+                  $subMenus = $oSubMenu->generateArrayForTemplate($gSubMenu, '', 'subMenu', $gIdMenuSelected, $gIdSubMenuSelected);
               }
               $menus[$key]['subMenu'] = $subMenus;
           }
       }
       $smarty->assign('menus', $menus);
 
-      $oSubMenu = new Menu();
+      
       $subMenus = $oSubMenu->generateArrayForTemplate($G_SUB_MENU, 'selectedSubMenu', 'subMenu', $G_SUB_MENU_SELECTED, $G_ID_SUB_MENU_SELECTED);
       $smarty->assign('subMenus', $subMenus);
 
