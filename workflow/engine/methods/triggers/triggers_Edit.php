@@ -64,11 +64,11 @@ if (isset( $_GET['TRI_UID'] )) {
     $xmlform_action = '../triggers/triggers_Save';
 }
 G::LoadClass( 'xmlfield_InputPM' );
+
 $G_PUBLISH = new Publisher();
 $G_PUBLISH->AddContent( 'xmlform', 'xmlform', $xmlform, '', $aFields, $xmlform_action );
 $oHeadPublisher =& headPublisher::getSingleton();
 //$oHeadPublisher->addScriptFile('/js/codemirror/js/codemirror.js', 1);
-$oHeadPublisher->addScriptFile('/js/codemirror/lib/codemirror.js', 1);
 $oHeadPublisher->addScriptFile("/js/codemirror/addon/edit/matchbrackets.js",1);
 $oHeadPublisher->addScriptFile("/js/codemirror/mode/htmlmixed/htmlmixed.js",1);
 $oHeadPublisher->addScriptFile("/js/codemirror/mode/xml/xml.js",1);
