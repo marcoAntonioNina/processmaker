@@ -274,6 +274,7 @@ class Language extends BaseLanguage
             $oLanguage->update( array ('LAN_ID' => $languageID,'LAN_ENABLED' => '1'
             ) );
 
+
             if ($updateXml) {
                 $trn = new Translation();
                 $trn->generateFileTranslation( $LOCALE );
