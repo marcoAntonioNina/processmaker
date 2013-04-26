@@ -31,6 +31,7 @@ class SkinEngine
   private $layoutFileRaw     = array();
   private $layoutFileTracker = array();
   private $layoutFileSubmenu = array();
+  private $dropDownMenu      = false;
 
   private $cssFileName = '';
 
@@ -136,6 +137,16 @@ class SkinEngine
     $this->layoutFileSubmenu = pathInfo($layoutFileSubmenu);
 
     $this->cssFileName = $this->mainSkin;
+
+    //check dropDownMenu
+    $xmlConfiguration = file_get_contents( $configurationFile );
+    $xmlConfigurationObj = G::xmlParser( $xmlConfiguration );
+    if (isset( $xmlConfigurationObj->result['skinConfiguration'] )) {
+        $skinInformationArray = $skinFilesArray = $xmlConfigurationObj->result['skinConfiguration']['__CONTENT__']['information']['__CONTENT__'];
+        if (isset($skinInformationArray['dropdonwMenu'])) {
+            $this->dropDownMenu = $skinInformationArray['dropdonwMenu']['__VALUE__'];
+        }
+    }
 
     if ($this->skin != $this->mainSkin && in_array(strtolower($this->skin), $this->skinVariants)) {
       $this->cssFileName .= "-" . $this->skin;
@@ -690,60 +701,64 @@ class SkinEngine
       }
 
         $oMenu = new Menu();
-        $oSubMenu = new Menu();
         $menus = $oMenu->generateArrayForTemplate($G_MAIN_MENU, 'SelectedMenu', 'mainMenu', $G_MENU_SELECTED, $G_ID_MENU_SELECTED);
-        //Add of submenu
-        foreach($menus as $key => $value) {
-            $target = explode('/', $value['target']);
-            $amount = count ($target);
-            $file = PATH_CORE . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
-            if (!file_exists($file)) {
-                $file = PATH_PLUGINS . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
-            }
-            if (file_exists($file)) {
-                $ar=fopen($file,"r");
-                $countGlobal = 0;
-                $delete = array('"', "'");
-                $gSubMenu ='';
-                $gIdMenuSelected ='';
-                $gIdSubMenuSelected ='';
-                while (!feof($ar))
-                {
-                    $line=fgets($ar);
-                    $lineJump=nl2br($line);
-
-                    $result = strpos($lineJump, '$G_SUB_MENU');
-                    if ($result !== FALSE) {
-                        $cad = explode('=', $lineJump);
-                        $gSubMenu = explode(';', $cad[1]);
-                        $gSubMenu = trim(str_replace($delete, "", $gSubMenu[0]));
-                        $countGlobal++;
-                    }
-                    $result = strpos($lineJump, '$G_ID_MENU_SELECTED');
-                    if ($result !== FALSE) {
-                        $cad = explode('=', $lineJump);
-                        $gIdMenuSelected = explode(';', $cad[1]);
-                        $gIdMenuSelected = trim(str_replace($delete, "", $gIdMenuSelected[0]));
-                        $countGlobal++;
-                    }
-                    $result = strpos($lineJump, '$G_ID_SUB_MENU_SELECTED');
-                    if ($result !== FALSE) {
-                        $cad = explode('=', $lineJump);
-                        $gIdSubMenuSelected = explode(';', $cad[1]);
-                        $gIdSubMenuSelected = trim(str_replace($delete, "", $gIdSubMenuSelected[0]));
-                        $countGlobal++;
-                    }
-                    if ($countGlobal == 3) {
-                        break;
-                    }
+        $oSubMenu = new Menu();
+        if ($this->dropDownMenu) {
+            //Add of submenu
+            foreach($menus as $key => $value) {
+                $target = explode('/', $value['target']);
+                $amount = count ($target);
+                $file = PATH_CORE . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
+                if (!file_exists($file)) {
+                    $file = PATH_PLUGINS . $target[$amount -2] . PATH_SEP . $target[$amount-1].".php";
                 }
-                fclose($ar);
-                $subMenus = '';
-                if ($gSubMenu != '' && $gIdMenuSelected != '' && $gIdSubMenuSelected != '') {
-                    $subMenus = $oSubMenu->generateArrayForTemplate($gSubMenu, '', 'subMenu', $gIdMenuSelected, $gIdSubMenuSelected);
+                if (file_exists($file)) {
+                    $ar=fopen($file,"r");
+                    $countGlobal = 0;
+                    $delete = array('"', "'");
+                    $gSubMenu ='';
+                    $gIdMenuSelected ='';
+                    $gIdSubMenuSelected ='';
+                    while (!feof($ar))
+                    {
+                        $line=fgets($ar);
+                        $lineJump=nl2br($line);
+                        $result = strpos($lineJump, '$G_SUB_MENU');
+                        if ($result !== FALSE) {
+                            $cad = explode('=', $lineJump);
+                            $gSubMenu = explode(';', $cad[1]);
+                            $gSubMenu = trim(str_replace($delete, "", $gSubMenu[0]));
+                            $countGlobal++;
+                        }
+                        $result = strpos($lineJump, '$G_ID_MENU_SELECTED');
+                        if ($result !== FALSE) {
+                            $cad = explode('=', $lineJump);
+                            $gIdMenuSelected = explode(';', $cad[1]);
+                            $gIdMenuSelected = trim(str_replace($delete, "", $gIdMenuSelected[0]));
+                            $countGlobal++;
+                        }
+                        $result = strpos($lineJump, '$G_ID_SUB_MENU_SELECTED');
+                        if ($result !== FALSE) {
+                            $cad = explode('=', $lineJump);
+                            $gIdSubMenuSelected = explode(';', $cad[1]);
+                            $gIdSubMenuSelected = trim(str_replace($delete, "", $gIdSubMenuSelected[0]));
+                            $countGlobal++;
+                        }
+                        if ($countGlobal == 3) {
+                            break;
+                        }
+                    }
+                    fclose($ar);
+                    $subMenus = '';
+                    if ($gSubMenu != '' && $gIdMenuSelected != '' && $gIdSubMenuSelected != '') {
+                        $subMenus = $oSubMenu->generateArrayForTemplate($gSubMenu, '', 'subMenu', $gIdMenuSelected, $gIdSubMenuSelected);
+                    }
+                    $menus[$key]['subMenu'] = $subMenus;
                 }
-                $menus[$key]['subMenu'] = $subMenus;
             }
+        } else {
+            $subMenus = $oSubMenu->generateArrayForTemplate($G_SUB_MENU, 'selectedSubMenu', 'subMenu', $G_SUB_MENU_SELECTED, $G_ID_SUB_MENU_SELECTED);
+            $smarty->assign('subMenus', $subMenus);
         }
         $smarty->assign('menus', $menus);
 
@@ -793,7 +808,11 @@ class SkinEngine
 
       $smarty->assign('linklogout', $logout);
       $smarty->assign('footer', $footer);
-      $smarty->assign('tpl_menu', PATH_TEMPLATE . 'menu.html');
+        if ($this->dropDownMenu) {
+            $smarty->assign('tpl_menu', PATH_TEMPLATE . 'dropDownMenu.html');
+        } else {
+            $smarty->assign('tpl_menu', PATH_TEMPLATE . 'menu.html');
+        }
       $smarty->assign('tpl_submenu', PATH_TEMPLATE . 'submenu.html');
 
       G::LoadClass( 'replacementLogo' );
