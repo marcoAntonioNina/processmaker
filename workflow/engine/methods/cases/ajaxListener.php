@@ -469,6 +469,9 @@ class Ajax
             if (count($appUids) > 1 && count($delIndexes) > 1) {
                 $multiple = true;
             }
+            
+            
+            
         } elseif (isset($_POST['sApplicationUID']) && isset($_POST['iIndex'])) {
             $APP_UID = $_POST['sApplicationUID'];
             $DEL_INDEX = $_POST['iIndex'];
